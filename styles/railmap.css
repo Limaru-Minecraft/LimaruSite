@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Honoka-Maru-Gothic';
+  src: url("resources/honokamarugo.ttf");
+}
+@font-face {
+  font-family: 'Myriad-Pro-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Myriad Pro Regular'), url('resources/myriad-pro-regular.woff') format('woff');
+}
+
+#LegendLinesHeader {
+  font-family: 'Myriad-Pro-Regular';
+}
+
+.LegendLines {
+  font-family: 'Honoka-Maru-Gothic';
+}

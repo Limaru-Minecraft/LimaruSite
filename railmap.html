@@ -3,34 +3,57 @@
   <head>
     <meta charset="utf-8">
     <title>Rail Map - Limaru</title>
+    <style>
+    @font-face {
+      font-family: 'Honoka-Maru-Gothic';
+      src: url("resources/honokamarugo.ttf");
+    }
+    @font-face {
+      font-family: 'Myriad-Pro-Regular';
+      font-style: normal;
+      font-weight: normal;
+      src: url('resources/myriad-pro-regular.woff') format('woff');
+    }
+
+    #LegendLinesHeader, #MapHeader {
+      font-family: 'Myriad-Pro-Regular';
+      font-size: 30px;
+    }
+
+    .LegendLines {
+      font-family: 'Honoka-Maru-Gothic';
+    }
+
+    </style>
   </head>
   <body>
-    <h1>Metro Map</h1>
+    <h1 id="MapHeader">Metro Map</h1>
     <object type="image/svg+xml" data="TrenMap-v5-0-Web.svg"></object>
-    <div>
-      <p>Lines</p>
-      <div>
+
+    <div class="LegendLines">
+      <p id="LegendLinesHeader">Lines</p>
+      <div class="TozaiLine">
         <p>Tozai Line, East-West Line</p>
         <p>West Bay – Land’s End – Shinkura; Bwlch Llywelyn – Mount Vernon (loop)</p>
       </div>
-      <div>
+      <div class="NambokuLine">
         <p>Namboku Line</p>
         <p>Emmaru Central – Lipan Airport (loop)</p>
       </div>
 
-      <div>
+      <div class="LipanLine">
         <p>Lipan Line</p>
         <p>Norden – Shortwood/Rieryi/New Traxia Central</p>
       </div>
-      <div>
+      <div class="CottonLine">
         <p>Cotton Line</p>
         <p>Pier Head/Courour Junction – Flower Hill</p>
       </div>
-      <div>
+      <div class="ShyrrLine">
         <p>Loop and Shyrr Lines</p>
         <p>Twin Oaks – Twin Oaks (Loop); Mount Vernon – Shinkura/Bwlch Llywelyn</p>
       </div>
-      <div>
+      <div class="Quay Line">
         <p>Quay Line</p>
         <p>Pelle Junction – Nakano; Flower Hill – Pier Head</p>
       </div>
