@@ -1,4 +1,7 @@
-# New Limaru Website
+# New Limaru Website [Abandoned]
+## Why are we abandoning this?
+Unless someone comes in and works on it again, this project is declared abandoned until YJJ lets me use Python for this. JS is too confusing and the responses for basic JavaScript stuff I got from Stack Overflow are more often than not contradictory. For the time being, please use the old site [here](https://mineshafter61.github.io/LimaruSite/index.html).
+
 ## About
 This is the repository of the new Limaru City Server Website. Pull requests are welcome! The site will be built using node.js and HTML. At the moment HTML pages are being added and work on the node.js component has not started yet.
 
