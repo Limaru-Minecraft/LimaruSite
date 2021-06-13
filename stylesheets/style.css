@@ -1,0 +1,17 @@
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.headerpadding{
+    padding-top: 50px;
+}
+.jumbotron{
+    background-image: url("../resources/1200.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
