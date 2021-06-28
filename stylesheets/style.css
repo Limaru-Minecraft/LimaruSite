@@ -15,3 +15,6 @@ header{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+#jumbotron-text{
+    background: rgba(0,100,0,0.9);
+}
