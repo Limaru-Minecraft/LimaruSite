@@ -42,6 +42,7 @@ export default function Home() {
         keywords="limaru, limaru city server, limaru minecraft server" />
       <Layout>
         <Tabs tabs={tabs} />
+        <br></br>
       </Layout>
     </>
   )
