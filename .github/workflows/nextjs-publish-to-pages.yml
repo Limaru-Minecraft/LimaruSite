@@ -2,7 +2,7 @@ name: Publish to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
 
 env:
   NODE_AUTH_TOKEN: ${{ secrets.PAGES_DEPLOYMENT }}
