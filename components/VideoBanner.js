@@ -1,5 +1,4 @@
 import { useState } from "react";
-//import playButton from '../public/play-button.svg';
 
 /*<video
                 className="w-full h-full max-w-7xl mx-auto px-2 sm:px-6 lg:px-8"
@@ -30,7 +29,7 @@ export default function VideoBanner() {
     };
 
   return (
-    <div className="h-5/6 bg-slate-500 bg-[url('/1800.png')] bg-cover">
+    <div className="h-5/6 bg-slate-500 bg-cover" style={{backgroundImage: `url(${'/1800.png'})`}}>
         {showVideo ? (
             <div className="h-full relative flex justify-center">
                 <button
