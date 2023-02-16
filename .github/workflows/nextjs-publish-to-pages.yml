@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+      - name: Change Directory to limaru-site
+        run: cd limaru-site
       - name: Detect package manager 👻
         id: detect-package-manager
         run: |
@@ -43,7 +45,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-          node-version: '16.10.0'
+          node-version: '16.13.2'
 
       - name: Setup Pages 🔧
         id: pages
