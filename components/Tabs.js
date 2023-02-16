@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 
 function Tab({ title, content, image }) {
   title = title + " Image";
@@ -6,7 +7,7 @@ function Tab({ title, content, image }) {
     <div className="flex flex-wrap flex-col-reverse sm:flex-nowrap sm:flex-row">
       <div className="sm:w-3/4 pr-4 text-lg">{content}</div>
       <div className="sm:w-1/4">
-        <img className="w-full" src={image} alt={title} />
+        <Image className="w-full" src={image} alt={title} />
       </div>
     </div>
   );

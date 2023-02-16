@@ -1,3 +1,7 @@
+import Link from "next/link";
+import Image from "next/image";
+import LimaruLogo from "@/public/limaru_logo.png"
+
 function NavbarLink({ href, text, target="" }) {
   return (
     <a href={href} target={target} title={text} className="h-full flex items-center text-gray-800 box-border border-b-4 border-white hover:text-gray-900 hover:border-lime-900">
@@ -26,13 +30,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
-            <a href="/" title="Home Page">
-              <img
+            <Link href="/" title="Home Page">
+              <Image
                 className="block h-8 w-auto"
-                src="/limaru_logo.png"
+                src={LimaruLogo}
                 alt="Limaru Logo"
               />
-            </a>
+            </Link>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
             {links.map((link) => (
