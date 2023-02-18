@@ -29,7 +29,7 @@ export default function VideoBanner() {
     };
 
   return (
-    <div className="h-5/6 bg-slate-500 bg-cover" style={{backgroundImage: `url('/1800.png')`}}>
+    <div className="h-5/6 bg-slate-500 bg-cover" style={{backgroundImage: `url('1800.png')`}}>
         {showVideo ? (
             <div className="h-full relative flex justify-center">
                 <button
