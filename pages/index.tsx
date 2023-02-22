@@ -1,7 +1,10 @@
 import Head from '@/components/Head'
-import Layout from '@/components/Layout'
-import Tabs from '@/components/Tabs'
+import HomeLayout from '@/components/HomeLayout'
+import SectionBox from '@/components/SectionBox'
+import Tabs from '@/components/LayoutComponents/Tabs'
+import Header from '@/components/LayoutComponents/Header'
 import Image from 'next/image';
+import UnderConstruction from '@/components/LayoutComponents/UnderConstruction'
 
 const tabs = [
   {
@@ -40,11 +43,22 @@ export default function Home() {
         title="Limaru - Innovate, Create, Experience."
         description="Welcome to Limaru, a Minecraft City-Building and Transportation Community. Join our community that fosters creativity and innovation!"
         author="YJJcoolcool"
-        keywords="limaru, limaru city server, limaru minecraft server" />
-      <Layout>
-        <Tabs tabs={tabs} />
-        <br></br>
-      </Layout>
+        keywords="limaru, limaru city server, limaru minecraft server"
+      />
+      <HomeLayout>
+        <SectionBox>
+          <Header level={2}>Explore Limaru</Header>
+          <UnderConstruction type="section"/>
+        </SectionBox>
+        <SectionBox>
+          <Header level={2}>Our Motto – Innovate, Create, Experience.</Header>
+          <Tabs tabs={tabs} italic={true} large={true} />
+        </SectionBox>
+        <SectionBox>
+          <Header level={2}>Quick Links</Header>
+          <UnderConstruction type="section"/>
+        </SectionBox>
+      </HomeLayout>
     </>
   )
 }

@@ -13,7 +13,7 @@ function Tab({ title, content, image }) {
   );
 }
 
-export default function Tabs({ tabs }) {
+export default function Tabs({ tabs, italic=false, large=false }) {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
@@ -22,10 +22,11 @@ export default function Tabs({ tabs }) {
         {tabs.map((tab, index) => (
           <button
             key={index}
-            className={`w-full text-gray-800 p-4 font-semibold border-b-2 text-xl hover:bg-gray-300
-            ${
-              activeTab === index ? "bg-gray-200 rounded-t" : "bg-white"
-            }`}
+            className={`w-full text-gray-800 p-4 font-semibold border-b-2 rounded-t hover:bg-gray-300
+            ${ activeTab === index ? "bg-gray-200" : "bg-white" }
+            ${ italic ? "italic" : "" }
+            ${ large ? "text-2xl" : "text-xl" }
+            `}
             onClick={() => setActiveTab(index)}
           >
             {tab.title}
