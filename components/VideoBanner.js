@@ -31,7 +31,7 @@ export default function VideoBanner({YouTubeVideoID, title, subtitle, serverip=f
     };
 
   return (
-    <div className="h-5/6 bg-slate-500 bg-cover bg-fixed relative" style={{backgroundImage: `url('1800.png')`}}>
+    <div className="h-5/6 bg-slate-500 bg-cover bg-fixed relative" style={{backgroundImage: `url('banners/Lands_End_Sunset.png')`}}>
         {showVideo ? (
             <div className="h-full relative flex justify-center">
                 <button
@@ -53,10 +53,14 @@ export default function VideoBanner({YouTubeVideoID, title, subtitle, serverip=f
             <div className="py-48 flex justify-center">
                 <div className="flex flex-col items-start justify-center max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-white">
                     <Header level={1}>
-                        {title}
+                        <span className="bg-lime-600 px-4 box-decoration-clone">
+                            {title}
+                        </span>
                     </Header>
-                    <p className="text-2xl text-left mb-8">
-                        {subtitle}
+                    <p className="text-2xl text-left mb-8 drop-shadow-md">
+                        <span className="bg-yellow-700 px-2 box-decoration-clone">
+                            {subtitle}
+                        </span>
                     </p>
                     {serverip && (
                         <button

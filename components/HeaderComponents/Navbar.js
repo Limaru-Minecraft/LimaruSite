@@ -4,7 +4,7 @@ import LimaruLogo from "@/public/limaru_logo.png"
 
 function NavbarLink({ href, text, target="" }) {
   return (
-    <a href={href} target={target} title={text} className="h-full flex items-center px-4 text-gray-800 box-border border-b-4 border-white hover:text-gray-900 hover:border-yellow-700 hover:bg-gray-100">
+    <a href={href} target={target} title={text} className="h-full flex items-center text-center px-4 text-gray-800 box-border border-b-4 border-white hover:text-gray-900 hover:border-yellow-700 hover:bg-gray-100">
       {text}
       {target==="_blank"?(
         <svg className="w-4 h-4 pl-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@ export default function Navbar() {
               />
             </Link>
           </div>
-          <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
+          <div className="hidden md:ml-6 md:flex lg:space-x-4">
             {links.map((link) => (
               <NavbarLink key={link.href} href={link.href} target={link.target} text={link.text} />
             ))}
