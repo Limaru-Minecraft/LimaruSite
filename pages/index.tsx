@@ -2,7 +2,9 @@ import Head from '@/components/Head'
 import HomeLayout from '@/components/HomeLayout'
 import SectionBox from '@/components/SectionBox'
 import Tabs from '@/components/LayoutComponents/Tabs'
-import Header from '@/components/LayoutComponents/Header'
+import CardGridBackground from '@/components/LayoutComponents/CardGridBackground'
+import CardGrid from '@/components/LayoutComponents/CardGrid'
+import Heading from '@/components/LayoutComponents/Heading'
 import Image from 'next/image';
 import UnderConstruction from '@/components/LayoutComponents/UnderConstruction'
 
@@ -49,16 +51,56 @@ export default function Home() {
       />
       <HomeLayout>
         <SectionBox>
-          <Header level={2}>Explore Limaru</Header>
+          <Heading level={2}>Explore Limaru</Heading>
+          <CardGridBackground
+            items={[
+              {
+                url: '/see-and-do',
+                title: 'Go on a Nature Appreciation Journey',
+                image: 'mountain_trail_yjjcity.png',
+              },
+              {
+                url: '/see-and-do',
+                title: 'Architectural Finds in Limaru',
+                image: 'fire_department_downtown.png',
+              },
+              {
+                url: '/see-and-do',
+                title: 'Ride Our Extensive Train Network',
+                image: 'c151_train_yjjcity.png',
+              },
+            ]}
+          />
           <UnderConstruction type="section"/>
         </SectionBox>
         <SectionBox>
-          <Header level={2}>Our Motto – Innovate, Create, Experience.</Header>
+          <Heading level={2}>Our Motto – Innovate, Create, Experience.</Heading>
           <Tabs tabs={tabs} italic={true} large={true} />
         </SectionBox>
         <SectionBox>
-          <Header level={2}>Quick Links</Header>
-          <UnderConstruction type="section"/>
+          <Heading level={2}>Quick Links</Heading>
+          <CardGrid
+            items={[
+              {
+                url: 'https://discord.limaru.net/',
+                title: 'Discord',
+                subtitle: 'Join our Discord server to get the latest updates and interact with our community!',
+                newtab: true,
+              },
+              {
+                url: 'https://youtube.com/LiMARU',
+                title: 'Limaru YouTube Channel',
+                subtitle: 'Featuring server events, builds, and more!',
+                newtab: true,
+              },
+              {
+                url: 'https://youtube.com/YJJCityProject',
+                title: 'YJJ City Project YouTube Channel',
+                subtitle: 'Featuring creative works made in Minecraft',
+                newtab: true,
+              },
+            ]}
+          />
         </SectionBox>
       </HomeLayout>
     </>
