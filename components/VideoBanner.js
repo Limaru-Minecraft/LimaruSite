@@ -31,7 +31,7 @@ export default function VideoBanner({YouTubeVideoID, title, subtitle, serverip=f
     };
 
   return (
-    <div className="h-5/6 bg-slate-500 bg-cover bg-fixed bg-center relative" style={{backgroundImage: `url('banners/Lands_End_Sunset.png')`}}>
+    <div className="h-5/6 bg-slate-500 bg-cover bg-fixed bg-center relative" style={{backgroundImage: `url('banners/Lands_End_Sunset.webp')`}}>
         {showVideo ? (
             <div className="h-full relative flex justify-center">
                 <button

@@ -57,17 +57,17 @@ export default function Home() {
               {
                 url: '/see-and-do',
                 title: 'Go on a Nature Appreciation Journey',
-                image: 'mountain_trail_yjjcity.png',
+                image: 'mountain_trail_yjjcity.webp',
               },
               {
                 url: '/see-and-do',
                 title: 'Architectural Finds in Limaru',
-                image: 'fire_department_downtown.png',
+                image: 'fire_department_downtown.webp',
               },
               {
                 url: '/see-and-do',
                 title: 'Ride Our Extensive Train Network',
-                image: 'c151_train_yjjcity.png',
+                image: 'c151_train_yjjcity.webp',
               },
             ]}
           />
