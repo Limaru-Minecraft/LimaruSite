@@ -29,7 +29,6 @@ export const nav_links: NavLink[] = [
 
 export const footer_resource_links: NavLink[] = [
   { href: 'https://docs.google.com/document/d/e/2PACX-1vTLvBGG1T4y8w3ZaDb_V4qVkOxtJ3Vk9iQmpXbSS_yN9JnePcrdTohmYPpfjDTUs8wVvSnGP6ABCb2r/pub', text: 'Rules & Laws of Limaru', newtab: true },
-  { href: 'https://placeholder.com', text: 'Placeholder' },
 ];
 
 export const social_media_links: SocialLink[] = [
