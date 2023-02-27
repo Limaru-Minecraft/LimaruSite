@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { nav_links } from '@/constants/links';
 import LimaruLogo from "@/public/limaru_logo.png"
 
 function NavbarLink({ href, text, newtab=false }) {
@@ -16,16 +17,6 @@ function NavbarLink({ href, text, newtab=false }) {
 }
 
 export default function Navbar() {
-  const links = [
-    { href: '/getting-started', text: 'Getting Started' },
-    { href: '/see-and-do', text: 'See & Do' },
-    { href: '/about', text: 'About' },
-    { href: '/transport', text: 'Transport' },
-    { href: 'https://wiki.limaru.net', text: 'Wiki', newtab: true },
-    { href: 'http://maps.limaru.net', text: 'Live Map', newtab: true },
-    { href: '/support-us', text: 'Support Us' },
-  ];
-
   return (
     <nav className="bg-white shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -40,9 +31,9 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="hidden md:ml-6 md:flex lg:space-x-4">
-            {links.map((link) => (
+            { nav_links.map((link) => (
               <NavbarLink key={link.href} href={link.href} newtab={link.newtab} text={link.text} />
-            ))}
+            )) }
           </div>
         </div>
       </div>

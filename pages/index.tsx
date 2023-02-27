@@ -7,6 +7,7 @@ import CardGrid from '@/components/LayoutComponents/CardGrid'
 import Heading from '@/components/LayoutComponents/Heading'
 import Image from 'next/image';
 import UnderConstruction from '@/components/LayoutComponents/UnderConstruction'
+import { quick_links } from '@/constants/links';
 
 const tabs = [
   {
@@ -52,6 +53,7 @@ export default function Home() {
       <HomeLayout>
         <SectionBox>
           <Heading level={2}>Explore Limaru</Heading>
+          <UnderConstruction type="section"/>
           <CardGridBackground
             items={[
               {
@@ -71,36 +73,42 @@ export default function Home() {
               },
             ]}
           />
-          <UnderConstruction type="section"/>
         </SectionBox>
         <SectionBox>
           <Heading level={2}>Our Motto – Innovate, Create, Experience.</Heading>
-          <Tabs tabs={tabs} italic={true} large={true} />
+          <Tabs italic={true} large={true} tabs={[
+            {
+              title: "Innovate",
+              content: <>
+                <p>Here in Limaru, we’re always trying out new things and exploring new ideas - whether it be new building techniques, new plugins, or new server events.</p>
+                <br/>
+                <p>In the image is our National Day Parade back in 2021, where we arranged a whole show with a parachute jump, a military parade, and floats designed by our community!</p>
+              </>,
+              image: "/national_day_2021_fireworks.webp",
+            },
+            {
+              title: "Create",
+              content: <>
+                <p>Limaru is a place for everyone to express their Creativity. Regardless of experience, our community is here to help you build your dream city together!</p>
+                <br/>
+                <p>In the image is Lake District in Mainland Limaru. Over the years, it has transformed into an area filled with modern architecture!</p>
+              </>,
+              image: "/lake_district.webp",
+            },
+            {
+              title: "Experience",
+              content: <>
+                <p>What’s a city without the interaction? Limaru is filled with things to interact with - whether you would like to ride a train, visit an amusement park, or work at a glass factory, we’ve got you covered!</p>
+                <br/>
+                <p>In the image is the Glass Factory in Mainland Limaru. You can help out at the factory by converting sand into glass and earn some money!</p>
+              </>,
+              image: "/glass_factory.webp",
+            },
+          ]} />
         </SectionBox>
         <SectionBox>
           <Heading level={2}>Quick Links</Heading>
-          <CardGrid
-            items={[
-              {
-                url: 'https://discord.limaru.net/',
-                title: 'Discord',
-                subtitle: 'Join our Discord server to get the latest updates and interact with our community!',
-                newtab: true,
-              },
-              {
-                url: 'https://youtube.com/LiMARU',
-                title: 'Limaru YouTube Channel',
-                subtitle: 'Featuring server events, builds, and more!',
-                newtab: true,
-              },
-              {
-                url: 'https://youtube.com/YJJCityProject',
-                title: 'YJJ City Project YouTube Channel',
-                subtitle: 'Featuring creative works made in Minecraft',
-                newtab: true,
-              },
-            ]}
-          />
+          <CardGrid items={quick_links} />
         </SectionBox>
       </HomeLayout>
     </>

@@ -2,12 +2,12 @@ import { useState } from "react";
 import Image from "next/image";
 
 function Tab({ title, content, image }) {
-  title = title + " Image";
+  const titleWithImage = title + " Image";
   return (
     <div className="flex flex-wrap flex-col-reverse sm:flex-nowrap sm:flex-row">
-      <div className="sm:w-3/4 pr-4 text-lg">{content}</div>
-      <div className="sm:w-1/4">
-        <Image className="w-full" src={image} alt={title} />
+      <div className="sm:w-2/3 pr-4 text-lg">{content}</div>
+      <div className="sm:w-1/3">
+        <Image className="w-full aspect-[16/9]" src={image} width='1920' height='1080' alt={titleWithImage} />
       </div>
     </div>
   );

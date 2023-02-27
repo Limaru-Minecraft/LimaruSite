@@ -7,7 +7,7 @@ export default function CardGrid({ items }) {
     <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {items.map((item) => (
         <Link
-          href={item.url}
+          href={item.href}
           key={item.title}
           className="flex flex-col border rounded-md transition duration-300 hover:-translate-y-1 hover:text-white hover:bg-yellow-700 hover:shadow-md"
           target={item.newtab ? '_blank' : ''}
