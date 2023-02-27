@@ -56,7 +56,7 @@ const Footer = () => {
             </div>
             <div className="text-sm mt-8">
                 <p>
-                Disclaimer: This website is related to Limaru, a Minecraft city building server. Information presented on this website should not be confused with real-world events and .
+                Disclaimer: Limaru is a city building community based on the video game "Minecraft". Information presented on this website should not be confused with real-world events and information.
                 </p>
                 <br/>
                 <p>
