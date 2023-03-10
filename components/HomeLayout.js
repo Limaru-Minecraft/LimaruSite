@@ -1,5 +1,5 @@
 import Navbar from '@/components/HeaderComponents/Navbar'
-import VideoBanner from '@/components/VideoBanner'
+import VideoBanner from '@/components/LayoutComponents/VideoBanner'
 import Footer from '@/components/Footer'
 
 export default function HomeLayout({ children }) {
