@@ -17,7 +17,7 @@ export default function Home() {
       <PageLayout title='Support Us'>
         <SectionBox>
           <Heading level={2}>Vote for Limaru</Heading>
-          <p>Vote for us on online Minecraft server lists to allow more people to discover our community! As a bonus, you'll get £10 of in-game currency for each vote!</p>
+          <p>Vote for us on online Minecraft server lists to allow more people to discover our community! As a bonus, you&lsquo;ll get £10 of in-game currency for each vote!</p>
           <CardGrid items={vote_links} />
         </SectionBox>
         <SectionBox>

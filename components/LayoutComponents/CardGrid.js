@@ -16,6 +16,7 @@ export default function CardGrid({ items }) {
             <Image
               className='w-full aspect-video'
               src={item.image}
+              alt=""
               width={400}
               height={200}
             />
