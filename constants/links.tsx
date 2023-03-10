@@ -27,6 +27,16 @@ export const nav_links: NavLink[] = [
   { href: '/support-us', text: 'Support Us' },
 ];
 
+export const vote_links: QuickLink[] = [
+  { href: 'https://minecraft-mp.com/server/313850/vote/', title: 'Minecraft Server List', subtitle: 'minecraft-mp.com', newtab: true },
+  { href: 'https://minecraftservers.org/vote/645173', title: 'Minecraft Servers', subtitle: 'minecraftservers.org', newtab: true },
+];
+
+export const donate_links: QuickLink[] = [
+  { href: 'https://ko-fi.com/mineshafter61', title: 'Support Mineshafter61 on Ko-fi!', subtitle: 'ko-fi.com', newtab: true },
+  { href: 'https://ko-fi.com/yjjcoolcool', title: 'Support YJJcoolcool on Ko-fi!', subtitle: 'ko-fi.com', newtab: true },
+];
+
 export const footer_resource_links: NavLink[] = [
   { href: 'https://docs.google.com/document/d/e/2PACX-1vTLvBGG1T4y8w3ZaDb_V4qVkOxtJ3Vk9iQmpXbSS_yN9JnePcrdTohmYPpfjDTUs8wVvSnGP6ABCb2r/pub', text: 'Rules & Laws of Limaru', newtab: true },
 ];
