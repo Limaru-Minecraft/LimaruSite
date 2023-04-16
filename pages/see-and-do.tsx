@@ -20,8 +20,8 @@ export default function Home() {
           <UnderConstruction type="page"/>
         </SectionBox>
         <SectionBox>
-          <Heading level={2}>Top 5 Sights</Heading>
-          <p>Don't have time to explore the entire server? Here's 5 places to get you started.</p>
+          <Heading level={2}>Top Sights in Limaru</Heading>
+          <p>Don't know where to go in Limaru? Here's some of our top picks to get you started!</p>
           <CollapsibleItemList
             items={[
               {
@@ -113,7 +113,8 @@ export default function Home() {
           </ul>
         </SectionBox>
         <SectionBox>
-          <Heading level={2}>Our Jobs</Heading>
+          <Heading level={2}>Jobs</Heading>
+          <p>Feel like doing something interactive? Try out the many jobs that Limaru has to offer!</p>
           <CollapsibleItemList
             items={[
               {
