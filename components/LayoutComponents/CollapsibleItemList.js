@@ -39,7 +39,7 @@ export default function CollapsibleItemlist({ items }) {
           <Link
             href={item.url}
             key={item.title}
-            className="flex flex-col justify-end w-full aspect-[10] text-black hover:text-white border rounded-md transition duration-300 bg-cover bg-center hover:-translate-y-1 hover:bg-yellow-300 "
+            className="flex flex-col justify-end w-full aspect-[10] text-white border rounded-md transition duration-300 bg-cover bg-center shadow-[inset_200px_-200px_200px_-200px_rgba(0,0,0,0.6)] hover:-translate-y-1 hover:bg-yellow-300 "
             target={item.newtab ? "_blank" : ""}
             style={item.image ? { backgroundImage: `url(${item.image})` } : null}
           >
@@ -48,7 +48,7 @@ export default function CollapsibleItemlist({ items }) {
         ) : (
           <div
             key={item.title}
-            className="flex flex-col justify-end w-full aspect-[10] text-black hover:text-white border rounded-md transition duration-300 bg-cover bg-center hover:-translate-y-1 hover:bg-yellow-300 "
+            className="flex flex-col justify-end w-full aspect-[10] text-white border rounded-md transition duration-300 bg-cover bg-center shadow-[inset_200px_-200px_200px_-200px_rgba(0,0,0,0.6)] hover:-translate-y-1 hover:bg-yellow-300 "
             style={item.image ? { backgroundImage: `url(${item.image})` } : null}
           >
             <CardContent item={item} />
