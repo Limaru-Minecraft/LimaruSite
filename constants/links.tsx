@@ -23,7 +23,7 @@ export const nav_links: NavLink[] = [
   { href: '/about', text: 'About' },
   { href: '/transport', text: 'Transport' },
   { href: 'https://wiki.limaru.net', text: 'Wiki', newtab: true },
-  { href: 'http://maps.limaru.net', text: 'Live Map', newtab: true },
+  { href: 'http://bluemap.limaru.net', text: 'Live Map', newtab: true },
   { href: '/support-us', text: 'Support Us' },
 ];
 

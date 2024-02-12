@@ -28,7 +28,7 @@ export default function Home() {
         </SectionBox>
         <SectionBox>
           <Heading level={2}>Top Sights in Limaru</Heading>
-          <p>Don&apos;t know where to go in Limaru? Here&apos;s some of our top picks to get you started!</p>
+          <p>Don’t know where to go in Limaru? Here’s some of our top picks to get you started!</p>
           <CollapsibleItemList
             items={[
               {
