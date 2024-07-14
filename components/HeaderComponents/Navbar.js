@@ -1,42 +1,118 @@
+import ContentWidth from "@/components/ContentWidth";
 import Link from "next/link";
 import Image from "next/image";
-import { nav_links } from '@/constants/links';
-import LimaruLogo from "@/public/limaru_logo.png"
+import { nav_links } from "@/constants/links";
+import LimaruLogo from "@/public/limaru_logo.png";
+import React, { useState } from "react";
 
-function NavbarLink({ href, text, newtab=false }) {
+/* Main Categories */
+const MainCategories = ({ onLinkFocusChange }) => {
   return (
-    <Link href={href} target={newtab ? '_blank' : ''} title={text} className="h-full flex items-center text-center px-4 text-gray-800 box-border border-b-4 border-white hover:text-gray-900 hover:border-yellow-700 hover:bg-gray-100">
-      {text}
-      {newtab ? (
-        <svg className="w-4 h-4 pl-1" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-      ) : null}
-    </Link>
+    <div className="flex w-full justify-center space-x-12 font-nunito-sans font-extrabold text-xl">
+      {nav_links.map((link) => (
+        <Link
+          key={link.text}
+          href={link.href}
+          target={link.newtab ? "_blank" : ""}
+          className="hover:border-b-4 border-amber-400"
+          onMouseEnter={() => onLinkFocusChange(1)}
+          onFocus={() => onLinkFocusChange(1)}
+          onBlur={() => onLinkFocusChange(-1)}
+        >
+          {link.text}
+        </Link>
+      ))}
+    </div>
   );
-}
+};
+
+/* Full menu that shows on hover */
+const FullMenu = ({ isVisible, onHover, onLinkFocusChange }) => {
+  return (
+    <div
+      className={`fixed w-full h-full transition-opacity ${
+        isVisible ? "visible opacity-100" : "invisible opacity-0"
+      }`}
+    >
+      <div
+        className="w-full h-fit bg-gray-200"
+        onMouseLeave={() => onLinkFocusChange(-1)}
+      >
+        <ContentWidth className="flex-row justify-center space-x-12">
+          {nav_links.map((link) => (
+            <div key={link.text}>
+              <h2>{link.text}</h2>
+              {/* Mapping over link.pages */}
+              {link.pages && (
+                <ul>
+                  {link.pages.map((page) => (
+                    <li key={page.href}>
+                      <Link
+                        href={page.href}
+                        target={page.newtab ? "_blank" : ""}
+                        className="hover:underline"
+                        onFocus={() => onLinkFocusChange(1)}
+                        onBlur={() => onLinkFocusChange(-1)}
+                      >
+                        {page.text}
+                        {page.newtab ? (
+                          <span className="material-symbols-outlined pl-1 text-sm text-gray-700">
+                          open_in_new
+                          </span>
+                        ) : null}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </ContentWidth>
+      </div>
+      <div className="fixed w-full h-full bg-black opacity-50" />
+    </div>
+  );
+};
 
 export default function Navbar() {
+  const [focusCount, setFocusCount] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Function to handle link focus change
+  const handleLinkFocusChange = (change) => {
+    setFocusCount((prevCount) => {
+      const newCount = prevCount + change;
+      return newCount >= 0 ? (newCount >= 2 ? 1 : newCount) : 0; // Ensure newCount is at least 0
+    });
+    console.log(focusCount);
+  };
+
+  // Effect to update isHovering based on focusCount changes
+  React.useEffect(() => {
+    if (focusCount > 0) {
+      setIsHovering(true);
+    } else {
+      setIsHovering(false);
+    }
+  }, [focusCount]);
+
   return (
     <nav className="bg-white shadow-lg fixed w-full z-50">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" title="Home Page">
-              <Image
-                className="block h-8 w-auto"
-                src={LimaruLogo}
-                alt="Limaru Logo"
-              />
-            </Link>
-          </div>
-          <div className="hidden md:ml-6 md:flex lg:space-x-4">
-            { nav_links.map((link) => (
-              <NavbarLink key={link.href} href={link.href} newtab={link.newtab} text={link.text} />
-            )) }
-          </div>
-        </div>
-      </div>
+      <ContentWidth>
+        <Link href="/" title="Home Page">
+          <Image
+            className="block h-8 w-auto"
+            src={LimaruLogo}
+            alt="Limaru Logo"
+          />
+        </Link>
+        <MainCategories onLinkFocusChange={handleLinkFocusChange} />
+      </ContentWidth>
+      <FullMenu
+        isVisible={isHovering}
+        onHover={setIsHovering}
+        onLinkFocusChange={handleLinkFocusChange}
+      />
     </nav>
   );
 }
