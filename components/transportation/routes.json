@@ -1,0 +1,890 @@
+{
+  "Epping": {
+    "Eastminster": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    }
+  },
+  "Eastminster": {
+    "Epping": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Sakauji and Ashfield": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Twyford": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Twyford Branch)",
+      "color": "#34eb9e"
+    }
+  },
+  "Sakauji and Ashfield": {
+    "Eastminster": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Nakano": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    }
+  },
+  "Nakano": {
+    "Sakauji and Ashfield": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Sakae": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Senri": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Keishin Line (Eastern Section)",
+      "color": "#20aae6"
+    }
+  },
+  "Sakae": {
+    "Nakano": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "University": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    }
+  },
+  "University": {
+    "Sakae": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Civic Square": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    }
+  },
+  "Civic Square": {
+    "University": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Downtown": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    }
+  },
+  "Downtown": {
+    "Civic Square": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Legacy Road": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Kaname": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    }
+  },
+  "Legacy Road": {
+    "Downtown": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Highgate": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    }
+  },
+  "Highgate": {
+    "Legacy Road": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Bartley Gate": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    }
+  },
+  "Bartley Gate": {
+    "Highgate": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Municipal District": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    }
+  },
+  "Municipal District": {
+    "Bartley Gate": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Rising Sun": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    }
+  },
+  "Rising Sun": {
+    "Municipal District": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "Land's End": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    }
+  },
+  "Land's End": {
+    "Rising Sun": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    },
+    "YJJ City Main Station": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    }
+  },
+  "YJJ City Main Station": {
+    "Land's End": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Main)",
+      "color": "#34eb9e"
+    }
+  },
+  "Twyford": {
+    "Eastminster": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Twyford Branch)",
+      "color": "#34eb9e"
+    },
+    "Minagi": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Brentwood Pier": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "Senri": {
+    "Nakano": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Keishin Line (Eastern Section)",
+      "color": "#20aae6"
+    },
+    "Pineappleton": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Keishin Line (Eastern Section)",
+      "color": "#20aae6"
+    }
+  },
+  "Pineappleton": {
+    "Senri": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Keishin Line (Eastern Section)",
+      "color": "#20aae6"
+    },
+    "Minagi": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "New Traxia": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "Chiyoda University": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Chiyoda Line",
+      "color": "#eded1a"
+    }
+  },
+  "Kimitsu": {
+    "The End Mines": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "Taura": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#0d6939"
+    }
+  },
+  "The End Mines": {
+    "Kimitsu": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "Mori": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    }
+  },
+  "Mori": {
+    "The End Mines": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "Sorawo": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    }
+  },
+  "Sorawo": {
+    "Mori": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "Minagi": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    }
+  },
+  "Minagi": {
+    "Sorawo": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "Pineappleton": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "Otaki": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Twyford": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "New Traxia": {
+    "Pineappleton": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "Shortwood": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    }
+  },
+  "Shortwood": {
+    "New Traxia": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "Yachiyo Castle": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    }
+  },
+  "Yachiyo Castle": {
+    "Shortwood": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "Pelle East": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "Akane": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    },
+    "Iwanoyuki": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    }
+  },
+  "Pelle East": {
+    "Yachiyo Castle": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    },
+    "Pelle Junction": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    }
+  },
+  "Pelle Junction": {
+    "Pelle East": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#119c2d"
+    }
+  },
+  "Tuck Park": {
+    "Sakurami": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Central Line",
+      "color": "#55de16"
+    }
+  },
+  "Sakurami": {
+    "Tuck Park": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Central Line",
+      "color": "#55de16"
+    },
+    "Kaname": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Central Line",
+      "color": "#55de16"
+    }
+  },
+  "Kaname": {
+    "Sakurami": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Central Line",
+      "color": "#55de16"
+    },
+    "Yachiyo": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    },
+    "Downtown": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    }
+  },
+  "Yachiyo": {
+    "Kaname": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    },
+    "Kasuga": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    }
+  },
+  "Kasuga": {
+    "Yachiyo": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    },
+    "Akane": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    }
+  },
+  "Akane": {
+    "Kasuga": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    },
+    "Yachiyo Castle": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    }
+  },
+  "Iwanoyuki": {
+    "Yachiyo Castle": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    },
+    "Karasuma": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    }
+  },
+  "Karasuma": {
+    "Iwanoyuki": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    },
+    "Emmaru Central": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    }
+  },
+  "Emmaru Central": {
+    "Karasuma": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    },
+    "Nihombashi": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    },
+    "Emmaru West": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Gojo": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "Nihombashi": {
+    "Emmaru Central": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    },
+    "Narutaki": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    }
+  },
+  "Narutaki": {
+    "Nihombashi": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    },
+    "Tokiwa": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    }
+  },
+  "Tokiwa": {
+    "Narutaki": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    },
+    "Katsuragi Chinatown": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    }
+  },
+  "Katsuragi Chinatown": {
+    "Tokiwa": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#1dde16"
+    }
+  },
+  "Flower Hill": {
+    "Emmaru West": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "Emmaru West": {
+    "Flower Hill": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Emmaru Central": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "Gojo": {
+    "Emmaru Central": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Kyobashi": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "Kyobashi": {
+    "Gojo": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Kingston Park": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "Kingston Park": {
+    "Kyobashi": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Shinsei": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Emmaru Port": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Chiyoda Line",
+      "color": "#eded1a"
+    },
+    "Earlsgate": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Chiyoda Line",
+      "color": "#eded1a"
+    }
+  },
+  "Shinsei": {
+    "Kingston Park": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Mizuna": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "Mizuna": {
+    "Shinsei": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Hokuyo": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "Hokuyo": {
+    "Mizuna": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Otaki": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "Otaki": {
+    "Hokuyo": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Minagi": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "Brentwood Pier": {
+    "Twyford": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Brentwood": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "Brentwood": {
+    "Brentwood Pier": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Mizuno Filius": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    }
+  },
+  "Mizuno Filius": {
+    "Brentwood": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8f4f17"
+    },
+    "Kotoha": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#0d6939"
+    }
+  },
+  "Emmaru Port": {
+    "Kingston Park": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Chiyoda Line",
+      "color": "#eded1a"
+    }
+  },
+  "Earlsgate": {
+    "Kingston Park": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Chiyoda Line",
+      "color": "#eded1a"
+    },
+    "Chiyoda University": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Chiyoda Line",
+      "color": "#eded1a"
+    }
+  },
+  "Chiyoda University": {
+    "Earlsgate": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Chiyoda Line",
+      "color": "#eded1a"
+    },
+    "Pineappleton": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Chiyoda Line",
+      "color": "#eded1a"
+    }
+  },
+  "Kotoha": {
+    "Mizuno Filius": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#0d6939"
+    },
+    "Maekawa": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#0d6939"
+    }
+  },
+  "Maekawa": {
+    "Kotoha": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#0d6939"
+    },
+    "Chitose": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#0d6939"
+    }
+  },
+  "Chitose": {
+    "Maekawa": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#0d6939"
+    },
+    "Taura": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#0d6939"
+    }
+  },
+  "Taura": {
+    "Chitose": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#0d6939"
+    },
+    "Kimitsu": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#0d6939"
+    }
+  }
+}
