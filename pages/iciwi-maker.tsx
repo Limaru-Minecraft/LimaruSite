@@ -7,6 +7,10 @@ import DynamicForm from '@/components/DynamicForm'
 
 export default function Home() {
 
+  const processTable = (e: any) => {
+    console.log('Form submitted:', e);
+  }
+
   return (
     <>
       <Head
@@ -16,9 +20,10 @@ export default function Home() {
         keywords="limaru, limaru city server, limaru minecraft server"
       />
       <PageLayout title='Iciwi Maker'>
+        <UnderConstruction type="page" />
         <SectionBox>
-          <Heading level={2}>Iciwi Maker</Heading>
-          <DynamicForm></DynamicForm>
+          <Heading level={2}>Create your own fares.yml here!</Heading>
+          <DynamicForm submitFunction={processTable}></DynamicForm>
         </SectionBox>
       </PageLayout>
     </>
