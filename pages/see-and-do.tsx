@@ -24,9 +24,6 @@ export default function Home() {
       />
       <PageLayout title='See & Do'>
         <SectionBox>
-          <UnderConstruction type="page"/>
-        </SectionBox>
-        <SectionBox>
           <Heading level={2}>Top Sights in Limaru</Heading>
           <p>Don’t know where to go in Limaru? Here’s some of our top picks to get you started!</p>
           <CollapsibleItemList
