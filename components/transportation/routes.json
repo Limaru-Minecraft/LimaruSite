@@ -121,6 +121,12 @@
       "type": "metro",
       "line": "Namboku Line",
       "color": "#1dde16"
+    },
+    "Kaspar's Crossing": {
+      "distance": 2,
+      "type": "metro",
+      "line": "Walking",
+      "color": "#2b2b2b"
     }
   },
   "Legacy Road": {
@@ -892,6 +898,98 @@
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#0d6939"
+    }
+  },
+  "Kaspar's Crossing": {
+    "Lilydale Junction": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Lipan Line",
+      "color": "#f01313"
+    },
+    "Downtown": {
+      "distance": 2,
+      "type": "metro",
+      "line": "Walking",
+      "color": "#2b2b2b"
+    }
+  },
+  "Lilydale Junction": {
+    "Kaspar's Crossing": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Lipan Line",
+      "color": "#f01313"
+    },
+    "Tulip Peak": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Lipan Line",
+      "color": "#f01313"
+    },
+    "Lilydale Citadel": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Lipan Line (Branch)",
+      "color": "#f01313"
+    }
+  },
+  "Tulip Peak": {
+    "Lilydale Junction": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Lipan Line",
+      "color": "#f01313"
+    },
+    "Great Cliff": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Lipan Line",
+      "color": "#f01313"
+    }
+  },
+  "Great Cliff": {
+    "Tulip Peak": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Lipan Line",
+      "color": "#f01313"
+    },
+    "Rouge Rapids": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Lipan Line",
+      "color": "#f01313"
+    }
+  },
+  "Rouge Rapids": {
+    "Great Cliff": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Lipan Line",
+      "color": "#f01313"
+    },
+    "Moss Vale": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Lipan Line",
+      "color": "#f01313"
+    }
+  },
+  "Moss Vale": {
+    "Rouge Rapids": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Lipan Line",
+      "color": "#f01313"
+    }
+  },
+  "Lilydale Citadel": {
+    "Lilydale Junction": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Lipan Line (Branch)",
+      "color": "#f01313"
     }
   }
 }
