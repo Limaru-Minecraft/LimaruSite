@@ -57,7 +57,7 @@ export default function Home() {
             items={[
               {
                 title: 'YJJ City',
-                image: 'sun_moon_lake',
+                image: 'sun_moon_lake.webp',
                 url: 'https://bluemap.limaru.net/#world:-8008:0:6606:2000:0:0:0:1:flat'
               },
               {
