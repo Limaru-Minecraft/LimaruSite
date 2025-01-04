@@ -53,18 +53,25 @@ export default function Home() {
         <SectionBox>
           <Heading level={2}>Countries & Regions of Limaru</Heading>
           <p>Limaru is a large server with an expansive map. To help with navigation, it is good to know the general areas of the server.</p>
-          <Heading level={3}>YJJ City</Heading>
-          <p>
-            This is where you spawn in when you first join the server. YJJ City is a large circular island located on the west side of the world.
-          </p>
-          <Heading level={3}>Mainland Limaru</Heading>
-          <p>
-            Sometimes just called Limaru, it is the largest landmass in the server and spans the north and east sides of the world.
-          </p>
-          <Heading level={3}>Losning</Heading>
-          <p>
-            A small island located south of YJJ City.
-          </p>
+          <CardGridBackground
+            items={[
+              {
+                title: 'YJJ City',
+                image: 'sun_moon_lake',
+                url: 'https://bluemap.limaru.net/#world:-8008:0:6606:2000:0:0:0:1:flat'
+              },
+              {
+                title: 'Mainland Limaru',
+                image: 'fire_department_downtown.webp',
+                url: 'https://bluemap.limaru.net/#world:-4715:0:6155:1000:0:0:0:1:flat'
+              },
+              {
+                title: 'Losning',
+                image: '',
+                url: 'https://bluemap.limaru.net/#world:-7148:0:8526:500:0:0:0:1:flat'
+              },
+            ]}
+          />
         </SectionBox>
       </PageLayout>
     </>

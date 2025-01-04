@@ -23,7 +23,7 @@ export interface QuickLink {
   { href: '/about', text: 'About' },
   { href: '/transport', text: 'Transport' },
   { href: 'https://wiki.limaru.net', text: 'Wiki', newtab: true },
-  { href: 'http://maps.limaru.net', text: 'Live Map', newtab: true },
+  { href: 'http://bluemap.limaru.net', text: 'Live Map', newtab: true },
   { href: '/support-us', text: 'Support Us' },
 ];*/
 export interface NavLink {
@@ -109,43 +109,15 @@ export const footer_resource_links: NavLink[] = [
 ];
 
 export const social_media_links: SocialLink[] = [
-  { href: "https://youtube.com/LiMARU", icon: "youtube" },
-  { href: "https://instagram.com/YJJCityProject", icon: "instagram" },
-  { href: "https://twitter.com/FRoLserver", icon: "twitter" },
+  { href: 'https://youtube.com/LiMARU', icon: 'youtube' },
+  { href: 'https://instagram.com/YJJCityProject', icon: 'instagram' },
+  //{ href: 'https://twitter.com/FRoLserver', icon: 'twitter' },
 ];
 
 export const quick_links: QuickLink[] = [
-  {
-    href: "https://discord.limaru.net",
-    title: "Discord",
-    subtitle:
-      "Join our Discord server to get the latest updates and interact with our community!",
-    newtab: true,
-  },
-  {
-    href: "https://forms.gle/6v5TJMq3UCbWuUeP6",
-    title: "Citizen Application Form",
-    subtitle: "Online form to apply for citizenship in Limaru",
-    newtab: true,
-  },
-  {
-    href: "https://ko-fi.com/mineshafter61",
-    title: "Donate to our Ko-fi",
-    subtitle: "Help us keep the server running by donating to us!",
-    newtab: true,
-  },
-  {
-    href: "https://youtube.com/LiMARU",
-    title: "Limaru YouTube Channel",
-    subtitle:
-      "Our official YouTube channel featuring server events, builds, and more!",
-    newtab: true,
-  },
-  {
-    href: "https://youtube.com/YJJCityProject",
-    title: "YJJ City Project YouTube Channel",
-    subtitle:
-      "Features creative works made in Minecraft, sometimes made in Limaru",
-    newtab: true,
-  },
+  { href: 'https://discord.limaru.net', title: 'Discord', subtitle: 'Join our Discord server to get the latest updates and interact with our community!', newtab: true },
+  //{ href: 'https://forms.gle/6v5TJMq3UCbWuUeP6', title: 'Citizen Application Form', subtitle: 'Online form to apply for citizenship in Limaru', newtab: true },
+  { href: 'https://ko-fi.com/mineshafter61', title: 'Donate to our Ko-fi', subtitle: 'Help us keep the server running by donating to us!', newtab: true },
+  { href: 'https://youtube.com/LiMARU', title: 'Limaru YouTube Channel', subtitle: 'Our official YouTube channel featuring server events, builds, and more!', newtab: true },
+  { href: 'https://youtube.com/YJJCityProject', title: 'YJJ City Project YouTube Channel', subtitle: 'Features creative works made in Minecraft, sometimes made in Limaru', newtab: true },
 ];
