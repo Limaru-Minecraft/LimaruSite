@@ -3,12 +3,32 @@ import HomeLayout from '@/components/HomeLayout'
 import SectionBox from '@/components/SectionBox'
 import Heading from '@/components/LayoutComponents/Heading'
 import UnderConstruction from '@/components/LayoutComponents/UnderConstruction'
+import Popup from '@/components/LayoutComponents/Popup'
 
 export default function Home() {
+
+  const intog = async (key: string, s: string) => {
+    const letterArray = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
+    let p = new Array(s.length);
+    let q = new Array(s.length);
+    for (let i = 0; i < s.length; i++) {
+      p[i] = letterArray.indexOf(s[i]);
+    }
+    for (let i = 0; i < key.length; i++) {
+      q[i] = letterArray.indexOf(key[i]);
+    }
+    
+  }
   
   const submitIciwi = async (event: any) => {
     event.preventDefault();
-    alert(`So your name is ${event.target.username.value}?`);
+    const user : string = event.target.username.value;
+    const start : string = event.target.start.value;
+    const end : string = event.target.end.value;
+
+    const f : any = "";
+    
+    //alert(`So your name is ${event.target.username.value}?`);
   };
 
   return (
@@ -37,6 +57,24 @@ export default function Home() {
               name="username"
               type="text"
               autoComplete="username"
+              required
+            />
+            <label htmlFor="from" className="mb-2 font-bold">Starting station</label>
+            <input
+              className="mb-4 border-b-4"
+              id="from"
+              name="from"
+              type="text"
+              autoComplete="from"
+              required
+            />
+            <label htmlFor="end" className="mb-2 font-bold">Destination</label>
+            <input
+              className="mb-4 border-b-4"
+              id="end"
+              name="end"
+              type="text"
+              autoComplete="end"
               required
             />
             <button
