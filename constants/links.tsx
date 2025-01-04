@@ -51,6 +51,7 @@ export const nav_links: NavLink[] = [
       { href: "/districts", text: "Districts" },
       { href: "/featured-experiences", text: "Featured Experiences" },
       { href: "/jobs", text: "Jobs" },
+      { href: "/iciwi-maker", text: "Iciwi Maker" },
     ],
   },
   {
