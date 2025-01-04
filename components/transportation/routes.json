@@ -216,25 +216,26 @@
     }
   },
   "Twyford": {
-    "Eastminster": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tozai Line (Twyford Branch)",
-      "color": "#34eb9e"
-    },
-    "Minagi": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    },
+
+  "Minagi": {
     "Brentwood Pier": {
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8f4f17"
-    }
+    },
+    "distance": 1,
+    "type": "metro",
+    "line": "Tokaido Line",
+    "color": "#8f4f17"
   },
+    "Eastminster": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Twyford Branch)",
+      "color": "#34eb9e"
+    }
+},
   "Senri": {
     "Nakano": {
       "distance": 1,
@@ -250,17 +251,18 @@
     }
   },
   "Pineappleton": {
+
+  "Minagi": {
+    "distance": 10,
+    "type": "metro",
+    "line": "Tennoji Line",
+    "color": "#119c2d"
+  },
     "Senri": {
       "distance": 1,
       "type": "metro",
       "line": "Keishin Line (Eastern Section)",
       "color": "#20aae6"
-    },
-    "Minagi": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
     },
     "New Traxia": {
       "distance": 1,
@@ -318,13 +320,14 @@
     }
   },
   "Sorawo": {
+
+  "Minagi": {
+    "distance": 10,
+    "type": "metro",
+    "line": "Tennoji Line",
+    "color": "#119c2d"
+  },
     "Mori": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    },
-    "Minagi": {
       "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
@@ -332,6 +335,13 @@
     }
   },
   "Minagi": {
+
+  "Otaki": {
+    "distance": 1,
+    "type": "metro",
+    "line": "Tokaido Line",
+    "color": "#8f4f17"
+  },
     "Sorawo": {
       "distance": 1,
       "type": "metro",
@@ -343,12 +353,6 @@
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#119c2d"
-    },
-    "Otaki": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
     },
     "Twyford": {
       "distance": 1,
@@ -658,13 +662,14 @@
     }
   },
   "Kyobashi": {
+
+  "Kingston Park": {
+    "distance": 1,
+    "type": "metro",
+    "line": "Tokaido Line",
+    "color": "#8f4f17"
+  },
     "Gojo": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    },
-    "Kingston Park": {
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
@@ -685,13 +690,13 @@
       "color": "#8f4f17"
     },
     "Emmaru Port": {
-      "distance": 1,
+      "distance": 10,
       "type": "metro",
       "line": "Chiyoda Line",
       "color": "#eded1a"
     },
     "Earlsgate": {
-      "distance": 1,
+      "distance": 10,
       "type": "metro",
       "line": "Chiyoda Line",
       "color": "#eded1a"
@@ -726,6 +731,13 @@
     }
   },
   "Hokuyo": {
+
+  "Minagi": {
+    "distance": 1,
+    "type": "metro",
+    "line": "Tokaido Line",
+    "color": "#8f4f17"
+  },
     "Mizuna": {
       "distance": 1,
       "type": "metro",
@@ -741,12 +753,6 @@
   },
   "Otaki": {
     "Hokuyo": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    },
-    "Minagi": {
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
@@ -768,13 +774,14 @@
     }
   },
   "Brentwood": {
+
+  "Mizuno Filius": {
+    "distance": 1,
+    "type": "metro",
+    "line": "Tokaido Line",
+    "color": "#8f4f17"
+  },
     "Brentwood Pier": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    },
-    "Mizuno Filius": {
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
@@ -789,7 +796,7 @@
       "color": "#8f4f17"
     },
     "Kotoha": {
-      "distance": 1,
+      "distance": 10,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#0d6939"
@@ -797,7 +804,7 @@
   },
   "Emmaru Port": {
     "Kingston Park": {
-      "distance": 1,
+      "distance": 10,
       "type": "metro",
       "line": "Chiyoda Line",
       "color": "#eded1a"
@@ -805,7 +812,7 @@
   },
   "Earlsgate": {
     "Kingston Park": {
-      "distance": 1,
+      "distance": 10,
       "type": "metro",
       "line": "Chiyoda Line",
       "color": "#eded1a"
@@ -833,7 +840,7 @@
   },
   "Kotoha": {
     "Mizuno Filius": {
-      "distance": 1,
+      "distance": 10,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#0d6939"

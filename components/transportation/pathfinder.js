@@ -8,45 +8,64 @@ const travelOptions = [
 
 const allStations = Object.keys(routes);
 
-function findShortestPath(graph, start, end, allowedTypes) {
-    const distances = {};
-    const previous = {};
-    const queue = [];
-
-    for (const node in graph) {
-        distances[node] = Infinity;
+// Function to check if a direct route exists
+function findDirectRoute(graph, start, end) {
+    if (graph[start] && graph[start][end]) {
+        return [start, end]; // Return the direct route path if it exists
     }
-    distances[start] = 0;
-    queue.push(start);
+    return null;
+}
+
+// BFS to find all possible paths
+function findAllPaths(graph, start, end, allowedTypes) {
+    const paths = [];
+    const queue = [[start]];
+    const visited = new Set();
 
     while (queue.length > 0) {
-        const current = queue.shift();
+        const path = queue.shift();
+        const current = path[path.length - 1];
+
+        if (current === end) {
+            paths.push(path); // Found a valid path
+            continue;
+        }
+
+        if (visited.has(current)) {
+            continue; // Skip already visited nodes to avoid cycles
+        }
+
+        visited.add(current);
 
         for (const neighbor in graph[current]) {
             if (
                 !allowedTypes ||
                 allowedTypes.every((type) => graph[current][neighbor].type.includes(type))
             ) {
-                const alt = distances[current] + graph[current][neighbor].distance;
-                if (alt < distances[neighbor]) {
-                    distances[neighbor] = alt;
-                    previous[neighbor] = current;
-                    if (!queue.includes(neighbor)) {
-                        queue.push(neighbor);
-                    }
-                }
+                queue.push([...path, neighbor]); // Add the neighbor to the current path
             }
         }
     }
 
-    const path = [];
-    let currentNode = end;
-    while (currentNode) {
-        path.unshift(currentNode);
-        currentNode = previous[currentNode];
-    }
+    return paths;
+}
 
-    return path.length > 1 ? path : null;
+// Function to select the path with the minimum station count
+function findShortestRouteByStations(graph, start, end, allowedTypes) {
+    const allPaths = findAllPaths(graph, start, end, allowedTypes);
+
+    // Find the path with the minimum number of stations (length)
+    let minPath = null;
+    let minLength = Infinity;
+
+    allPaths.forEach((path) => {
+        if (path.length < minLength) {
+            minLength = path.length;
+            minPath = path;
+        }
+    });
+
+    return minPath;
 }
 
 const Pathfinder = () => {
@@ -87,21 +106,21 @@ const Pathfinder = () => {
     };
 
     const handleOriginChange = (event) => {
-        const value = event.target.value;
+        const value = event.target.value.toLowerCase();
         setOrigin(value);
         setOriginSuggestions(
             allStations.filter((station) =>
-                station.toLowerCase().includes(value.toLowerCase())
+                station.toLowerCase().includes(value)
             )
         );
     };
 
     const handleDestinationChange = (event) => {
-        const value = event.target.value;
+        const value = event.target.value.toLowerCase();
         setDestination(value);
         setDestinationSuggestions(
             allStations.filter((station) =>
-                station.toLowerCase().includes(value.toLowerCase())
+                station.toLowerCase().includes(value)
             )
         );
     };
@@ -111,19 +130,37 @@ const Pathfinder = () => {
             alert("Please enter both origin and destination.");
             return;
         }
-        const allowedTypes =
-            selectedTravelOption === "all" ? null : selectedTravelOption.split("-and-");
-        const calculatedPath = findShortestPath(routes, origin, destination, allowedTypes);
 
-        router.push({
-            pathname: "/route",
-            query: {
-                path: calculatedPath ? calculatedPath.join(",") : "",
-                origin,
-                destination,
-                travelOption: selectedTravelOption,
-            },
-        });
+        // First, try to find a direct route (single route)
+        const directRoute = findDirectRoute(routes, origin, destination);
+
+        if (directRoute) {
+            // If a direct route is found, use it and redirect
+            router.push({
+                pathname: "/route",
+                query: {
+                    path: directRoute.join(","),
+                    origin,
+                    destination,
+                    travelOption: selectedTravelOption,
+                },
+            });
+        } else {
+            // If no direct route is found, find the shortest path (with transfers)
+            const allowedTypes =
+                selectedTravelOption === "all" ? null : selectedTravelOption.split("-and-");
+            const calculatedPath = findShortestRouteByStations(routes, origin, destination, allowedTypes);
+
+            router.push({
+                pathname: "/route",
+                query: {
+                    path: calculatedPath ? calculatedPath.join(",") : "",
+                    origin,
+                    destination,
+                    travelOption: selectedTravelOption,
+                },
+            });
+        }
     };
 
     const handleSwap = () => {
@@ -235,7 +272,6 @@ const Pathfinder = () => {
                 </div>
             </div>
         </div>
-
     );
 };
 
