@@ -33,31 +33,33 @@ export default function DynamicForm () {
 
     return (
         <form onSubmit={handleSubmit} class='flex flex-col'>
-            {inputs.map((input, i) => (
-                <div key={i}>
-                    <input
+            <button onClick={handleAddClick} class='px-4 py-2 font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700 mb-4' >Add line</button>
+            <div class='flex overflow-x-scroll pb-10'>
+                {inputs.map((input, i) => (
+                <div key={i} class='inline-block px-3 place-items-stretch'>
+                    <div>
+                        <input
                         name='key'
                         value={input.key}
                         onChange={event => handleInputChange(i, event)}
-                        placeholder='Key'
-                        class='border border-black py-2 px-4 rounded'
-                    />
-                    <input
+                        placeholder='Line'
+                        class='border border-black py-2 px-4 font-bold rounded'
+                        />{inputs.length !== 1 && (
+                            <button onClick={() => handleRemoveClick(i)} class='bg-lime-600 hover:bg-lime-800 text-white font-bold py-2 px-4 border border-lime-700 rounded'>-</button>
+                        )}
+                    </div>
+                    <div>
+                        <input
                         name='value'
                         value={input.value}
                         onChange={event => handleInputChange(i, event)}
-                        placeholder='Value'
+                        placeholder='Station'
                         class='border border-black py-2 px-4 rounded'
-                    />
-                    {inputs.length !== 1 && (
-                        <button onClick={() => handleRemoveClick(i)} class='bg-lime-600 hover:bg-lime-800 text-white font-bold py-2 px-4 border border-lime-700 rounded' >-</button>
-                    )}
-                    {inputs.length - 1 === i && (
-                        <button onClick={handleAddClick} class='bg-lime-600 hover:bg-lime-800 text-white font-bold py-2 px-4 border border-lime-700 rounded' >+</button>
-                    )}
+                        />
+                    </div>
                 </div>
-            ))}
-            <hr></hr>
+                ))}
+            </div>
             <button type='submit' class='px-4 py-2 font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700'>Submit</button>
         </form>
     )
