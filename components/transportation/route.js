@@ -90,13 +90,13 @@ const RouteDetails = () => {
 
                                 // Show "Transfer to the route" for the first station of the transfer pair
                                 if (station === stations[index + 1]) {
-routeNames[transferIndex] === "Walking" ? stationType = "(Walking)" :
+routeNames[transferIndex] === "Walking" ? stationType = "(Out-of-Station Interchange)" :
                                     stationType = routeNames[transferIndex]
                                         ? `(Transfer to the ${routeNames[transferIndex]})`
                                         : "(Transfer to the route)";
                                 } else {
                                     // Show "Transfer to the route" for the first station of the transfer pair
-routeNames[transferIndex] === "Walking" ? stationType = "(Walking)" :
+routeNames[transferIndex] === "Walking" ? stationType = "(Out-of-Station Interchange)" :
                                     stationType = routeNames[transferIndex]
                                         ? `(Transfer to the ${routeNames[transferIndex]})`
                                         : "(Transfer to the route)";
