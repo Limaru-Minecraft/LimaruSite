@@ -38,7 +38,7 @@ const RouteDetails = () => {
     let transferPoints = [];
 
     // Check for single route (without any transfers)
-    let isSingleRoute = true;
+    let isSingleRoute = false;
     for (let i = 1; i < routeSegments.length; i++) {
         if (routeSegments[i - 1]?.line !== routeSegments[i]?.line) {
             isSingleRoute = false;  // If route line changes, it's not a single route
