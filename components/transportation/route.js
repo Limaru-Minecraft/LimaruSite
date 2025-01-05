@@ -85,7 +85,7 @@ routeNames[0] === "Walking" ? firstStation = "(Out-of-Station Interchange)" :
                                     ? `(Take the ${routeNames[0]})`
                                     : "";
                             } else if (station === destination) {
-                                firstStation = "(This is your destination)";
+                                firstStation = "";
                             } else if (transferPoints.includes(station)) {
                                 const transferIndex = routeSegments.findIndex(
                                     seg => seg.from === station
