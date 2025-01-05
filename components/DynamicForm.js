@@ -2,50 +2,54 @@ import { useState } from 'react'
 import Heading from './LayoutComponents/Heading';
 
 export default function DynamicForm ({submitFunction}) {
-    const [inputs, setInputs] = useState([{line: '', stations: [''] }]);
+    const [routes, setRoutes] = useState([{line: '', stations: [''] }]);
 
     // handle change in input field
     const handleLineChange = (index, event) => {
         const {name, value} = event.target;
-        const list = [...inputs];
+        const list = [...routes];
         if (name === 'line') {
             list[index].line = value;
         }
-        setInputs(list);
+        setRoutes(list);
     };
 
     // handle station changes
     const handleStationChange = (lineIndex, stationIndex, event) => {
         const { value } = event.target;
-        const list = [...inputs];
+        const list = [...routes];
         list[lineIndex].stations[stationIndex] = value;
-        setInputs(list);
+        setRoutes(list);
     };
 
     // handle adding a line
     const handleAddLine = () => {
-        setInputs([...inputs, {line: '', stations: ['']}]);
+        setRoutes([...routes, {line: '', stations: ['']}]);
     };
 
     // handle removing a line
     const handleRemoveLine = index => {
-        const list = [...inputs];
+        const list = [...routes];
         list.splice(index, 1);
-        setInputs(list);
+        setRoutes(list);
     };
 
     // Handle adding a new station to a line
     const handleAddStation = (lineIndex) => {
-        const list = [...inputs];
+        const list = [...routes];
         list[lineIndex].stations.push('');
-        setInputs(list);
+        setRoutes(list);
+        const active = document.activeElement;
+        if (active?.nextElementSibling) {
+            active.nextElementSibling.focus();
+        }
     };
 
     // Handle removing a station from a line
     const handleRemoveStation = (lineIndex, stationIndex) => {
-        const list = [...inputs];
+        const list = [...routes];
         list[lineIndex].stations.splice(stationIndex, 1);
-        setInputs(list);
+        setRoutes(list);
     };
 
     const handleKeyDown = (event, type, lineIndex) => {
@@ -62,8 +66,8 @@ export default function DynamicForm ({submitFunction}) {
     // handle form submission
     const handleSubmit = event => {
         event.preventDefault();
-        submitFunction(inputs);
-    }    
+        submitFunction(routes);
+    }
 
     return (
         <form onSubmit={handleSubmit} class='flex flex-col'>
@@ -78,7 +82,7 @@ export default function DynamicForm ({submitFunction}) {
             <div class='flex overflow-x-scroll pb-10'>
 
             {/* Input lines */}
-                {inputs.map((input, i) => (
+                {routes.map((input, i) => (
                 <div key={i} class='inline-block px-3 place-items-stretch'>
                     <div class="inline-flex">
                         <input
@@ -89,7 +93,7 @@ export default function DynamicForm ({submitFunction}) {
                             placeholder='Line'
                             class='border border-black py-2 px-4 font-bold rounded'
                         />
-                        {inputs.length !== 1 && (
+                        {routes.length !== 1 && (
                         <button 
                             type="button" 
                             onClick={() => handleRemoveLine(i)} 
@@ -101,6 +105,14 @@ export default function DynamicForm ({submitFunction}) {
                 {/* Input stations */}
                     {input.stations.map((station, j) => (
                     <div key={j} className="flex items-center mt-2">
+                        {/* does nothing at the moment */}
+                        {/* <input 
+                            name='distance'
+                            type='number'
+                            min='0'
+                            placeholder='0'
+                            class='mt-2 px-4 py-2 w-1/6 rounded'
+                        /> */}
                         <input
                             name='stations'
                             value={station}
