@@ -18,9 +18,9 @@ const FareMap = class {
      */
     getClass (clazz) {
         let a = new Map();
-        this.fareMap.forEach(entry => {
+        this.fareMap.forEach( (entry) => {
             let d = entry.distance;
-            entry.fares.forEach( f => (f.clazz === clazz) && a.set(d, f.fare) );
+            entry.fares.forEach( (f) => (f.clazz === clazz) && a.set(d, f.fare) );
         });
         return a;
     }
@@ -28,19 +28,21 @@ const FareMap = class {
 
 export default function IciwiMakerForm ({submitFunction}) {
     const [routes, setRoutes] = useState([{ line: '', stations: [''] }]);
+    const [fares, setFares] = useState([{ distance: '', stations: [''] }]);
 
     // handle form submission
-    const handleSubmit = event => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        submitFunction(routes);
+        submitFunction(routes, fares);
     }
 
     return (
         <form onSubmit={handleSubmit} class='flex flex-col'>
             <Heading level={3}>Route table</Heading>
-            <RouteTable routes={routes} setRoutes={setRoutes} ></RouteTable>
+            <RouteTable routes={routes} setRoutes={setRoutes}></RouteTable>
 
             <Heading level={3}>Fare table</Heading>
+            <FareTable fares={fares} setFares={setFares}></FareTable>
             
             <button 
                 type='submit' 

@@ -7,8 +7,9 @@ import IciwiMakerForm from '@/components/IciwiMakerForm'
 
 export default function Home() {
 
-  const processTable = (e: any) => {
-    console.log('Form submitted:', e);
+  const processTable = (routes: any, fares: any) => {
+    console.log('Routes:', routes);
+    console.log('Fares:', fares);
   }
 
   return (
