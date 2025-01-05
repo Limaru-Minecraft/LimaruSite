@@ -32,6 +32,7 @@ const RouteDetails = () => {
     const origin = stations[0];
     const destination = stations[stations.length - 1];
     const intermediateStops = [];
+    let firstStation;
 
     // Track transfer points
     let transferPoints = [];
@@ -82,7 +83,7 @@ const RouteDetails = () => {
                             // Determine station type
                             let stationType;
                             if (station === origin) {
-                                stationType = routeNames[0]
+                                firstStation = routeNames[0]
                                     ? `(Take the ${routeNames[0]})`
                                     : "";
                             } else if (station === destination) {
@@ -142,7 +143,11 @@ const RouteDetails = () => {
                                             }}
                                         >
                                             {station}
-                                            
+                                            <span
+                                                className="ml-2 text-gray-500 italic"
+                                            >
+                                                {firstStation}
+                                            </span>
                                         </p>
                                     </div>
 
