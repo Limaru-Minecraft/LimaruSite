@@ -32,14 +32,12 @@ const RouteDetails = () => {
     const origin = stations[0];
     const destination = stations[stations.length - 1];
     const intermediateStops = [];
-   
 
     // Track transfer points
     let transferPoints = [];
 
     // Check for single route (without any transfers)
     let isSingleRoute = false;
-    
 
     // Track where the transfers occur
     for (let i = 1; i < stations.length - 1; i++) {
@@ -78,32 +76,26 @@ const RouteDetails = () => {
                             // Determine station type
                             let stationType;
                             let firstStation;
-                            
+
                             if (station === origin) {
-routeNames[0] === "Walking" ? firstStation = "(Out-of-Station Interchange)" :
-                                firstStation = routeNames[0]
-                                    ? `(Take the ${routeNames[0]})`
-                                    : "";
+                                firstStation =
+                                    routeNames[0] === "Walking"
+                                        ? "(Out-of-Station Interchange)"
+                                        : routeNames[0]
+                                        ? `(Take the ${routeNames[0]})`
+                                        : "";
                             } else if (station === destination) {
                                 firstStation = "";
                             } else if (transferPoints.includes(station)) {
                                 const transferIndex = routeSegments.findIndex(
-                                    seg => seg.from === station
+                                    (seg) => seg.from === station
                                 );
-
-                                // Show "Transfer to the route" for the first station of the transfer pair
-                                if (station === stations[index + 1]) {
-routeNames[transferIndex] === "Walking" ? stationType = "(Out-of-Station Interchange)" :
-                                    stationType = routeNames[transferIndex]
+                                stationType =
+                                    routeNames[transferIndex] === "Walking"
+                                        ? "(Out-of-Station Interchange)"
+                                        : routeNames[transferIndex]
                                         ? `(Transfer to the ${routeNames[transferIndex]})`
                                         : "(Transfer to the route)";
-                                } else {
-                                    // Show "Transfer to the route" for the first station of the transfer pair
-routeNames[transferIndex] === "Walking" ? stationType = "(Out-of-Station Interchange)" :
-                                    stationType = routeNames[transferIndex]
-                                        ? `(Transfer to the ${routeNames[transferIndex]})`
-                                        : "(Transfer to the route)";
-                                }
                             } else {
                                 firstStation = "";
                             }
@@ -128,24 +120,27 @@ routeNames[transferIndex] === "Walking" ? stationType = "(Out-of-Station Interch
                                                 <div
                                                     className="w-1 h-6 mx-auto"
                                                     style={{
-                                                        backgroundColor:
-                                                            isRouteChange
-                                                                ? "#ccc" // Gray line for transfer
-                                                                : routeSegments[index]?.color || "#ccc",
+                                                        backgroundColor: isRouteChange
+                                                            ? "#ccc" // Gray line for transfer
+                                                            : routeSegments[index]?.color || "#ccc",
                                                     }}
                                                 ></div>
                                             )}
                                         </div>
                                         <p
-                                            className="ml-4 text-sm flex items-center h-8"
+                                            className={`ml-4 text-sm flex items-center h-8 ${
+                                                station === origin ||
+                                                station === destination ||
+                                                transferPoints.includes(station)
+                                                    ? "font-bold"
+                                                    : ""
+                                            }`}
                                             style={{
                                                 marginTop: isLastStation ? "-8px" : "-24px",
                                             }}
                                         >
                                             {station}
-                                            <span
-                                                className="ml-2 text-gray-500 italic"
-                                            >
+                                            <span className="ml-2 text-gray-500 italic">
                                                 {firstStation}
                                             </span>
                                         </p>
@@ -175,27 +170,29 @@ routeNames[transferIndex] === "Walking" ? stationType = "(Out-of-Station Interch
                                                 <div
                                                     className="w-1 h-6 mx-auto"
                                                     style={{
-                                                        backgroundColor: routeSegments[index]?.color || "#ccc",
+                                                        backgroundColor:
+                                                            routeSegments[index]?.color || "#ccc",
                                                         marginTop: "-4px", // Aligns with the second transfer
                                                     }}
                                                 ></div>
                                             </div>
                                             <p
-                                                className="ml-4 text-sm flex items-center h-8"
+                                                className={`ml-4 text-sm flex items-center h-8 ${
+                                                    station === origin ||
+                                                    station === destination ||
+                                                    transferPoints.includes(station)
+                                                        ? "font-bold"
+                                                        : ""
+                                                }`}
                                                 style={{
                                                     marginTop: "-22px", // Move text down by 2px
                                                 }}
                                             >
                                                 {station}
-
-
-<span
-                                                className="ml-2 text-gray-500 italic"
-                                            >
-                                                {stationType}
-                                            </span>
+                                                <span className="ml-2 text-gray-500 italic">
+                                                    {stationType}
+                                                </span>
                                             </p>
-                                            
                                         </div>
                                     )}
                                 </React.Fragment>
