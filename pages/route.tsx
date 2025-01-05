@@ -17,9 +17,9 @@ const Home: React.FC = () => (
             keywords="limaru, limaru city server, limaru minecraft server, transport limaru, limaru transport"
         />
         <PageLayout title="Metro Route Finder">
-            <SectionBox>
-                <UnderConstruction type="page" />
-            </SectionBox>
+            {/*<SectionBox>*/}
+            {/*    <UnderConstruction type="page" />*/}
+            {/*</SectionBox>*/}
             <SectionBox >
                 <div style={{ position: 'relative', zIndex: 10 }}>
                     <Pathfinder/>
