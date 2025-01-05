@@ -178,8 +178,8 @@ const Pathfinder = () => {
 
     return (
         <div className="bg-white p-4 rounded shadow-md">
-            <div className="flex flex-wrap items-end gap-4">
-                <div>
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-end gap-4">
+                <div className="w-full sm:w-auto">
                     <label htmlFor="travel-option" className="block font-medium mb-1">
                         Travel Option:
                     </label>
@@ -187,8 +187,7 @@ const Pathfinder = () => {
                         id="travel-option"
                         value={selectedTravelOption}
                         onChange={(e) => setSelectedTravelOption(e.target.value)}
-                        className="border rounded p-2"
-                        style={{ width: "150px" }}
+                        className="border rounded p-2 w-full sm:w-auto"
                     >
                         {travelOptions.map((option) => (
                             <option key={option.value} value={option.value}>
@@ -198,8 +197,8 @@ const Pathfinder = () => {
                     </select>
                 </div>
 
-                <div className="flex-grow flex items-end gap-2">
-                    <div className="relative flex-1" ref={originRef}>
+                <div className="flex flex-col sm:flex-row flex-grow gap-2">
+                    <div className="relative flex-grow" ref={originRef}>
                         <label htmlFor="origin" className="block font-medium mb-1">
                             Origin:
                         </label>
@@ -207,7 +206,6 @@ const Pathfinder = () => {
                             type="text"
                             id="origin"
                             className="border rounded p-2 w-full"
-                            style={{ width: "300px" }}
                             value={origin}
                             onFocus={handleOriginFocus}
                             onChange={handleOriginChange}
@@ -215,7 +213,7 @@ const Pathfinder = () => {
                         {originSuggestions.length > 0 && (
                             <ul className="absolute bg-white border rounded mt-1 w-full max-h-40 overflow-auto">
                                 {originSuggestions
-                                    .sort((a, b) => a.localeCompare(b)) // Sort suggestions alphabetically
+                                    .sort((a, b) => a.localeCompare(b))
                                     .map((station) => (
                                         <li
                                             key={station}
@@ -233,13 +231,13 @@ const Pathfinder = () => {
                     </div>
 
                     <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded self-center"
                         onClick={handleSwap}
                     >
                         ⇄
                     </button>
 
-                    <div className="relative flex-1" ref={destinationRef}>
+                    <div className="relative flex-grow" ref={destinationRef}>
                         <label htmlFor="destination" className="block font-medium mb-1">
                             Destination:
                         </label>
@@ -247,7 +245,6 @@ const Pathfinder = () => {
                             type="text"
                             id="destination"
                             className="border rounded p-2 w-full"
-                            style={{ width: "300px" }}
                             value={destination}
                             onFocus={handleDestinationFocus}
                             onChange={handleDestinationChange}
@@ -255,7 +252,7 @@ const Pathfinder = () => {
                         {destinationSuggestions.length > 0 && (
                             <ul className="absolute bg-white border rounded mt-1 w-full max-h-40 overflow-auto">
                                 {destinationSuggestions
-                                    .sort((a, b) => a.localeCompare(b)) // Sort suggestions alphabetically
+                                    .sort((a, b) => a.localeCompare(b))
                                     .map((station) => (
                                         <li
                                             key={station}
@@ -273,9 +270,9 @@ const Pathfinder = () => {
                     </div>
                 </div>
 
-                <div>
+                <div className="w-full sm:w-auto">
                     <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-auto"
                         onClick={handleFindRoute}
                     >
                         Find Route

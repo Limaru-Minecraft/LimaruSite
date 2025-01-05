@@ -41,7 +41,7 @@ const Status = () => {
             case "Not Busy":
                 return "bg-green-500 text-white";
             default:
-                return "bg-blue-500 text-white";
+                return "bg-gray-500 text-white";
         }
     };
 
