@@ -11,7 +11,7 @@ const allStations = Object.keys(routes);
 // Function to check if a direct route exists
 function findDirectRoute(graph, start, end) {
     if (graph[start] && graph[start][end]) {
-        return [start, end]; // Return the direct route path if it exists
+        return { path: [start, end], distance: graph[start][end].distance }; // Return the path and distance
     }
     return null;
 }
@@ -50,22 +50,30 @@ function findAllPaths(graph, start, end, allowedTypes) {
     return paths;
 }
 
-// Function to select the path with the minimum station count
+// Function to select the path with the minimum total distance
 function findShortestRouteByStations(graph, start, end, allowedTypes) {
     const allPaths = findAllPaths(graph, start, end, allowedTypes);
 
-    // Find the path with the minimum number of stations (length)
-    let minPath = null;
-    let minLength = Infinity;
+    let shortestPath = null;
+    let minDistance = Infinity;
 
     allPaths.forEach((path) => {
-        if (path.length < minLength) {
-            minLength = path.length;
-            minPath = path;
+        let totalDistance = 0;
+        for (let i = 0; i < path.length - 1; i++) {
+            const current = path[i];
+            const next = path[i + 1];
+            if (graph[current] && graph[current][next]) {
+                totalDistance += graph[current][next].distance;
+            }
+        }
+
+        if (totalDistance < minDistance) {
+            minDistance = totalDistance;
+            shortestPath = path;
         }
     });
 
-    return minPath;
+    return { path: shortestPath, distance: minDistance };
 }
 
 const Pathfinder = () => {
@@ -131,30 +139,29 @@ const Pathfinder = () => {
             return;
         }
 
-        // First, try to find a direct route (single route)
         const directRoute = findDirectRoute(routes, origin, destination);
 
         if (directRoute) {
-            // If a direct route is found, use it and redirect
             router.push({
                 pathname: "/route",
                 query: {
-                    path: directRoute.join(","),
+                    path: directRoute.path.join(","),
+                    distance: directRoute.distance,
                     origin,
                     destination,
                     travelOption: selectedTravelOption,
                 },
             });
         } else {
-            // If no direct route is found, find the shortest path (with transfers)
             const allowedTypes =
                 selectedTravelOption === "all" ? null : selectedTravelOption.split("-and-");
-            const calculatedPath = findShortestRouteByStations(routes, origin, destination, allowedTypes);
+            const calculatedRoute = findShortestRouteByStations(routes, origin, destination, allowedTypes);
 
             router.push({
                 pathname: "/route",
                 query: {
-                    path: calculatedPath ? calculatedPath.join(",") : "",
+                    path: calculatedRoute.path ? calculatedRoute.path.join(",") : "",
+                    distance: calculatedRoute.distance || 0,
                     origin,
                     destination,
                     travelOption: selectedTravelOption,
@@ -181,7 +188,7 @@ const Pathfinder = () => {
                         value={selectedTravelOption}
                         onChange={(e) => setSelectedTravelOption(e.target.value)}
                         className="border rounded p-2"
-                        style={{width: "150px"}}
+                        style={{ width: "150px" }}
                     >
                         {travelOptions.map((option) => (
                             <option key={option.value} value={option.value}>
@@ -200,7 +207,7 @@ const Pathfinder = () => {
                             type="text"
                             id="origin"
                             className="border rounded p-2 w-full"
-                            style={{width: "300px"}}
+                            style={{ width: "300px" }}
                             value={origin}
                             onFocus={handleOriginFocus}
                             onChange={handleOriginChange}
@@ -208,19 +215,19 @@ const Pathfinder = () => {
                         {originSuggestions.length > 0 && (
                             <ul className="absolute bg-white border rounded mt-1 w-full max-h-40 overflow-auto">
                                 {originSuggestions
-.sort((a, b) => a.localeCompare(b))
-.map((station) => (
-                                    <li
-                                        key={station}
-                                        className="p-2 hover:bg-gray-200 cursor-pointer"
-                                        onClick={() => {
-                                            setOrigin(station);
-                                            setOriginSuggestions([]);
-                                        }}
-                                    >
-                                        {station}
-                                    </li>
-                                ))}
+                                    .sort((a, b) => a.localeCompare(b)) // Sort suggestions alphabetically
+                                    .map((station) => (
+                                        <li
+                                            key={station}
+                                            className="p-2 hover:bg-gray-200 cursor-pointer"
+                                            onClick={() => {
+                                                setOrigin(station);
+                                                setOriginSuggestions([]);
+                                            }}
+                                        >
+                                            {station}
+                                        </li>
+                                    ))}
                             </ul>
                         )}
                     </div>
@@ -240,7 +247,7 @@ const Pathfinder = () => {
                             type="text"
                             id="destination"
                             className="border rounded p-2 w-full"
-                            style={{width: "300px"}}
+                            style={{ width: "300px" }}
                             value={destination}
                             onFocus={handleDestinationFocus}
                             onChange={handleDestinationChange}
@@ -248,19 +255,19 @@ const Pathfinder = () => {
                         {destinationSuggestions.length > 0 && (
                             <ul className="absolute bg-white border rounded mt-1 w-full max-h-40 overflow-auto">
                                 {destinationSuggestions
-.sort((a, b) => a.localeCompare(b))
-.map((station) => (
-                                    <li
-                                        key={station}
-                                        className="p-2 hover:bg-gray-200 cursor-pointer"
-                                        onClick={() => {
-                                            setDestination(station);
-                                            setDestinationSuggestions([]);
-                                        }}
-                                    >
-                                        {station}
-                                    </li>
-                                ))}
+                                    .sort((a, b) => a.localeCompare(b)) // Sort suggestions alphabetically
+                                    .map((station) => (
+                                        <li
+                                            key={station}
+                                            className="p-2 hover:bg-gray-200 cursor-pointer"
+                                            onClick={() => {
+                                                setDestination(station);
+                                                setDestinationSuggestions([]);
+                                            }}
+                                        >
+                                            {station}
+                                        </li>
+                                    ))}
                             </ul>
                         )}
                     </div>
