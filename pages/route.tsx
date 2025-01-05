@@ -20,8 +20,13 @@ const Home: React.FC = () => (
             <SectionBox>
                 <UnderConstruction type="page" />
             </SectionBox>
+
             <SectionBox>
                 <Route/>
+            </SectionBox>
+<SectionBox>
+                <Heading level={2}>Find another route</Heading>
+                <Pathfinder />
             </SectionBox>
         </PageLayout>
     </>
