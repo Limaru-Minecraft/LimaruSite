@@ -207,7 +207,9 @@ const Pathfinder = () => {
                         />
                         {originSuggestions.length > 0 && (
                             <ul className="absolute bg-white border rounded mt-1 w-full max-h-40 overflow-auto">
-                                {originSuggestions.map((station) => (
+                                {originSuggestions
+.sort((a, b) => a.name.localeCompare(b.name))
+.map((station) => (
                                     <li
                                         key={station}
                                         className="p-2 hover:bg-gray-200 cursor-pointer"
@@ -245,7 +247,9 @@ const Pathfinder = () => {
                         />
                         {destinationSuggestions.length > 0 && (
                             <ul className="absolute bg-white border rounded mt-1 w-full max-h-40 overflow-auto">
-                                {destinationSuggestions.map((station) => (
+                                {destinationSuggestions
+.sort((a, b) => a.name.localeCompare(b.name))
+.map((station) => (
                                     <li
                                         key={station}
                                         className="p-2 hover:bg-gray-200 cursor-pointer"
