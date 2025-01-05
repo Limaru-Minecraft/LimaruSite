@@ -10,7 +10,7 @@ export default function FareTable ({ fares, setFares }) {
 	};
 
 	const handleAddRow = () => {
-		setFares([...fares, Array(fares.length).fill('')]);	
+		setFares([...fares, Array(fares[0].length).fill('')]);	
 	};
 
 	const handleAddCol = () => {
@@ -45,13 +45,14 @@ export default function FareTable ({ fares, setFares }) {
             class='px-4 py-2 font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700 mb-4' 
 		>Add column</button>
 			
+<div class='grid gap-2'>
 		{/* Headers */}
 			<div>
 			{fares[0].map( (header, j) => (
-			<span>
+			<span key={j}>
 				<input
 					name='fare'
-					value={header}
+					value={j == 0 ? "Distance" : header}
 					onChange={event => handleChange(0, j, event)}
 					placeholder='Fare class'
 					class='border border-black py-2 px-4 font-bold rounded'
@@ -60,23 +61,24 @@ export default function FareTable ({ fares, setFares }) {
 				<button
 					type='button'
 					onClick={() => handleRemoveCol(j)}
-					className="ml-2 px-4 py-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700"
+					className="m-2 px-4 py-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700"
 				>-</button>
 				)}
 			</span>
 			))}
 			</div>
 			
+		{/* Items */}
 			{fares.map( (item, i) => i != 0 && (
-			<div>
+			<div key={i}>
 				{item.map( (fare, j) => (
-				<span>
+				<span key={j}>
 					<input
 						name='fare'
 						value={fare}
 						onChange={event => handleChange(i, j, event)}
 						placeholder='Amount'
-						class='border border-black py-2 px-4 font-bold rounded'
+						class='border border-black py-2 px-4 rounded'
 					/>
 				</span>
 				))}
@@ -89,6 +91,7 @@ export default function FareTable ({ fares, setFares }) {
 				</span>
 			</div>
 			))}
+</div>
 		
 		</div>
 	);
