@@ -142,11 +142,7 @@ const RouteDetails = () => {
                                             }}
                                         >
                                             {station}
-                                            <span
-                                                className="ml-2 text-gray-500 italic"
-                                            >
-                                                {stationType}
-                                            </span>
+                                            
                                         </p>
                                     </div>
 
@@ -187,6 +183,11 @@ const RouteDetails = () => {
                                             >
                                                 {station}
                                             </p>
+                                            <span
+                                                className="ml-2 text-gray-500 italic"
+                                            >
+                                                {stationType}
+                                            </span>
                                         </div>
                                     )}
                                 </React.Fragment>
