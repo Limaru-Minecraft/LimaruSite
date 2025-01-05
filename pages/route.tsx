@@ -18,6 +18,9 @@ const Home: React.FC = () => (
         />
         <PageLayout title="Metro Route Finder">
             <SectionBox>
+                <UnderConstruction type="page" />
+            </SectionBox>
+            <SectionBox>
                 <Route/>
             </SectionBox>
         </PageLayout>
