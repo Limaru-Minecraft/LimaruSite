@@ -1,5 +1,28 @@
-import { useState } from 'react'
+import { useState, createRef } from 'react'
 import Heading from './LayoutComponents/Heading';
+
+const FareMap = class {
+    /**
+     * Create a FareMap
+     * @param {Array<{distance: Number, fares: Array<{clazz: String, fare: Number}>}>} fareMap 
+     */
+    constructor (fareMap) {
+        this.fareMap = fareMap;
+    }
+
+    /**
+     * 
+     * @param {String} clazz 
+     */
+    getClass (clazz) {
+        let a = new Map();
+        this.fareMap.forEach(entry => {
+            let d = entry.distance;
+            entry.fares.forEach( f => (f.clazz === clazz) && a.set(d, f.fare) );
+        });
+        return a;
+    }
+}
 
 export default function DynamicForm ({submitFunction}) {
     const [routes, setRoutes] = useState([{line: '', stations: [''] }]);
