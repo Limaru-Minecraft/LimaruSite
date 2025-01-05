@@ -11,7 +11,7 @@ const Status = () => {
     useEffect(() => {
         fetch(
             // API
-            "https://script.google.com/macros/s/AKfycbwhLwzCjcyvSY4jXgGRcNPJilZzRhlmKp_oJUSl7qxI4Wk80yLbZSxt5y0LMxLWX7UyYQ/exec"
+            "https://script.google.com/macros/s/AKfycbwwRXuVfw8rIlqiWcUV9LLnCXJdhypmyVCs-J4njJuRv5jZd3NOXegTbiZcjo3uYlLaug/exec"
             // API
         )
             .then((response) => response.json())
