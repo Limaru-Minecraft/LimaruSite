@@ -105,7 +105,7 @@ const RouteDetails = () => {
                                         : "(Transfer to the route)";
                                 }
                             } else {
-                                stationType = "";
+                                firstStation = "";
                             }
 
                             return (
