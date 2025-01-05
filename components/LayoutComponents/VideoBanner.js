@@ -58,14 +58,14 @@ export default function VideoBanner({YouTubeVideoID, title, subtitle, serverip=f
                         </span>
                     </Heading>
                     <p className="text-2xl text-left mb-8 drop-shadow-md">
-                        <span className="bg-yellow-700 px-2 box-decoration-clone">
+                        <span className="bg-yellow-400 font-medium text-gray-900 px-2 box-decoration-clone">
                             {subtitle}
                         </span>
                     </p>
                     {serverip && (
                         <button
                             onClick={handleClick}
-                            className="flex items-center space-x-2 py-2 px-4 mb-8 text-xl font-semibold text-white bg-stone-800 border-4 border-stone-300 rounded-md hover:border-yellow-300 hover:shadow-xl shadow-yellow-400 focus:outline-none focus:ring-2"
+                            className="flex items-center space-x-2 py-2 px-4 mb-8 text-xl font-semibold text-white bg-stone-800 border-4 border-stone-300 rounded-md hover:border-yellow-400 hover:shadow-xl shadow-yellow-400 focus:outline-none focus:ring-2"
                             title="Click to copy!"
                             >
                             <code>play.limaru.net</code>
@@ -86,7 +86,7 @@ export default function VideoBanner({YouTubeVideoID, title, subtitle, serverip=f
                     </p>
                     <button
                         onClick={handleClick}
-                        className="flex items-center space-x-2 py-2 px-4 mb-8 text-xl font-semibold text-white bg-stone-800 border-4 border-stone-300 rounded-md hover:border-yellow-300 hover:shadow-xl shadow-yellow-400 focus:outline-none focus:ring-2"
+                        className="flex items-center space-x-2 py-2 px-4 mb-8 text-xl font-semibold text-white bg-stone-800 border-4 border-stone-300 rounded-md hover:border-yellow-400 hover:shadow-xl shadow-yellow-400 focus:outline-none focus:ring-2"
                         title="Click to copy!"
                         >
                         <code>play.limaru.net</code>

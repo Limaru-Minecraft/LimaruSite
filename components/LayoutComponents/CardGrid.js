@@ -9,7 +9,7 @@ export default function CardGrid({ items }) {
         <Link
           href={item.href}
           key={item.title}
-          className="flex flex-col border rounded-md transition duration-300 hover:-translate-y-1 hover:text-white hover:bg-yellow-700 hover:shadow-md"
+          className="flex flex-col border rounded-md transition duration-300 hover:-translate-y-1 hover:bg-yellow-400 hover:shadow-md"
           target={item.newtab ? '_blank' : ''}
         >
           {item.image && (
