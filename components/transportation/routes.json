@@ -1,634 +1,884 @@
 {
+  "Kimitsu": {
+    "Taura": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Shinten"
+    },
+    "The End Mines": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
+    }
+  },
+  "Taura": {
+    "Kimitsu": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Kimitsu"
+    },
+    "Chitose": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Shinten"
+    }
+  },
+  "Chitose": {
+    "Taura": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Kimitsu"
+    },
+    "Maekawa": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Shinten"
+    }
+  },
+  "Maekawa": {
+    "Chitose": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Kimitsu"
+    },
+    "Kotoha": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Shinten"
+    }
+  },
+  "Kotoha": {
+    "Maekawa": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Kimitsu"
+    },
+    "Mizuno Filius": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Shinten"
+    }
+  },
+  "Mizuno Filius": {
+    "Kotoha": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Kimitsu"
+    },
+    "Brentwood": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    }
+  },
+  "Brentwood": {
+    "Mizuno Filius": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    },
+    "Brentwood Pier": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Flower Hill"
+    }
+  },
+  "Brentwood Pier": {
+    "Brentwood": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    },
+    "Twyford": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Flower Hill"
+    }
+  },
+  "Twyford": {
+    "Minagi": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    },
+    "Brentwood Pier": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    },
+    "Eastminster": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Twyford Branch)",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "Twyford"
+    }
+  },
+  "Minagi": {
+    "Twyford": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    },
+    "Otaki": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    },
+    "Sorawo": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
+    },
+    "Pineappleton": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
+    }
+  },
+  "Otaki": {
+    "Minagi": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    },
+    "Hokuyo": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    }
+  },
+  "Hokuyo": {
+    "Otaki": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    },
+    "Maruyama": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Shinten"
+    },
+    "Mizuna": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    }
+  },
+  "Maruyama": {
+    "Hokuyo": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Kimitsu"
+    },
+    "Shinten": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Shinten"
+    }
+  },
+  "Shinten": {
+    "Maruyama": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Kotoha Line",
+      "color": "#15754c",
+      "routeDestination": "Kimitsu"
+    }
+  },
   "Epping": {
     "Eastminster": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     }
   },
   "Eastminster": {
     "Epping": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Sakauji and Ashfield": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Twyford": {
       "distance": 1,
       "type": "metro",
       "line": "Tozai Line (Twyford Branch)",
-      "color": "#34eb9e"
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "Twyford"
     }
   },
   "Sakauji and Ashfield": {
     "Eastminster": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Nakano": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     }
   },
   "Nakano": {
     "Sakauji and Ashfield": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Sakae": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Senri": {
       "distance": 1,
       "type": "metro",
       "line": "Keishin Line (Eastern Section)",
-      "color": "#20aae6"
+      "color": "#00aaff",
+      "frequency": 7,
+      "routeDestination": "Pineappleton"
     }
   },
   "Sakae": {
     "Nakano": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "University": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     }
   },
   "University": {
     "Sakae": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Civic Square": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     }
   },
   "Civic Square": {
     "University": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Downtown": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     }
   },
   "Downtown": {
     "Civic Square": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Legacy Road": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Kaname": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     },
-    "Kaspar's Crossing": {
-      "distance": 2,
+    "✈ Lipan Airport": {
+      "distance": 20,
       "type": "metro",
-      "line": "Walking",
-      "color": "#2b2b2b"
+      "line": "Lipan-Downtown Replacement Bus",
+      "color": "#2b2b2b",
+      "routeDestination": "Kaspar's Crossing"
     }
   },
   "Legacy Road": {
     "Downtown": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Highgate": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     }
   },
   "Highgate": {
     "Legacy Road": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Bartley Gate": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     }
   },
   "Bartley Gate": {
     "Highgate": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Municipal District": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     }
   },
   "Municipal District": {
     "Bartley Gate": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Rising Sun": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     }
   },
   "Rising Sun": {
     "Municipal District": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "Land's End": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     }
   },
   "Land's End": {
     "Rising Sun": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     },
     "YJJ City Main Station": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     }
   },
   "YJJ City Main Station": {
     "Land's End": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Main)",
-      "color": "#34eb9e"
+      "line": "Tozai Line",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "routeDestination": "YJJ City Main Station"
     }
   },
-  "Twyford": {
-
-  "Minagi": {
-    "Brentwood Pier": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    },
-    "distance": 1,
-    "type": "metro",
-    "line": "Tokaido Line",
-    "color": "#8f4f17"
-  },
-    "Eastminster": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tozai Line (Twyford Branch)",
-      "color": "#34eb9e"
-    }
-},
   "Senri": {
     "Nakano": {
       "distance": 1,
       "type": "metro",
       "line": "Keishin Line (Eastern Section)",
-      "color": "#20aae6"
+      "color": "#00aaff",
+      "frequency": 7,
+      "routeDestination": "Pineappleton"
     },
     "Pineappleton": {
       "distance": 1,
       "type": "metro",
       "line": "Keishin Line (Eastern Section)",
-      "color": "#20aae6"
+      "color": "#00aaff",
+      "frequency": 7,
+      "routeDestination": "Pineappleton"
     }
   },
   "Pineappleton": {
-
-  "Minagi": {
-    "distance": 10,
-    "type": "metro",
-    "line": "Tennoji Line",
-    "color": "#119c2d"
-  },
     "Senri": {
       "distance": 1,
       "type": "metro",
       "line": "Keishin Line (Eastern Section)",
-      "color": "#20aae6"
-    },
-    "New Traxia": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
+      "color": "#00aaff",
+      "frequency": 7,
+      "routeDestination": "Pineappleton"
     },
     "Chiyoda University": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Chiyoda Line",
-      "color": "#eded1a"
-    }
-  },
-  "Kimitsu": {
-    "The End Mines": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
+      "color": "#ffd500",
+      "frequency": 4,
+      "routeDestination": "Pineappleton"
     },
-    "Taura": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Kotoha Line",
-      "color": "#0d6939"
-    }
-  },
-  "The End Mines": {
-    "Kimitsu": {
-      "distance": 1,
+    "Minagi": {
+      "distance": 10,
       "type": "metro",
       "line": "Tennoji Line",
-      "color": "#119c2d"
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
     },
-    "Mori": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    }
-  },
-  "Mori": {
-    "The End Mines": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    },
-    "Sorawo": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    }
-  },
-  "Sorawo": {
-
-  "Minagi": {
-    "distance": 10,
-    "type": "metro",
-    "line": "Tennoji Line",
-    "color": "#119c2d"
-  },
-    "Mori": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    }
-  },
-  "Minagi": {
-
-  "Otaki": {
-    "distance": 1,
-    "type": "metro",
-    "line": "Tokaido Line",
-    "color": "#8f4f17"
-  },
-    "Sorawo": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    },
-    "Pineappleton": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    },
-    "Twyford": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    }
-  },
-  "New Traxia": {
-    "Pineappleton": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    },
-    "Shortwood": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    }
-  },
-  "Shortwood": {
     "New Traxia": {
-      "distance": 1,
+      "distance": 10,
       "type": "metro",
       "line": "Tennoji Line",
-      "color": "#119c2d"
-    },
-    "Yachiyo Castle": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    }
-  },
-  "Yachiyo Castle": {
-    "Shortwood": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    },
-    "Pelle East": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    },
-    "Akane": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Namboku Line",
-      "color": "#1dde16"
-    },
-    "Iwanoyuki": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Namboku Line",
-      "color": "#1dde16"
-    }
-  },
-  "Pelle East": {
-    "Yachiyo Castle": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    },
-    "Pelle Junction": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
-    }
-  },
-  "Pelle Junction": {
-    "Pelle East": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tennoji Line",
-      "color": "#119c2d"
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
     }
   },
   "Tuck Park": {
     "Sakurami": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Central Line",
-      "color": "#55de16"
+      "color": "#aaff00",
+      "frequency": 4,
+      "routeDestination": "Yachiyo"
     }
   },
   "Sakurami": {
     "Tuck Park": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Central Line",
-      "color": "#55de16"
+      "color": "#aaff00",
+      "frequency": 4,
+      "routeDestination": "Yachiyo"
     },
     "Kaname": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Central Line",
-      "color": "#55de16"
+      "color": "#aaff00",
+      "frequency": 4,
+      "routeDestination": "Yachiyo"
     }
   },
   "Kaname": {
     "Sakurami": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Central Line",
-      "color": "#55de16"
+      "color": "#aaff00",
+      "frequency": 4,
+      "routeDestination": "Yachiyo"
     },
     "Yachiyo": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     },
     "Downtown": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
+    },
+    "Minami": {
+      "distance": 20,
+      "type": "metro",
+      "line": "Plazma Paradize Shuttle Bus",
+      "color": "#2b2b2b",
+      "routeDestination": "Minami"
     }
   },
   "Yachiyo": {
     "Kaname": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     },
     "Kasuga": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     }
   },
   "Kasuga": {
     "Yachiyo": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     },
     "Akane": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     }
   },
   "Akane": {
     "Kasuga": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     },
     "Yachiyo Castle": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
+    }
+  },
+  "Yachiyo Castle": {
+    "Akane": {
+      "distance": 5,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
+    },
+    "Iwanoyuki": {
+      "distance": 5,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
+    },
+    "Shortwood": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
+    },
+    "Pelle East": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
     }
   },
   "Iwanoyuki": {
     "Yachiyo Castle": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     },
     "Karasuma": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     }
   },
   "Karasuma": {
     "Iwanoyuki": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     },
     "Emmaru Central": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     }
   },
   "Emmaru Central": {
-    "Karasuma": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Namboku Line",
-      "color": "#1dde16"
-    },
-    "Nihombashi": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Namboku Line",
-      "color": "#1dde16"
-    },
     "Emmaru West": {
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     },
     "Gojo": {
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    },
+    "Karasuma": {
+      "distance": 5,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
+    },
+    "Nihombashi": {
+      "distance": 5,
+      "type": "metro",
+      "line": "Namboku Line",
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     }
   },
   "Nihombashi": {
     "Emmaru Central": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     },
     "Narutaki": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     }
   },
   "Narutaki": {
     "Nihombashi": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     },
     "Tokiwa": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     }
   },
   "Tokiwa": {
     "Narutaki": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     },
     "Katsuragi Chinatown": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     }
   },
   "Katsuragi Chinatown": {
     "Tokiwa": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Namboku Line",
-      "color": "#1dde16"
+      "color": "#00cc00",
+      "frequency": 4,
+      "routeDestination": "Katsuragi Chinatown"
     }
   },
   "Flower Hill": {
@@ -636,7 +886,9 @@
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     }
   },
   "Emmaru West": {
@@ -644,13 +896,17 @@
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     },
     "Emmaru Central": {
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     }
   },
   "Gojo": {
@@ -658,28 +914,35 @@
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     },
     "Kyobashi": {
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     }
   },
   "Kyobashi": {
-
-  "Kingston Park": {
-    "distance": 1,
-    "type": "metro",
-    "line": "Tokaido Line",
-    "color": "#8f4f17"
-  },
+    "Kingston Park": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tokaido Line",
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
+    },
     "Gojo": {
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     }
   },
   "Kingston Park": {
@@ -687,25 +950,33 @@
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     },
     "Shinsei": {
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     },
     "Emmaru Port": {
-      "distance": 10,
+      "distance": 5,
       "type": "metro",
       "line": "Chiyoda Line",
-      "color": "#eded1a"
+      "color": "#ffd500",
+      "frequency": 4,
+      "routeDestination": "Pineappleton"
     },
     "Earlsgate": {
-      "distance": 10,
+      "distance": 5,
       "type": "metro",
       "line": "Chiyoda Line",
-      "color": "#eded1a"
+      "color": "#ffd500",
+      "frequency": 4,
+      "routeDestination": "Pineappleton"
     }
   },
   "Shinsei": {
@@ -713,13 +984,17 @@
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     },
     "Mizuna": {
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     }
   },
   "Mizuna": {
@@ -727,177 +1002,181 @@
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     },
     "Hokuyo": {
       "distance": 1,
       "type": "metro",
       "line": "Tokaido Line",
-      "color": "#8f4f17"
-    }
-  },
-  "Hokuyo": {
-
-  "Minagi": {
-    "distance": 1,
-    "type": "metro",
-    "line": "Tokaido Line",
-    "color": "#8f4f17"
-  },
-    "Mizuna": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    },
-    "Otaki": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    }
-  },
-  "Otaki": {
-    "Hokuyo": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    }
-  },
-  "Brentwood Pier": {
-    "Twyford": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    },
-    "Brentwood": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    }
-  },
-  "Brentwood": {
-
-  "Mizuno Filius": {
-    "distance": 1,
-    "type": "metro",
-    "line": "Tokaido Line",
-    "color": "#8f4f17"
-  },
-    "Brentwood Pier": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    }
-  },
-  "Mizuno Filius": {
-    "Brentwood": {
-      "distance": 1,
-      "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8f4f17"
-    },
-    "Kotoha": {
-      "distance": 10,
-      "type": "metro",
-      "line": "Kotoha Line",
-      "color": "#0d6939"
+      "color": "#8b4513",
+      "frequency": 4,
+      "routeDestination": "Mizuno Filius"
     }
   },
   "Emmaru Port": {
     "Kingston Park": {
-      "distance": 10,
+      "distance": 5,
       "type": "metro",
       "line": "Chiyoda Line",
-      "color": "#eded1a"
+      "color": "#ffd500",
+      "frequency": 4,
+      "routeDestination": "Pineappleton"
     }
   },
   "Earlsgate": {
     "Kingston Park": {
-      "distance": 10,
+      "distance": 5,
       "type": "metro",
       "line": "Chiyoda Line",
-      "color": "#eded1a"
+      "color": "#ffd500",
+      "frequency": 4,
+      "routeDestination": "Pineappleton"
     },
     "Chiyoda University": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Chiyoda Line",
-      "color": "#eded1a"
+      "color": "#ffd500",
+      "frequency": 4,
+      "routeDestination": "Pineappleton"
     }
   },
   "Chiyoda University": {
     "Earlsgate": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Chiyoda Line",
-      "color": "#eded1a"
+      "color": "#ffd500",
+      "frequency": 4,
+      "routeDestination": "Pineappleton"
     },
     "Pineappleton": {
-      "distance": 1,
+      "distance": 5,
       "type": "metro",
       "line": "Chiyoda Line",
-      "color": "#eded1a"
+      "color": "#ffd500",
+      "frequency": 4,
+      "routeDestination": "Pineappleton"
     }
   },
-  "Kotoha": {
-    "Mizuno Filius": {
+  "The End Mines": {
+    "Kimitsu": {
       "distance": 10,
       "type": "metro",
-      "line": "Kotoha Line",
-      "color": "#0d6939"
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
     },
-    "Maekawa": {
-      "distance": 1,
+    "Mori": {
+      "distance": 10,
       "type": "metro",
-      "line": "Kotoha Line",
-      "color": "#0d6939"
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
     }
   },
-  "Maekawa": {
-    "Kotoha": {
-      "distance": 1,
+  "Mori": {
+    "The End Mines": {
+      "distance": 10,
       "type": "metro",
-      "line": "Kotoha Line",
-      "color": "#0d6939"
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
     },
-    "Chitose": {
-      "distance": 1,
+    "Sorawo": {
+      "distance": 10,
       "type": "metro",
-      "line": "Kotoha Line",
-      "color": "#0d6939"
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
     }
   },
-  "Chitose": {
-    "Maekawa": {
-      "distance": 1,
+  "Sorawo": {
+    "Mori": {
+      "distance": 10,
       "type": "metro",
-      "line": "Kotoha Line",
-      "color": "#0d6939"
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
     },
-    "Taura": {
-      "distance": 1,
+    "Minagi": {
+      "distance": 10,
       "type": "metro",
-      "line": "Kotoha Line",
-      "color": "#0d6939"
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
     }
   },
-  "Taura": {
-    "Chitose": {
-      "distance": 1,
+  "New Traxia": {
+    "Pineappleton": {
+      "distance": 10,
       "type": "metro",
-      "line": "Kotoha Line",
-      "color": "#0d6939"
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
     },
-    "Kimitsu": {
-      "distance": 1,
+    "Shortwood": {
+      "distance": 10,
       "type": "metro",
-      "line": "Kotoha Line",
-      "color": "#0d6939"
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
+    }
+  },
+  "Shortwood": {
+    "New Traxia": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
+    },
+    "Yachiyo Castle": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
+    }
+  },
+  "Pelle East": {
+    "Yachiyo Castle": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
+    },
+    "Pelle Junction": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
+    }
+  },
+  "Pelle Junction": {
+    "Pelle East": {
+      "distance": 10,
+      "type": "metro",
+      "line": "Tennoji Line",
+      "color": "#008800",
+      "frequency": 4,
+      "routeDestination": "Pelle Junction"
     }
   },
   "Kaspar's Crossing": {
@@ -905,13 +1184,16 @@
       "distance": 1,
       "type": "metro",
       "line": "Lipan Line",
-      "color": "#f01313"
+      "color": "#ee2222",
+      "frequency": 4,
+      "routeDestination": "Moss Vale"
     },
-    "Downtown": {
-      "distance": 2,
+    "✈ Lipan Airport": {
+      "distance": 20,
       "type": "metro",
-      "line": "Walking",
-      "color": "#2b2b2b"
+      "line": "Lipan-Downtown Replacement Bus",
+      "color": "#2b2b2b",
+      "routeDestination": "Downtown"
     }
   },
   "Lilydale Junction": {
@@ -919,19 +1201,25 @@
       "distance": 1,
       "type": "metro",
       "line": "Lipan Line",
-      "color": "#f01313"
+      "color": "#ee2222",
+      "frequency": 4,
+      "routeDestination": "Kaspar's Crossing"
     },
     "Tulip Peak": {
       "distance": 1,
       "type": "metro",
       "line": "Lipan Line",
-      "color": "#f01313"
+      "color": "#ee2222",
+      "frequency": 4,
+      "routeDestination": "Moss Vale"
     },
     "Lilydale Citadel": {
       "distance": 1,
       "type": "metro",
-      "line": "Lipan Line (Branch)",
-      "color": "#f01313"
+      "line": "Lipan Line (Citadel Branch)",
+      "color": "#ee2222",
+      "frequency": 4,
+      "routeDestination": "Lilydale Citadel"
     }
   },
   "Tulip Peak": {
@@ -939,13 +1227,17 @@
       "distance": 1,
       "type": "metro",
       "line": "Lipan Line",
-      "color": "#f01313"
+      "color": "#ee2222",
+      "frequency": 4,
+      "routeDestination": "Moss Vale"
     },
     "Great Cliff": {
       "distance": 1,
       "type": "metro",
       "line": "Lipan Line",
-      "color": "#f01313"
+      "color": "#ee2222",
+      "frequency": 4,
+      "routeDestination": "Moss Vale"
     }
   },
   "Great Cliff": {
@@ -953,13 +1245,17 @@
       "distance": 1,
       "type": "metro",
       "line": "Lipan Line",
-      "color": "#f01313"
+      "color": "#ee2222",
+      "frequency": 4,
+      "routeDestination": "Moss Vale"
     },
     "Rouge Rapids": {
       "distance": 1,
       "type": "metro",
       "line": "Lipan Line",
-      "color": "#f01313"
+      "color": "#ee2222",
+      "frequency": 4,
+      "routeDestination": "Moss Vale"
     }
   },
   "Rouge Rapids": {
@@ -967,13 +1263,17 @@
       "distance": 1,
       "type": "metro",
       "line": "Lipan Line",
-      "color": "#f01313"
+      "color": "#ee2222",
+      "frequency": 4,
+      "routeDestination": "Moss Vale"
     },
     "Moss Vale": {
       "distance": 1,
       "type": "metro",
       "line": "Lipan Line",
-      "color": "#f01313"
+      "color": "#ee2222",
+      "frequency": 4,
+      "routeDestination": "Moss Vale"
     }
   },
   "Moss Vale": {
@@ -981,15 +1281,44 @@
       "distance": 1,
       "type": "metro",
       "line": "Lipan Line",
-      "color": "#f01313"
+      "color": "#ee2222",
+      "frequency": 4,
+      "routeDestination": "Moss Vale"
     }
   },
   "Lilydale Citadel": {
     "Lilydale Junction": {
       "distance": 1,
       "type": "metro",
-      "line": "Lipan Line (Branch)",
-      "color": "#f01313"
+      "line": "Lipan Line (Citadel Branch)",
+      "color": "#ee2222",
+      "frequency": 4,
+      "routeDestination": "Lilydale Junction"
+    }
+  },
+  "✈ Lipan Airport": {
+    "Kaspar's Crossing": {
+      "distance": 20,
+      "type": "metro",
+      "line": "Lipan-Downtown Replacement Bus",
+      "color": "#2b2b2b",
+      "routeDestination": "Kaspar's Crossing"
+    },
+    "Downtown": {
+      "distance": 20,
+      "type": "metro",
+      "line": "Lipan-Downtown Replacement Bus",
+      "color": "#2b2b2b",
+      "routeDestination": "Downtown"
+    }
+  },
+  "Minami": {
+    "Kaname": {
+      "distance": 20,
+      "type": "metro",
+      "line": "Plazma Paradize Shuttle Bus",
+      "color": "#2b2b2b",
+      "routeDestination": "Kaname"
     }
   }
 }

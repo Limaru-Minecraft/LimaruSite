@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
-import routes from "./routes.json";
+import routes from "./routes.json"; // Assuming routes.json contains the graph data
 
 const travelOptions = [
     { value: "all", label: "All" },
@@ -11,38 +11,42 @@ const allStations = Object.keys(routes);
 // Function to check if a direct route exists
 function findDirectRoute(graph, start, end) {
     if (graph[start] && graph[start][end]) {
-        return { path: [start, end], distance: graph[start][end].distance }; // Return the path and distance
+        return { path: [start, end], distance: graph[start][end].distance, type: graph[start][end].type };
     }
     return null;
 }
 
-// BFS to find all possible paths
+// BFS to find all possible paths, taking into account mode of transport
 function findAllPaths(graph, start, end, allowedTypes) {
     const paths = [];
-    const queue = [[start]];
-    const visited = new Set();
+    const queue = [[start, [start], 0, null]]; // [current station, path so far, total distance, current route type]
 
     while (queue.length > 0) {
-        const path = queue.shift();
-        const current = path[path.length - 1];
+        const [current, path, totalDistance, currentType] = queue.shift();
 
+        // If the current station is the destination, add the path to results
         if (current === end) {
-            paths.push(path); // Found a valid path
+            paths.push({ path, totalDistance, routeConsistency: true });
             continue;
         }
 
-        if (visited.has(current)) {
-            continue; // Skip already visited nodes to avoid cycles
-        }
-
-        visited.add(current);
-
         for (const neighbor in graph[current]) {
+            const edge = graph[current][neighbor];
+
             if (
-                !allowedTypes ||
-                allowedTypes.every((type) => graph[current][neighbor].type.includes(type))
+                (!allowedTypes || allowedTypes.includes(edge.type)) && // Allowed transport type
+                !path.includes(neighbor) // Avoid revisiting stations in the same path
             ) {
-                queue.push([...path, neighbor]); // Add the neighbor to the current path
+                const isSameRoute = currentType === null || currentType === edge.type;
+                queue.push([
+                    neighbor,
+                    [...path, neighbor],
+                    totalDistance + edge.distance,
+                    edge.type,
+                ]);
+                if (!isSameRoute) {
+                    paths.push({ path: [...path, neighbor], totalDistance: totalDistance + edge.distance, routeConsistency: false });
+                }
             }
         }
     }
@@ -50,31 +54,34 @@ function findAllPaths(graph, start, end, allowedTypes) {
     return paths;
 }
 
-// Function to select the path with the minimum total distance
-function findShortestRouteByStations(graph, start, end, allowedTypes) {
+
+// Function to select the path with the minimum station count, same route if possible, then minimum distance
+// Function to select the path with the shortest distance
+function findOptimalRoute(graph, start, end, allowedTypes) {
     const allPaths = findAllPaths(graph, start, end, allowedTypes);
 
-    let shortestPath = null;
+    if (!allPaths.length) return { path: [], distance: 0 }; // No paths found
+
+    let bestPath = null;
     let minDistance = Infinity;
 
-    allPaths.forEach((path) => {
-        let totalDistance = 0;
-        for (let i = 0; i < path.length - 1; i++) {
-            const current = path[i];
-            const next = path[i + 1];
-            if (graph[current] && graph[current][next]) {
-                totalDistance += graph[current][next].distance;
-            }
-        }
-
+    allPaths.forEach(({ path, totalDistance }) => {
+        // Update best path based on distance only
         if (totalDistance < minDistance) {
             minDistance = totalDistance;
-            shortestPath = path;
+            bestPath = path;
         }
     });
 
-    return { path: shortestPath, distance: minDistance };
+    return {
+        path: bestPath,
+        distance: minDistance,
+    };
 }
+
+
+
+
 
 const Pathfinder = () => {
     const [selectedTravelOption, setSelectedTravelOption] = useState("all");
@@ -88,6 +95,12 @@ const Pathfinder = () => {
     const router = useRouter();
 
     useEffect(() => {
+        // Prefill origin and destination from URL query
+        if (router.query.origin && router.query.destination) {
+            setOrigin(router.query.origin);
+            setDestination(router.query.destination);
+        }
+
         const handleClickOutside = (event) => {
             if (
                 originRef.current &&
@@ -103,7 +116,7 @@ const Pathfinder = () => {
         return () => {
             document.removeEventListener("click", handleClickOutside);
         };
-    }, []);
+    }, [router.query.origin, router.query.destination]);
 
     const handleOriginFocus = () => {
         setOriginSuggestions(allStations);
@@ -155,7 +168,7 @@ const Pathfinder = () => {
         } else {
             const allowedTypes =
                 selectedTravelOption === "all" ? null : selectedTravelOption.split("-and-");
-            const calculatedRoute = findShortestRouteByStations(routes, origin, destination, allowedTypes);
+            const calculatedRoute = findOptimalRoute(routes, origin, destination, allowedTypes);
 
             router.push({
                 pathname: "/route",
@@ -178,8 +191,8 @@ const Pathfinder = () => {
 
     return (
         <div className="bg-white p-4 rounded shadow-md">
-            <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-end gap-4">
-                <div className="w-full sm:w-auto">
+            <div className="flex flex-wrap items-end gap-4">
+                <div>
                     <label htmlFor="travel-option" className="block font-medium mb-1">
                         Travel Option:
                     </label>
@@ -187,7 +200,8 @@ const Pathfinder = () => {
                         id="travel-option"
                         value={selectedTravelOption}
                         onChange={(e) => setSelectedTravelOption(e.target.value)}
-                        className="border rounded p-2 w-full sm:w-auto"
+                        className="border rounded p-2"
+                        style={{ width: "150px" }}
                     >
                         {travelOptions.map((option) => (
                             <option key={option.value} value={option.value}>
@@ -197,8 +211,8 @@ const Pathfinder = () => {
                     </select>
                 </div>
 
-                <div className="flex flex-col sm:flex-row flex-grow gap-2">
-                    <div className="relative flex-grow" ref={originRef}>
+                <div className="flex-grow flex items-start gap-2">
+                    <div className="relative flex-1" ref={originRef}>
                         <label htmlFor="origin" className="block font-medium mb-1">
                             Origin:
                         </label>
@@ -206,6 +220,7 @@ const Pathfinder = () => {
                             type="text"
                             id="origin"
                             className="border rounded p-2 w-full"
+                            style={{ width: "300px" }}
                             value={origin}
                             onFocus={handleOriginFocus}
                             onChange={handleOriginChange}
@@ -213,7 +228,7 @@ const Pathfinder = () => {
                         {originSuggestions.length > 0 && (
                             <ul className="absolute bg-white border rounded mt-1 w-full max-h-40 overflow-auto">
                                 {originSuggestions
-                                    .sort((a, b) => a.localeCompare(b))
+                                    .sort((a, b) => a.localeCompare(b)) // Sort suggestions alphabetically
                                     .map((station) => (
                                         <li
                                             key={station}
@@ -231,13 +246,13 @@ const Pathfinder = () => {
                     </div>
 
                     <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded self-center"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded self-end"
                         onClick={handleSwap}
                     >
                         ⇄
                     </button>
 
-                    <div className="relative flex-grow" ref={destinationRef}>
+                    <div className="relative flex-1" ref={destinationRef}>
                         <label htmlFor="destination" className="block font-medium mb-1">
                             Destination:
                         </label>
@@ -245,6 +260,7 @@ const Pathfinder = () => {
                             type="text"
                             id="destination"
                             className="border rounded p-2 w-full"
+                            style={{ width: "300px" }}
                             value={destination}
                             onFocus={handleDestinationFocus}
                             onChange={handleDestinationChange}
@@ -252,7 +268,7 @@ const Pathfinder = () => {
                         {destinationSuggestions.length > 0 && (
                             <ul className="absolute bg-white border rounded mt-1 w-full max-h-40 overflow-auto">
                                 {destinationSuggestions
-                                    .sort((a, b) => a.localeCompare(b))
+                                    .sort((a, b) => a.localeCompare(b)) // Sort suggestions alphabetically
                                     .map((station) => (
                                         <li
                                             key={station}
@@ -270,9 +286,9 @@ const Pathfinder = () => {
                     </div>
                 </div>
 
-                <div className="w-full sm:w-auto">
+                <div>
                     <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-auto"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                         onClick={handleFindRoute}
                     >
                         Find Route

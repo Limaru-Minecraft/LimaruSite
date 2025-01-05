@@ -38,7 +38,7 @@ const Status = () => {
             case "Busy":
                 return "bg-yellow-500 text-black";
             case "Partially Open":
-            case "Not Busy":
+            case "Normal":
                 return "bg-green-500 text-white";
             default:
                 return "bg-gray-500 text-white";

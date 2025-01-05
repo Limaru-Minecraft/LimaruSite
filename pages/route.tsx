@@ -11,7 +11,7 @@ import Route from "@/components/transportation/route";
 const Home: React.FC = () => (
     <>
         <Head
-            title="Metro Route Finder | Limaru"
+            title="Route Query | Limaru"
             description="Pathfinder is help you to find which route you need to be taken."
             author="winsanmwtv"
             keywords="limaru, limaru city server, limaru minecraft server, transport limaru, limaru transport"
@@ -20,16 +20,22 @@ const Home: React.FC = () => (
             <SectionBox>
                 <UnderConstruction type="page" />
             </SectionBox>
+            <SectionBox>
+                <p/>
+                <Pathfinder/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+            </SectionBox>
 
             <SectionBox>
                 <Route/>
-            </SectionBox>
-<SectionBox>
-                <Heading level={2}>Find another route</Heading>
-                <Pathfinder />
             </SectionBox>
         </PageLayout>
     </>
 );
 
+// @ts-ignore
 export default Home;
