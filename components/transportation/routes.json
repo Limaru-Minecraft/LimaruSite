@@ -94,7 +94,7 @@
       "line": "Tokaido Line",
       "color": "#8b4513",
       "frequency": 4,
-      "routeDestination": "Mizuno Filius"
+      "routeDestination": "Flower Hill"
     }
   },
   "Brentwood": {
@@ -140,7 +140,7 @@
       "line": "Tokaido Line",
       "color": "#8b4513",
       "frequency": 4,
-      "routeDestination": "Mizuno Filius"
+      "routeDestination": "Flower Hill"
     },
     "Brentwood Pier": {
       "distance": 1,
@@ -156,7 +156,7 @@
       "line": "Tozai Line (Twyford Branch)",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "Twyford"
+      "routeDestination": "Eastminster"
     }
   },
   "Minagi": {
@@ -174,7 +174,7 @@
       "line": "Tokaido Line",
       "color": "#8b4513",
       "frequency": 4,
-      "routeDestination": "Mizuno Filius"
+      "routeDestination": "Flower Hill"
     },
     "Sorawo": {
       "distance": 10,
@@ -182,7 +182,7 @@
       "line": "Tennoji Line",
       "color": "#008800",
       "frequency": 4,
-      "routeDestination": "Pelle Junction"
+      "routeDestination": "Kimitsu"
     },
     "Pineappleton": {
       "distance": 10,
@@ -208,7 +208,7 @@
       "line": "Tokaido Line",
       "color": "#8b4513",
       "frequency": 4,
-      "routeDestination": "Mizuno Filius"
+      "routeDestination": "Flower Hill"
     }
   },
   "Hokuyo": {
@@ -233,7 +233,7 @@
       "line": "Tokaido Line",
       "color": "#8b4513",
       "frequency": 4,
-      "routeDestination": "Mizuno Filius"
+      "routeDestination": "Flower Hill"
     }
   },
   "Maruyama": {
@@ -278,7 +278,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "Sakauji and Ashfield": {
       "distance": 1,
@@ -304,7 +304,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "Nakano": {
       "distance": 1,
@@ -322,7 +322,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "Sakae": {
       "distance": 1,
@@ -348,7 +348,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "University": {
       "distance": 1,
@@ -366,7 +366,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "Civic Square": {
       "distance": 1,
@@ -384,7 +384,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "Downtown": {
       "distance": 1,
@@ -402,7 +402,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "Legacy Road": {
       "distance": 1,
@@ -435,7 +435,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "Highgate": {
       "distance": 1,
@@ -453,7 +453,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "Bartley Gate": {
       "distance": 1,
@@ -471,7 +471,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "Municipal District": {
       "distance": 1,
@@ -489,7 +489,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "Rising Sun": {
       "distance": 1,
@@ -507,7 +507,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "Land's End": {
       "distance": 1,
@@ -525,7 +525,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     },
     "YJJ City Main Station": {
       "distance": 1,
@@ -543,7 +543,7 @@
       "line": "Tozai Line",
       "color": "#00ffaa",
       "frequency": 8,
-      "routeDestination": "YJJ City Main Station"
+      "routeDestination": "Epping"
     }
   },
   "Senri": {
@@ -553,7 +553,7 @@
       "line": "Keishin Line (Eastern Section)",
       "color": "#00aaff",
       "frequency": 7,
-      "routeDestination": "Pineappleton"
+      "routeDestination": "Nakano"
     },
     "Pineappleton": {
       "distance": 1,
@@ -571,7 +571,7 @@
       "line": "Keishin Line (Eastern Section)",
       "color": "#00aaff",
       "frequency": 7,
-      "routeDestination": "Pineappleton"
+      "routeDestination": "Nakano"
     },
     "Chiyoda University": {
       "distance": 5,
@@ -579,7 +579,7 @@
       "line": "Chiyoda Line",
       "color": "#ffd500",
       "frequency": 4,
-      "routeDestination": "Pineappleton"
+      "routeDestination": "Emmaru ort"
     },
     "Minagi": {
       "distance": 10,
@@ -587,7 +587,7 @@
       "line": "Tennoji Line",
       "color": "#008800",
       "frequency": 4,
-      "routeDestination": "Pelle Junction"
+      "routeDestination": "Kimitsu"
     },
     "New Traxia": {
       "distance": 10,
@@ -615,7 +615,7 @@
       "line": "Central Line",
       "color": "#aaff00",
       "frequency": 4,
-      "routeDestination": "Yachiyo"
+      "routeDestination": "Tuck Park"
     },
     "Kaname": {
       "distance": 5,
@@ -633,7 +633,7 @@
       "line": "Central Line",
       "color": "#aaff00",
       "frequency": 4,
-      "routeDestination": "Yachiyo"
+      "routeDestination": "Tuck Park"
     },
     "Yachiyo": {
       "distance": 5,
@@ -649,7 +649,7 @@
       "line": "Namboku Line",
       "color": "#00cc00",
       "frequency": 4,
-      "routeDestination": "Katsuragi Chinatown"
+      "routeDestination": "Downtown"
     },
     "Minami": {
       "distance": 20,
@@ -666,7 +666,7 @@
       "line": "Namboku Line",
       "color": "#00cc00",
       "frequency": 4,
-      "routeDestination": "Katsuragi Chinatown"
+      "routeDestination": "Downtown"
     },
     "Kasuga": {
       "distance": 5,
@@ -684,7 +684,7 @@
       "line": "Namboku Line",
       "color": "#00cc00",
       "frequency": 4,
-      "routeDestination": "Katsuragi Chinatown"
+      "routeDestination": "Downtown"
     },
     "Akane": {
       "distance": 5,
@@ -702,7 +702,7 @@
       "line": "Namboku Line",
       "color": "#00cc00",
       "frequency": 4,
-      "routeDestination": "Katsuragi Chinatown"
+      "routeDestination": "Downtown"
     },
     "Yachiyo Castle": {
       "distance": 5,
@@ -720,7 +720,7 @@
       "line": "Namboku Line",
       "color": "#00cc00",
       "frequency": 4,
-      "routeDestination": "Katsuragi Chinatown"
+      "routeDestination": "Downtown"
     },
     "Iwanoyuki": {
       "distance": 5,
@@ -736,7 +736,7 @@
       "line": "Tennoji Line",
       "color": "#008800",
       "frequency": 4,
-      "routeDestination": "Pelle Junction"
+      "routeDestination": "Kimitsu"
     },
     "Pelle East": {
       "distance": 10,
@@ -754,7 +754,7 @@
       "line": "Namboku Line",
       "color": "#00cc00",
       "frequency": 4,
-      "routeDestination": "Katsuragi Chinatown"
+      "routeDestination": "Downtown"
     },
     "Karasuma": {
       "distance": 5,
@@ -772,7 +772,7 @@
       "line": "Namboku Line",
       "color": "#00cc00",
       "frequency": 4,
-      "routeDestination": "Katsuragi Chinatown"
+      "routeDestination": "Downtown"
     },
     "Emmaru Central": {
       "distance": 5,
@@ -798,7 +798,7 @@
       "line": "Tokaido Line",
       "color": "#8b4513",
       "frequency": 4,
-      "routeDestination": "Mizuno Filius"
+      "routeDestination": "Flower Hill"
     },
     "Karasuma": {
       "distance": 5,
@@ -806,7 +806,7 @@
       "line": "Namboku Line",
       "color": "#00cc00",
       "frequency": 4,
-      "routeDestination": "Katsuragi Chinatown"
+      "routeDestination": "Downtown"
     },
     "Nihombashi": {
       "distance": 5,
@@ -824,7 +824,7 @@
       "line": "Namboku Line",
       "color": "#00cc00",
       "frequency": 4,
-      "routeDestination": "Katsuragi Chinatown"
+      "routeDestination": "Downtown"
     },
     "Narutaki": {
       "distance": 5,
@@ -842,7 +842,7 @@
       "line": "Namboku Line",
       "color": "#00cc00",
       "frequency": 4,
-      "routeDestination": "Katsuragi Chinatown"
+      "routeDestination": "Downtown"
     },
     "Tokiwa": {
       "distance": 5,
@@ -860,7 +860,7 @@
       "line": "Namboku Line",
       "color": "#00cc00",
       "frequency": 4,
-      "routeDestination": "Katsuragi Chinatown"
+      "routeDestination": "Downtown"
     },
     "Katsuragi Chinatown": {
       "distance": 5,
@@ -878,7 +878,7 @@
       "line": "Namboku Line",
       "color": "#00cc00",
       "frequency": 4,
-      "routeDestination": "Katsuragi Chinatown"
+      "routeDestination": "Downtown"
     }
   },
   "Flower Hill": {
@@ -898,7 +898,7 @@
       "line": "Tokaido Line",
       "color": "#8b4513",
       "frequency": 4,
-      "routeDestination": "Mizuno Filius"
+      "routeDestination": "Flower Hill"
     },
     "Emmaru Central": {
       "distance": 1,
@@ -916,7 +916,7 @@
       "line": "Tokaido Line",
       "color": "#8b4513",
       "frequency": 4,
-      "routeDestination": "Mizuno Filius"
+      "routeDestination": "Flower Hill"
     },
     "Kyobashi": {
       "distance": 1,
@@ -934,7 +934,7 @@
       "line": "Tokaido Line",
       "color": "#8b4513",
       "frequency": 4,
-      "routeDestination": "Mizuno Filius"
+      "routeDestination": "Flower Hill"
     },
     "Gojo": {
       "distance": 1,
@@ -952,7 +952,7 @@
       "line": "Tokaido Line",
       "color": "#8b4513",
       "frequency": 4,
-      "routeDestination": "Mizuno Filius"
+      "routeDestination": "Flower Hill"
     },
     "Shinsei": {
       "distance": 1,
@@ -968,7 +968,7 @@
       "line": "Chiyoda Line",
       "color": "#ffd500",
       "frequency": 4,
-      "routeDestination": "Pineappleton"
+      "routeDestination": "Emmaru Port"
     },
     "Earlsgate": {
       "distance": 5,
@@ -986,7 +986,7 @@
       "line": "Tokaido Line",
       "color": "#8b4513",
       "frequency": 4,
-      "routeDestination": "Mizuno Filius"
+      "routeDestination": "Flower Hill"
     },
     "Mizuna": {
       "distance": 1,
@@ -1004,7 +1004,7 @@
       "line": "Tokaido Line",
       "color": "#8b4513",
       "frequency": 4,
-      "routeDestination": "Mizuno Filius"
+      "routeDestination": "Flower Hill"
     },
     "Hokuyo": {
       "distance": 1,
@@ -1032,7 +1032,7 @@
       "line": "Chiyoda Line",
       "color": "#ffd500",
       "frequency": 4,
-      "routeDestination": "Pineappleton"
+      "routeDestination": "Emmaru Port"
     },
     "Chiyoda University": {
       "distance": 5,
@@ -1050,7 +1050,7 @@
       "line": "Chiyoda Line",
       "color": "#ffd500",
       "frequency": 4,
-      "routeDestination": "Pineappleton"
+      "routeDestination": "Emmaru Port"
     },
     "Pineappleton": {
       "distance": 5,
@@ -1068,7 +1068,7 @@
       "line": "Tennoji Line",
       "color": "#008800",
       "frequency": 4,
-      "routeDestination": "Pelle Junction"
+      "routeDestination": "Kimitsu"
     },
     "Mori": {
       "distance": 10,
@@ -1086,7 +1086,7 @@
       "line": "Tennoji Line",
       "color": "#008800",
       "frequency": 4,
-      "routeDestination": "Pelle Junction"
+      "routeDestination": "Kimitsu"
     },
     "Sorawo": {
       "distance": 10,
@@ -1104,7 +1104,7 @@
       "line": "Tennoji Line",
       "color": "#008800",
       "frequency": 4,
-      "routeDestination": "Pelle Junction"
+      "routeDestination": "Kimitsu"
     },
     "Minagi": {
       "distance": 10,
@@ -1122,7 +1122,7 @@
       "line": "Tennoji Line",
       "color": "#008800",
       "frequency": 4,
-      "routeDestination": "Pelle Junction"
+      "routeDestination": "Kimitsu"
     },
     "Shortwood": {
       "distance": 10,
@@ -1140,7 +1140,7 @@
       "line": "Tennoji Line",
       "color": "#008800",
       "frequency": 4,
-      "routeDestination": "Pelle Junction"
+      "routeDestination": "Kimitsu"
     },
     "Yachiyo Castle": {
       "distance": 10,
@@ -1158,7 +1158,7 @@
       "line": "Tennoji Line",
       "color": "#008800",
       "frequency": 4,
-      "routeDestination": "Pelle Junction"
+      "routeDestination": "Kimitsu"
     },
     "Pelle Junction": {
       "distance": 10,
@@ -1176,7 +1176,7 @@
       "line": "Tennoji Line",
       "color": "#008800",
       "frequency": 4,
-      "routeDestination": "Pelle Junction"
+      "routeDestination": "Kimitsu"
     }
   },
   "Kaspar's Crossing": {
@@ -1229,7 +1229,7 @@
       "line": "Lipan Line",
       "color": "#ee2222",
       "frequency": 4,
-      "routeDestination": "Moss Vale"
+      "routeDestination": "Kaspar's Crossing"
     },
     "Great Cliff": {
       "distance": 1,
@@ -1247,7 +1247,7 @@
       "line": "Lipan Line",
       "color": "#ee2222",
       "frequency": 4,
-      "routeDestination": "Moss Vale"
+      "routeDestination": "Kaspar's Crossing"
     },
     "Rouge Rapids": {
       "distance": 1,
@@ -1265,7 +1265,7 @@
       "line": "Lipan Line",
       "color": "#ee2222",
       "frequency": 4,
-      "routeDestination": "Moss Vale"
+      "routeDestination": "Kaspar's Crossing"
     },
     "Moss Vale": {
       "distance": 1,

@@ -2,6 +2,36 @@ import { useRouter } from "next/router";
 import React from "react";
 import routes from "./routes.json";
 
+// Function to determine if the color is dark or light
+function isDark(color) {
+    if (!color) return false;
+
+    // Convert hex color to RGB
+    let r, g, b;
+    if (color.startsWith("#")) {
+        // Handling hex format (#RRGGBB or #RGB)
+        if (color.length === 4) {
+            r = parseInt(color[1] + color[1], 16);
+            g = parseInt(color[2] + color[2], 16);
+            b = parseInt(color[3] + color[3], 16);
+        } else if (color.length === 7) {
+            r = parseInt(color.slice(1, 3), 16);
+            g = parseInt(color.slice(3, 5), 16);
+            b = parseInt(color.slice(5, 7), 16);
+        }
+    } else if (color.startsWith("rgb")) {
+        const rgb = color.match(/\d+/g);
+        r = parseInt(rgb[0], 10);
+        g = parseInt(rgb[1], 10);
+        b = parseInt(rgb[2], 10);
+    }
+
+    // Calculate brightness
+    const brightness = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    return brightness < 128; // Dark if brightness is below a certain threshold
+}
+
+
 const RouteDetails = () => {
     const router = useRouter();
     const { path } = router.query;
@@ -88,7 +118,12 @@ const RouteDetails = () => {
                             // Determine station type
                             let stationType;
                             let firstStation;
-
+                            let route;
+                            let eachDest;
+                            let freq;
+                            let routeF;
+                            let eachDestF;
+                            let freqF;
                             if (station === origin) {
                                 firstStation =
                                     routeNames[0] === "Walking"
@@ -104,26 +139,42 @@ const RouteDetails = () => {
                                                     : ""
                                             })`
                                             : "";
+                                routeF = `${routeNames[0]}`;
+                                eachDestF = `${routeSegments[0].routeDestination}`
+                                freqF = freq === 1
+                                    ? `Every ${routeSegments[0].frequency} min`
+                                    : routeSegments[0]?.frequency
+                                        ? `Every ${routeSegments[0].frequency} mins`
+                                        : "";
                             } else if (station === destination) {
                                 firstStation = "";
                             } else if (transferPoints.includes(station)) {
                                 const transferIndex = routeSegments.findIndex(
                                     (seg) => seg.from === station
                                 );
-                                stationType =
-                                    routeNames[transferIndex] === "Walking"
-                                        ? "(Out-of-Station Interchange)"
-                                        : routeNames[transferIndex]
-                                            ? `(Transfer to the ${routeNames[transferIndex]}${
-                                                routeSegments[transferIndex]?.frequency
-                                                    ? ` - Frequency: ${routeSegments[transferIndex].frequency}`
-                                                    : ""
-                                            }${
-                                                routeSegments[transferIndex]?.routeDestination
-                                                    ? ` - Destination: ${routeSegments[transferIndex].routeDestination}`
-                                                    : ""
-                                            })`
-                                            : "(Transfer to the route)";
+                                // stationType =
+                                //     routeNames[transferIndex] === "Walking"
+                                //         ? "(Out-of-Station Interchange)"
+                                //         : routeNames[transferIndex]
+                                //             ? `(Transfer to the ${routeNames[transferIndex]}${
+                                //                 routeSegments[transferIndex]?.frequency
+                                //                     ? ` - Frequency: ${routeSegments[transferIndex].frequency}`
+                                //                     : ""
+                                //             }${
+                                //                 routeSegments[transferIndex]?.routeDestination
+                                //                     ? ` - Destination: ${routeSegments[transferIndex].routeDestination}`
+                                //                     : ""
+                                //             })`
+                                //             : "(Transfer to the route)";
+                                route = `${routeNames[transferIndex]}`;
+                                eachDest = `${routeSegments[transferIndex].routeDestination}`
+                                freq = freq === 1
+                                    ? `Every ${routeSegments[transferIndex].frequency} min`
+                                    : routeSegments[transferIndex]?.frequency
+                                        ? `Every ${routeSegments[transferIndex].frequency} mins`
+                                        : "";
+
+
                             } else {
                                 firstStation = "";
                             }
@@ -140,21 +191,57 @@ const RouteDetails = () => {
                                                         routeSegments[index - 1]?.color ||
                                                         routeSegments[index]?.color ||
                                                         "#2b2b2b",
-                                                    marginTop: isLastStation ? "-8px" : "0px",
+                                                    marginTop: isLastStation ? "0px" : "0px",
                                                 }}
                                             ></div>
                                             {/* Connecting line */}
-                                            {!isLastStation && (
+                                            {index === 0 && (
+                                                <div
+                                                    className="w-1000 h-16 flex flex-col items-start" // Add flex-col for vertical layout
+                                                    style={{
+                                                        backgroundColor: routeSegments[0]?.color || "#2b2b2b",
+                                                        marginTop: "-4px",
+                                                        width: "4px", // Aligns with the second transfer
+                                                    }}
+                                                >
+                                                    <div className="flex items-center">
+                                                        <p
+                                                            className="ml-6 text-sm whitespace-nowrap inline-block rounded-lg px-2 py-1"
+                                                            style={{
+                                                                marginTop: "8px", // Move text down by 2px
+                                                                backgroundColor: routeSegments[0]?.color || "#2b2b2b",
+                                                                color: isDark(routeSegments[0]?.color || "#2b2b2b") ? "white" : "black", // Conditional text color
+                                                            }}
+                                                        >
+                                                            {routeF}
+                                                        </p>
+                                                        <p className="ml-1 text-sm whitespace-nowrap inline-block font-bold"
+                                                           style={{
+                                                               marginTop: "10px"
+                                                           }}>
+                                                            &nbsp;to {eachDestF}
+                                                        </p>
+                                                    </div>
+                                                    <p className="ml-8 text-sm whitespace-nowrap inline-block"
+                                                       style={{
+                                                           marginTop: "2px",
+                                                           color: "gray"
+                                                       }}>
+                                                        {freqF}
+                                                    </p>
+                                                </div>
+                                            )}
+                                            {index !== 0 && (
                                                 <div
 
                                                     className={
-                                                    index === 0 ? "w-1 h-16 mx-auto" : "w-1 h-6 mx-auto"
+                                                        index === 0 ? "w-1 h-16 mx-auto" : "w-1 h-6 mx-auto"
                                                     }
                                                     style={{
                                                         backgroundColor: isRouteChange
                                                             ? "transparent"
                                                             : routeSegments[index]?.color || "#2b2b2b",
-                                                        borderLeft: isRouteChange ? "4px dotted #2b2b2b" : "none",
+                                                        borderLeft: isRouteChange && !isLastStation ? "4px dotted #2b2b2b" : "none",
                                                     }}
                                                 >
 
@@ -168,13 +255,12 @@ const RouteDetails = () => {
                                                     : ""
                                             }`}
                                             style={{
-                                                marginTop: isLastStation ? "-8px" :
+                                                marginTop: isLastStation ? "-26px" :
                                                     index === 0 ? "-64px" : "-24px",
                                             }}
                                         >
                                             {station}
                                             <span className="ml-2 text-gray-500 italic">
-                                                {firstStation}
                                             </span>
                                         </p>
                                     </div>
@@ -194,15 +280,18 @@ const RouteDetails = () => {
                                                     src="/transport/interchange_guy.png"
                                                     alt="Interchange Guy"
                                                     className="absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2"
-                                                    style={{marginTop: "-8px",
+                                                    style={{
+                                                        marginTop: "-8px",
                                                     }}
 
                                                 />
-                                                <div className="absolute w-6 h-6 top-20.5 left-12 transform -translate-x-1/2 text-gray-500 italic"
-                                                     style={{
-                                                         marginTop: "-8px", // Move text down by 2px
-                                                     }}>
-                                                    Interchange
+                                                <div
+                                                    className="absolute w-6 h-6 top-20.5 left-12 transform -translate-x-1/2 italic"
+                                                    style={{
+                                                        marginTop: "-8px", // Move text down by 2px
+                                                        color: '#2b2b2b' // Hex color for text
+                                                    }}>
+                                                    Transfer
                                                 </div>
 
                                                 {/* Image above the line */}
@@ -218,13 +307,41 @@ const RouteDetails = () => {
                                                 ></div>
                                                 {/* Connecting line to the next stop */}
                                                 <div
-                                                    className="w-1 h-16 mx-auto"
+                                                    className="w-1000 h-16 flex flex-col items-start" // Add flex-col for vertical layout
                                                     style={{
-                                                        backgroundColor:
-                                                            routeSegments[index]?.color || "#2b2b2b",
-                                                        marginTop: "-4px", // Aligns with the second transfer
+                                                        backgroundColor: routeSegments[index]?.color || "#2b2b2b",
+                                                        marginTop: "-4px",
+                                                        width: "4px", // Aligns with the second transfer
                                                     }}
-                                                ></div>
+                                                >
+                                                    <div className="flex items-center">
+                                                        <p
+                                                            className="ml-6 text-sm whitespace-nowrap inline-block rounded-lg px-2 py-1"
+                                                            style={{
+                                                                marginTop: "8px", // Move text down by 2px
+                                                                backgroundColor: routeSegments[index]?.color || "#2b2b2b",
+                                                                color: isDark(routeSegments[index]?.color || "#2b2b2b") ? "white" : "black", // Conditional text color
+                                                            }}
+                                                        >
+                                                            {route}
+                                                        </p>
+                                                        <p className="ml-1 text-sm whitespace-nowrap inline-block font-bold"
+                                                           style={{
+                                                               marginTop: "10px"
+                                                           }}>
+                                                            &nbsp;to {eachDest}
+                                                        </p>
+                                                    </div>
+                                                    <p className="ml-8 text-sm whitespace-nowrap inline-block"
+                                                    style={{
+                                                        marginTop: "2px",
+                                                        color: "gray"
+                                                    }}>
+                                                        {freq}
+                                                    </p>
+                                                </div>
+
+
                                             </div>
                                             <p
                                                 className={`ml-4 text-sm flex items-center h-8 ${
@@ -238,10 +355,11 @@ const RouteDetails = () => {
                                             >
                                                 {station}
                                                 <span className="ml-2 text-gray-500 italic">
-                                                    {stationType}
                                                 </span>
                                             </p>
+
                                         </div>
+
                                     )}
                                 </React.Fragment>
                             );
@@ -249,11 +367,12 @@ const RouteDetails = () => {
                     )}
                 </div>
             ) : origin === destination ? (
-                <p>The origin station is same as your destination.</p>
-            ) :
+                    <p>The origin station is same as your destination.</p>
+                ) :
                 (
-                <p>We&apos;re sorry, but we can&apos;t find the possible route. Is origin the same as destination? Or typo?</p>
-            )}
+                    <p>We&apos;re sorry, but we can&apos;t find the possible route. Is origin the same as destination?
+                        Or typo?</p>
+                )}
             <div className="mt-4">
                 <button
                     onClick={() => router.push("/transportation")}
