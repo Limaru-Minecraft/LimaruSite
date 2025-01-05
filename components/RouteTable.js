@@ -1,6 +1,5 @@
-
 export default function RouteTable ({ routes, setRoutes }) {
-    // handle change in input field
+    // handle change in line headers
     const handleLineChange = (index, event) => {
         const {name, value} = event.target;
         const list = [...routes];
@@ -24,16 +23,16 @@ export default function RouteTable ({ routes, setRoutes }) {
     };
 
     // handle removing a line
-    const handleRemoveLine = index => {
+    const handleRemoveLine = (index) => {
         const list = [...routes];
         list.splice(index, 1);
         setRoutes(list);
     };
 
     // Handle adding a new station to a line
-    const handleAddStation = (lineIndex) => {
+    const handleAddStation = (index) => {
         const list = [...routes];
-        list[lineIndex].stations.push('');
+        list[index].stations.push('');
         setRoutes(list);
         const active = document.activeElement;
         if (active?.nextElementSibling) {
@@ -70,12 +69,12 @@ export default function RouteTable ({ routes, setRoutes }) {
         <div class='flex overflow-x-scroll pb-10'>
 
         {/* Input lines */}
-            {routes.map((input, i) => (
+            {routes.map((route, i) => (
             <div key={i} class='inline-block px-3 place-items-stretch'>
                 <div class="inline-flex">
                     <input
                         name='line'
-                        value={input.line}
+                        value={route.line}
                         onChange={event => handleLineChange(i, event)}
                         onKeyDown={(event) => handleKeyDown(event, 'line')}
                         placeholder='Line'
@@ -91,7 +90,7 @@ export default function RouteTable ({ routes, setRoutes }) {
                 </div>
 
             {/* Input stations */}
-                {input.stations.map((station, j) => (
+                {route.stations.map((station, j) => (
                 <div key={j} className="flex items-center mt-2">
                     {/* does nothing at the moment */}
                     {/* <input 
@@ -109,7 +108,7 @@ export default function RouteTable ({ routes, setRoutes }) {
                         placeholder='Station'
                         class='border border-black py-2 px-4 rounded'
                     />
-                    {input.stations.length > 1 && (
+                    {route.stations.length > 1 && (
                     <button 
                         type="button" 
                         onClick={() => handleRemoveStation(i, j)} 

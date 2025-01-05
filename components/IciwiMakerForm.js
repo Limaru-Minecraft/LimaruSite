@@ -1,7 +1,7 @@
 import Heading from './LayoutComponents/Heading';
 import RouteTable from './RouteTable';
-import { useState } from 'react'
-
+import FareTable from './FareTable';
+import { useState } from 'react';
 
 const FareMap = class {
     /**
@@ -28,7 +28,7 @@ const FareMap = class {
 
 export default function IciwiMakerForm ({submitFunction}) {
     const [routes, setRoutes] = useState([{ line: '', stations: [''] }]);
-    const [fares, setFares] = useState([{ distance: '', stations: [''] }]);
+    const [fares, setFares] = useState([['']]);
 
     // handle form submission
     const handleSubmit = (event) => {
