@@ -36,7 +36,7 @@ export default function Home() {
       <Head
         title="Transport | Limaru"
         description="Ride Limaru's extensive transport network!"
-        author="YJJcoolcool, winsanmwtv"
+        author="YJJcoolcool"
         keywords="limaru, limaru city server, limaru minecraft server"
       />
       <HomeLayout>
