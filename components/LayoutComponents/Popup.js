@@ -1,4 +1,6 @@
-export default function Popup ({ content }) {
+import Link from "next/link";
+
+export default function Popup({ content }) {
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
       <div className="p-8 border w-96 shadow-lg rounded-md bg-white">
@@ -8,7 +10,6 @@ export default function Popup ({ content }) {
             <p className="text-lg text-gray-500">{content}</p>
           </div>
           <div className="flex justify-center mt-4">
-
             {/* Navigates back to the base URL - closing the modal */}
             <Link
               href="/"
@@ -16,7 +17,6 @@ export default function Popup ({ content }) {
             >
               Close
             </Link>
-
           </div>
         </div>
       </div>
