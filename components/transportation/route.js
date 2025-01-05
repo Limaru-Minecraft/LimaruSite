@@ -32,7 +32,7 @@ const RouteDetails = () => {
     const origin = stations[0];
     const destination = stations[stations.length - 1];
     const intermediateStops = [];
-    let firstStation = "";
+   
 
     // Track transfer points
     let transferPoints = [];
@@ -77,13 +77,14 @@ const RouteDetails = () => {
 
                             // Determine station type
                             let stationType;
+                            let firstStation;
                             if (station === origin) {
 routeNames[0] === "Walking" ? firstStation = "(Out-of-Station Interchange)" :
                                 firstStation = routeNames[0]
                                     ? `(Take the ${routeNames[0]})`
                                     : "";
                             } else if (station === destination) {
-                                firstStation = "(This is your destination!)";
+                                firstStation = "(This is your destination)";
                             } else if (transferPoints.includes(station)) {
                                 const transferIndex = routeSegments.findIndex(
                                     seg => seg.from === station
