@@ -61,7 +61,7 @@ const RouteDetails = () => {
 
     return (
         <div className="p-4">
-            <h2 className="text-xl font-bold mb-4">Possible Route</h2>
+            <h2 className="text-xl font-bold mb-4">Suggested Route</h2>
             {routeSegments.length > 0 ? (
                 <div className="relative flex flex-col items-start">
                     {isSingleRoute ? (
@@ -87,7 +87,7 @@ const RouteDetails = () => {
                                     ? `(Take the ${routeNames[0]})`
                                     : "";
                             } else if (station === destination) {
-                                stationType = "(This is your destination!)";
+                                firstStation = "(This is your destination!)";
                             } else if (transferPoints.includes(station)) {
                                 const transferIndex = routeSegments.findIndex(
                                     seg => seg.from === station
@@ -95,11 +95,13 @@ const RouteDetails = () => {
 
                                 // Show "Transfer to the route" for the first station of the transfer pair
                                 if (station === stations[index + 1]) {
+routeNames[transferIndex] === "Walking" ? stationType = "(Walking)" :
                                     stationType = routeNames[transferIndex]
                                         ? `(Transfer to the ${routeNames[transferIndex]})`
                                         : "(Transfer to the route)";
                                 } else {
                                     // Show "Transfer to the route" for the first station of the transfer pair
+routeNames[transferIndex] === "Walking" ? stationType = "(Walking)" :
                                     stationType = routeNames[transferIndex]
                                         ? `(Transfer to the ${routeNames[transferIndex]})`
                                         : "(Transfer to the route)";
