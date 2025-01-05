@@ -12,7 +12,7 @@ const Home: React.FC = () => (
         <Head
             title="Transportation | Limaru"
             description="Transportation is a way to move people around Limaru."
-            author="winsanmwtv"
+            author="YJJcoolcool, winsanmwtv"
             keywords="limaru, limaru city server, limaru minecraft server, transport limaru, limaru transport"
         />
         <PageLayout title="Transportation">
