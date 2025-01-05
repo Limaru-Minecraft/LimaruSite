@@ -93,7 +93,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     }
   },
@@ -103,7 +102,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     },
     "Brentwood Pier": {
@@ -111,7 +109,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     }
   },
@@ -121,7 +118,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     },
     "Twyford": {
@@ -129,7 +125,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     }
   },
@@ -139,7 +134,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     },
     "Brentwood Pier": {
@@ -147,7 +141,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     },
     "Eastminster": {
@@ -165,7 +158,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     },
     "Otaki": {
@@ -173,7 +165,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     },
     "Sorawo": {
@@ -199,7 +190,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     },
     "Hokuyo": {
@@ -207,7 +197,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     }
   },
@@ -217,7 +206,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     },
     "Maruyama": {
@@ -232,7 +220,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     }
   },
@@ -789,7 +776,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     },
     "Gojo": {
@@ -797,7 +783,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     },
     "Karasuma": {
@@ -887,7 +872,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     }
   },
@@ -897,7 +881,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     },
     "Emmaru Central": {
@@ -905,7 +888,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     }
   },
@@ -915,7 +897,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     },
     "Kyobashi": {
@@ -923,7 +904,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     }
   },
@@ -933,7 +913,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     },
     "Gojo": {
@@ -941,7 +920,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     }
   },
@@ -951,7 +929,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     },
     "Shinsei": {
@@ -959,7 +936,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     },
     "Emmaru Port": {
@@ -985,7 +961,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     },
     "Mizuna": {
@@ -993,7 +968,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     }
   },
@@ -1003,7 +977,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Flower Hill"
     },
     "Hokuyo": {
@@ -1011,7 +984,6 @@
       "type": "metro",
       "line": "Tokaido Line",
       "color": "#8b4513",
-      "frequency": 4,
       "routeDestination": "Mizuno Filius"
     }
   },
