@@ -1,14 +1,14 @@
 {
   "Kimitsu": {
     "Taura": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
       "routeDestination": "Shinten"
     },
     "The End Mines": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -18,14 +18,14 @@
   },
   "Taura": {
     "Kimitsu": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
       "routeDestination": "Kimitsu"
     },
     "Chitose": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
@@ -34,14 +34,14 @@
   },
   "Chitose": {
     "Taura": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
       "routeDestination": "Kimitsu"
     },
     "Maekawa": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
@@ -50,14 +50,14 @@
   },
   "Maekawa": {
     "Chitose": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
       "routeDestination": "Kimitsu"
     },
     "Kotoha": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
@@ -66,14 +66,14 @@
   },
   "Kotoha": {
     "Maekawa": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
       "routeDestination": "Kimitsu"
     },
     "Mizuno Filius": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
@@ -82,7 +82,7 @@
   },
   "Mizuno Filius": {
     "Kotoha": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
@@ -168,7 +168,7 @@
       "routeDestination": "Flower Hill"
     },
     "Sorawo": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -176,7 +176,7 @@
       "routeDestination": "Kimitsu"
     },
     "Pineappleton": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -209,7 +209,7 @@
       "routeDestination": "Mizuno Filius"
     },
     "Maruyama": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
@@ -225,14 +225,14 @@
   },
   "Maruyama": {
     "Hokuyo": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
       "routeDestination": "Kimitsu"
     },
     "Shinten": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
@@ -241,7 +241,7 @@
   },
   "Shinten": {
     "Maruyama": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Kotoha Line",
       "color": "#15754c",
@@ -400,7 +400,7 @@
       "routeDestination": "YJJ City Main Station"
     },
     "Kaname": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -408,7 +408,7 @@
       "routeDestination": "Katsuragi Chinatown"
     },
     "✈ Lipan Airport": {
-      "distance": 20,
+      "distance": 1,
       "type": "metro",
       "line": "Lipan-Downtown Replacement Bus",
       "color": "#2b2b2b",
@@ -561,7 +561,7 @@
       "routeDestination": "Nakano"
     },
     "Chiyoda University": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Chiyoda Line",
       "color": "#ffd500",
@@ -569,7 +569,7 @@
       "routeDestination": "Emmaru ort"
     },
     "Minagi": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -577,7 +577,7 @@
       "routeDestination": "Kimitsu"
     },
     "New Traxia": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -587,7 +587,7 @@
   },
   "Tuck Park": {
     "Sakurami": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Central Line",
       "color": "#aaff00",
@@ -597,7 +597,7 @@
   },
   "Sakurami": {
     "Tuck Park": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Central Line",
       "color": "#aaff00",
@@ -605,7 +605,7 @@
       "routeDestination": "Tuck Park"
     },
     "Kaname": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Central Line",
       "color": "#aaff00",
@@ -615,7 +615,7 @@
   },
   "Kaname": {
     "Sakurami": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Central Line",
       "color": "#aaff00",
@@ -623,7 +623,7 @@
       "routeDestination": "Tuck Park"
     },
     "Yachiyo": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -631,7 +631,7 @@
       "routeDestination": "Katsuragi Chinatown"
     },
     "Downtown": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -639,7 +639,7 @@
       "routeDestination": "Downtown"
     },
     "Minami": {
-      "distance": 20,
+      "distance": 1,
       "type": "metro",
       "line": "Plazma Paradize Shuttle Bus",
       "color": "#2b2b2b",
@@ -648,7 +648,7 @@
   },
   "Yachiyo": {
     "Kaname": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -656,7 +656,7 @@
       "routeDestination": "Downtown"
     },
     "Kasuga": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -666,7 +666,7 @@
   },
   "Kasuga": {
     "Yachiyo": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -674,7 +674,7 @@
       "routeDestination": "Downtown"
     },
     "Akane": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -684,7 +684,7 @@
   },
   "Akane": {
     "Kasuga": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -692,7 +692,7 @@
       "routeDestination": "Downtown"
     },
     "Yachiyo Castle": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -702,7 +702,7 @@
   },
   "Yachiyo Castle": {
     "Akane": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -710,7 +710,7 @@
       "routeDestination": "Downtown"
     },
     "Iwanoyuki": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -718,7 +718,7 @@
       "routeDestination": "Katsuragi Chinatown"
     },
     "Shortwood": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -726,7 +726,7 @@
       "routeDestination": "Kimitsu"
     },
     "Pelle East": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -736,7 +736,7 @@
   },
   "Iwanoyuki": {
     "Yachiyo Castle": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -744,7 +744,7 @@
       "routeDestination": "Downtown"
     },
     "Karasuma": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -754,7 +754,7 @@
   },
   "Karasuma": {
     "Iwanoyuki": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -762,7 +762,7 @@
       "routeDestination": "Downtown"
     },
     "Emmaru Central": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -786,7 +786,7 @@
       "routeDestination": "Flower Hill"
     },
     "Karasuma": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -794,7 +794,7 @@
       "routeDestination": "Downtown"
     },
     "Nihombashi": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -804,7 +804,7 @@
   },
   "Nihombashi": {
     "Emmaru Central": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -812,7 +812,7 @@
       "routeDestination": "Downtown"
     },
     "Narutaki": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -822,7 +822,7 @@
   },
   "Narutaki": {
     "Nihombashi": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -830,7 +830,7 @@
       "routeDestination": "Downtown"
     },
     "Tokiwa": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -840,7 +840,7 @@
   },
   "Tokiwa": {
     "Narutaki": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -848,7 +848,7 @@
       "routeDestination": "Downtown"
     },
     "Katsuragi Chinatown": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -858,7 +858,7 @@
   },
   "Katsuragi Chinatown": {
     "Tokiwa": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Namboku Line",
       "color": "#00cc00",
@@ -939,7 +939,7 @@
       "routeDestination": "Mizuno Filius"
     },
     "Emmaru Port": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Chiyoda Line",
       "color": "#ffd500",
@@ -947,7 +947,7 @@
       "routeDestination": "Emmaru Port"
     },
     "Earlsgate": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Chiyoda Line",
       "color": "#ffd500",
@@ -989,7 +989,7 @@
   },
   "Emmaru Port": {
     "Kingston Park": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Chiyoda Line",
       "color": "#ffd500",
@@ -999,7 +999,7 @@
   },
   "Earlsgate": {
     "Kingston Park": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Chiyoda Line",
       "color": "#ffd500",
@@ -1007,7 +1007,7 @@
       "routeDestination": "Emmaru Port"
     },
     "Chiyoda University": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Chiyoda Line",
       "color": "#ffd500",
@@ -1017,7 +1017,7 @@
   },
   "Chiyoda University": {
     "Earlsgate": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Chiyoda Line",
       "color": "#ffd500",
@@ -1025,7 +1025,7 @@
       "routeDestination": "Emmaru Port"
     },
     "Pineappleton": {
-      "distance": 5,
+      "distance": 1,
       "type": "metro",
       "line": "Chiyoda Line",
       "color": "#ffd500",
@@ -1035,7 +1035,7 @@
   },
   "The End Mines": {
     "Kimitsu": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1043,7 +1043,7 @@
       "routeDestination": "Kimitsu"
     },
     "Mori": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1053,7 +1053,7 @@
   },
   "Mori": {
     "The End Mines": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1061,7 +1061,7 @@
       "routeDestination": "Kimitsu"
     },
     "Sorawo": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1071,7 +1071,7 @@
   },
   "Sorawo": {
     "Mori": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1079,7 +1079,7 @@
       "routeDestination": "Kimitsu"
     },
     "Minagi": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1089,7 +1089,7 @@
   },
   "New Traxia": {
     "Pineappleton": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1097,7 +1097,7 @@
       "routeDestination": "Kimitsu"
     },
     "Shortwood": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1107,7 +1107,7 @@
   },
   "Shortwood": {
     "New Traxia": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1115,7 +1115,7 @@
       "routeDestination": "Kimitsu"
     },
     "Yachiyo Castle": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1125,7 +1125,7 @@
   },
   "Pelle East": {
     "Yachiyo Castle": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1133,7 +1133,7 @@
       "routeDestination": "Kimitsu"
     },
     "Pelle Junction": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1143,7 +1143,7 @@
   },
   "Pelle Junction": {
     "Pelle East": {
-      "distance": 10,
+      "distance": 1,
       "type": "metro",
       "line": "Tennoji Line",
       "color": "#008800",
@@ -1161,7 +1161,7 @@
       "routeDestination": "Moss Vale"
     },
     "✈ Lipan Airport": {
-      "distance": 20,
+      "distance": 1,
       "type": "metro",
       "line": "Lipan-Downtown Replacement Bus",
       "color": "#2b2b2b",
@@ -1270,14 +1270,14 @@
   },
   "✈ Lipan Airport": {
     "Kaspar's Crossing": {
-      "distance": 20,
+      "distance": 1,
       "type": "metro",
       "line": "Lipan-Downtown Replacement Bus",
       "color": "#2b2b2b",
       "routeDestination": "Kaspar's Crossing"
     },
     "Downtown": {
-      "distance": 20,
+      "distance": 1,
       "type": "metro",
       "line": "Lipan-Downtown Replacement Bus",
       "color": "#2b2b2b",
@@ -1286,7 +1286,7 @@
   },
   "Minami": {
     "Kaname": {
-      "distance": 20,
+      "distance": 1,
       "type": "metro",
       "line": "Plazma Paradize Shuttle Bus",
       "color": "#2b2b2b",
