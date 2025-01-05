@@ -78,6 +78,7 @@ const RouteDetails = () => {
                             // Determine station type
                             let stationType;
                             if (station === origin) {
+routeNames[transferIndex] === "Walking" ? firstStation = "(Out-of-Station Interchange)" :
                                 firstStation = routeNames[0]
                                     ? `(Take the ${routeNames[0]})`
                                     : "";
