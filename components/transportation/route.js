@@ -32,7 +32,7 @@ const RouteDetails = () => {
     const origin = stations[0];
     const destination = stations[stations.length - 1];
     const intermediateStops = [];
-    let firstStation;
+    let firstStation = "";
 
     // Track transfer points
     let transferPoints = [];
