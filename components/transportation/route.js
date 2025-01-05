@@ -70,7 +70,8 @@ const RouteDetails = () => {
                         stations.map((station, index) => {
                             const isRouteChange =
                                 index > 0 &&
-                                routeSegments[index - 1]?.color !== routeSegments[index]?.color;
+                                // routeSegments[index - 1]?.color !== routeSegments[index]?.color;
+                                routeNames[index-1] !== routeNames[index]
 
                             const isLastStation = index === stations.length - 1;
 
