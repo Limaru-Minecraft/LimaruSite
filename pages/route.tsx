@@ -20,18 +20,16 @@ const Home: React.FC = () => (
             <SectionBox>
                 <UnderConstruction type="page" />
             </SectionBox>
-            <SectionBox>
-                <p/>
-                <Pathfinder/>
-                <p/>
-                <p/>
-                <p/>
-                <p/>
-                <p/>
+            <SectionBox >
+                <div style={{ position: 'relative', zIndex: 10 }}>
+                    <Pathfinder/>
+                </div>
+
             </SectionBox>
 
-            <SectionBox>
-                <Route/>
+            <SectionBox >
+                <div style={{ position: 'relative', zIndex: 1 }}><Route/></div>
+
             </SectionBox>
         </PageLayout>
     </>

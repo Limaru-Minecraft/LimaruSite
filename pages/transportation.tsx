@@ -20,19 +20,15 @@ const Home: React.FC = () => (
                 <UnderConstruction type="page" />
             </SectionBox>
             <SectionBox>
-                <p/>
                 <Heading level={2}>Find your route</Heading>
-                <Pathfinder/>
-                <p/>
-                <p/>
-                <p/>
-                <p/>
-                <p/>
+                <div style={{ position: 'relative', zIndex: 10 }}><Pathfinder/></div>
+
+
             </SectionBox>
 
             <SectionBox>
                 <Heading level={2}>Transit Status</Heading>
-                <Status />
+                <div style={{position: 'relative', zIndex: 1}}><Status/></div>
             </SectionBox>
         </PageLayout>
     </>

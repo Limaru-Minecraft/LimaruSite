@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const logo = {
-    // Add other operators' logos here as needed
+    "Limaru Metro": { src: "/transport/metro.svg", width: 20, height: 20 },
+    "Mainlines": { src: "/transport/train.svg", width: 20, height: 20 },
+    "Bus Services": { src: "/transport/bus.svg", width: 20, height: 20 },
+
 };
 
 const Status = () => {

@@ -205,6 +205,15 @@ const RouteDetails = () => {
                                                     }}
                                                 >
                                                     <div className="flex items-center">
+                                                        <img
+                                                            src={routeF.includes("Bus") ? "/transport/bus.svg" : "/transport/metro.svg"}
+                                                            alt="Transport Icon"
+                                                            className={`absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 ${isDark(routeSegments[0]?.color || "#2b2b2b") ? "invert" : ""}`}
+                                                            style={{
+                                                                marginTop: routeF.includes("Bus") ? "8px" : "7px",
+                                                                marginLeft: "38px",
+                                                            }}
+                                                        />
                                                         <p
                                                             className="ml-6 text-sm whitespace-nowrap inline-block rounded-lg px-2 py-1"
                                                             style={{
@@ -213,9 +222,9 @@ const RouteDetails = () => {
                                                                 color: isDark(routeSegments[0]?.color || "#2b2b2b") ? "white" : "black", // Conditional text color
                                                             }}
                                                         >
-                                                            {routeF}
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{routeF}
                                                         </p>
-                                                        <p className="ml-1 text-sm whitespace-nowrap inline-block font-bold"
+                                                        <p className="text-sm whitespace-nowrap inline-block font-bold"
                                                            style={{
                                                                marginTop: "10px"
                                                            }}>
@@ -277,14 +286,14 @@ const RouteDetails = () => {
                                                     }}
                                                 ></div>
                                                 <img
-                                                    src="/transport/interchange_guy.png"
+                                                    src="/transport/transfer.svg"
                                                     alt="Interchange Guy"
-                                                    className="absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2"
+                                                    className="absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 bg-white rounded"
                                                     style={{
                                                         marginTop: "-8px",
                                                     }}
-
                                                 />
+
                                                 <div
                                                     className="absolute w-6 h-6 top-20.5 left-12 transform -translate-x-1/2 italic"
                                                     style={{
@@ -315,6 +324,15 @@ const RouteDetails = () => {
                                                     }}
                                                 >
                                                     <div className="flex items-center">
+                                                        <img
+                                                            src={route.includes("Bus") ? "/transport/bus.svg" : "/transport/metro.svg"}
+                                                            alt="Transport Icon"
+                                                            className={`absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 ${isDark(routeSegments[index]?.color || "#2b2b2b") ? "invert" : ""}`}
+                                                            style={{
+                                                                marginTop: route.includes("Bus") ? "8px" : "7px",
+                                                                marginLeft: "38px",
+                                                            }}
+                                                        />
                                                         <p
                                                             className="ml-6 text-sm whitespace-nowrap inline-block rounded-lg px-2 py-1"
                                                             style={{
@@ -323,9 +341,9 @@ const RouteDetails = () => {
                                                                 color: isDark(routeSegments[index]?.color || "#2b2b2b") ? "white" : "black", // Conditional text color
                                                             }}
                                                         >
-                                                            {route}
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{route}
                                                         </p>
-                                                        <p className="ml-1 text-sm whitespace-nowrap inline-block font-bold"
+                                                        <p className="text-sm whitespace-nowrap inline-block font-bold"
                                                            style={{
                                                                marginTop: "10px"
                                                            }}>
@@ -333,10 +351,10 @@ const RouteDetails = () => {
                                                         </p>
                                                     </div>
                                                     <p className="ml-8 text-sm whitespace-nowrap inline-block"
-                                                    style={{
-                                                        marginTop: "2px",
-                                                        color: "gray"
-                                                    }}>
+                                                       style={{
+                                                           marginTop: "2px",
+                                                           color: "gray"
+                                                       }}>
                                                         {freq}
                                                     </p>
                                                 </div>
