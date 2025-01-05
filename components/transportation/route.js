@@ -43,7 +43,8 @@ const RouteDetails = () => {
     for (let i = 1; i < stations.length - 1; i++) {
         const currentStation = stations[i];
         const isRouteChange =
-            routeSegments[i - 1]?.color !== routeSegments[i]?.color;
+            // routeSegments[i - 1]?.color !== routeSegments[i]?.color;
+            routeNames[i-1] !== routeNames[i];
 
         if (isRouteChange) {
             transferPoints.push(currentStation);
