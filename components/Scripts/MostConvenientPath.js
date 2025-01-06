@@ -1,27 +1,4 @@
-const FareMap = class {
-    /**
-     * Create a FareMap
-     * @param {Array<Array<String>>} fareMap 
-     */
-    constructor (fareMap) {
-        this.fareMap = fareMap;
-    }
-
-    /**
-     * 
-     * @param {String} clazz 
-     */
-    getClass (clazz) {
-        let a = new Map();
-        this.fareMap.forEach( (entry) => {
-            let d = entry.distance;
-            entry.fares.forEach( (f) => (f.clazz === clazz) && a.set(d, f.fare) );
-        });
-        return a;
-    }
-}
-
-const translateMap = (/** @type {Array<{line: String, stations: Array<String>}>} */routeMap) => {
+export const translateMap = (/** @type {Array<{line: String, stations: Array<String>}>} */routeMap) => {
     return routeMap.map((lineMap) => ({
         line: lineMap.line,
         stations: lineMap.stations.map((n, i) => ({ distance: i, name: n }))
@@ -66,9 +43,7 @@ const floydWarshall = (/** @type {Array<Array<Number>>} */G) => {
  * @param {Number} maxTransfers
  * @returns 
 */
-function calculatePaths (routeMap) {
-	routeMap = translateMap(routeMap);
-
+export default function calculatePaths (routeMap) {
 	// Get neighbours
 	const neighbours = getNeighbours(routeMap);
 	const vertices = Object.keys(neighbours);
@@ -93,11 +68,11 @@ function calculatePaths (routeMap) {
 }
 
 /**
- * 
+ * Calculates all the fares from a distance map
  * @param {Object} distancesMap 
  * @param {Object} fareChart 
  */
-function toFares (distancesMap, fareChart) {
+export function toFares (distancesMap, fareChart) {
     let dmaps = {};
     Object.keys(fareChart).forEach( (fareClass) =>
         dmaps[fareClass] = toSingleClassFares(distancesMap, fareChart[fareClass])
@@ -106,7 +81,7 @@ function toFares (distancesMap, fareChart) {
 }
 
 /**
- * 
+ * Calculates the fares in 1 class from a distance map
  * @param {Object} distancesMap 
  * @param {Object} fareClassChart 
  */
@@ -118,6 +93,9 @@ function toSingleClassFares (distancesMap, fareClassChart) {
             let realDistance = distancesMap[iName][oName];
             let fareStages = Object.keys(fareClassChart).sort();
             let returnVal = fareClassChart[0];
+            if (realDistance == Infinity) {
+                delete distancesMap[iName][oName];
+            }
 
             for (const dist of fareStages) {
                 if (Object.prototype.hasOwnProperty.call(fareClassChart, dist) && realDistance < dist) {
@@ -129,15 +107,3 @@ function toSingleClassFares (distancesMap, fareClassChart) {
     });
     return dmap;
 }
-
-const lp = { line: "LP", stations: ["0-1", "0-2", "0-3", "0-4"] };
-const nk = { line: "NK", stations: ["1-1", "1-2", "1-3", "1-4", "0-2"] };
-const ps = { line: "PS", stations: ["1-1", "2-2", "0-3", "2-4"] };
-let m = [lp, nk, ps];
-const dmap = calculatePaths(m);
-
-const fc = {
-    one: {0: 4.1, 0.5: 8.1, 1: 12.1, 1.5: 16.1},
-    two: {0: 3.2, 1.5: 5.2, 2: 6.2, 3.5: 7.2},
-};
-console.log(toFares(dmap, fc));
