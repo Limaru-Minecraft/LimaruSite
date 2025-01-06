@@ -3,7 +3,7 @@ import PageLayout from '@/components/PageLayout'
 import SectionBox from '@/components/SectionBox'
 import Heading from '@/components/LayoutComponents/Heading'
 import UnderConstruction from '@/components/LayoutComponents/UnderConstruction'
-import IciwiMakerForm from '@/components/IciwiMakerForm'
+import IciwiMakerForm from '@/components/IciwiMaker/IciwiMakerForm'
 
 export default function Home() {
 
