@@ -94,7 +94,7 @@ function toSingleClassFares (distancesMap, fareClassChart) {
             let fareStages = Object.keys(fareClassChart).sort();
             let returnVal = fareClassChart[0];
             if (realDistance == Infinity) {
-                delete distancesMap[iName][oName];
+                delete dmap[iName][oName];
             }
 
             for (const dist of fareStages) {
@@ -103,6 +103,8 @@ function toSingleClassFares (distancesMap, fareClassChart) {
                 }
                 returnVal = fareClassChart[dist];
             }
+            // HELP
+            console.log(iName, oName, returnVal);
         });
     });
     return dmap;

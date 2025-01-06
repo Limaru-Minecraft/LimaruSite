@@ -5,6 +5,7 @@ import Heading from '@/components/LayoutComponents/Heading'
 import UnderConstruction from '@/components/LayoutComponents/UnderConstruction'
 import IciwiMakerForm from '@/components/IciwiMaker/IciwiMakerForm'
 import calculatePaths, { toFares, translateMap } from '@/components/Scripts/MostConvenientPath'
+const yaml = require('js-yaml');
 
 export default function Home() {
 
@@ -42,6 +43,7 @@ export default function Home() {
     let pathMap = calculatePaths(translateMap(routes))
     let fareChart = toFares(pathMap, fareMap);
     console.log(fareChart);
+    console.log(yaml.dump(fareChart));
   };
 
   return (
