@@ -61,7 +61,6 @@ const RouteDetails = () => {
     // Separate stations into categories
     const origin = stations[0];
     const destination = stations[stations.length - 1];
-    const intermediateStops = [];
 
     // Track transfer points
     let transferPoints = [];
@@ -77,8 +76,6 @@ const RouteDetails = () => {
 
         if (isRouteChange) {
             transferPoints.push(currentStation);
-        } else {
-            intermediateStops.push(currentStation);
         }
     }
 
@@ -116,7 +113,6 @@ const RouteDetails = () => {
                             const isLastStation = index === stations.length - 1;
 
                             // Determine station type
-                            let stationType;
                             let firstStation;
                             let route;
                             let eachDest;

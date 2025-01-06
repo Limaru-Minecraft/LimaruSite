@@ -5,7 +5,6 @@ const logo = {
     "Limaru Metro": { src: "/transport/metro.svg", width: 20, height: 20 },
     "Mainlines": { src: "/transport/train.svg", width: 20, height: 20 },
     "Bus Services": { src: "/transport/bus.svg", width: 20, height: 20 },
-
 };
 
 const Status = () => {
@@ -13,13 +12,11 @@ const Status = () => {
 
     useEffect(() => {
         fetch(
-            // API
             "https://script.google.com/macros/s/AKfycbwwRXuVfw8rIlqiWcUV9LLnCXJdhypmyVCs-J4njJuRv5jZd3NOXegTbiZcjo3uYlLaug/exec"
-            // API
         )
             .then((response) => response.json())
             .then((data) => {
-                const processedData = data.slice(1).reduce((acc, [prefix, route, operator, status]) => {
+                const processedData = data.slice(1).reduce((acc, [, route, operator, status]) => {
                     let category = acc.find((cat) => cat.title === operator);
                     if (!category) {
                         category = { title: operator, items: [] };
