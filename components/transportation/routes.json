@@ -410,7 +410,7 @@
     "✈ Lipan Airport": {
       "distance": 1,
       "type": "metro",
-      "line": "Lipan-Downtown Replacement Bus",
+      "line": "Bus 41",
       "color": "#2b2b2b",
       "routeDestination": "Kaspar's Crossing"
     }
@@ -1163,7 +1163,7 @@
     "✈ Lipan Airport": {
       "distance": 1,
       "type": "metro",
-      "line": "Lipan-Downtown Replacement Bus",
+      "line": "Bus 41",
       "color": "#2b2b2b",
       "routeDestination": "Downtown"
     }
@@ -1272,14 +1272,14 @@
     "Kaspar's Crossing": {
       "distance": 1,
       "type": "metro",
-      "line": "Lipan-Downtown Replacement Bus",
+      "line": "Bus 41",
       "color": "#2b2b2b",
       "routeDestination": "Kaspar's Crossing"
     },
     "Downtown": {
       "distance": 1,
       "type": "metro",
-      "line": "Lipan-Downtown Replacement Bus",
+      "line": "Bus 41",
       "color": "#2b2b2b",
       "routeDestination": "Downtown"
     }
