@@ -21,10 +21,10 @@ function findDirectRoute(graph, start, end) {
 // BFS to find all possible paths
 function findAllPaths(graph, start, end) {
     const paths = [];
-    const queue = [[start, [start], 0, 0]]; // [current station, path so far, total distance, transfers]
+    const queue = [[start, [start], 0, 0, null]]; // [current station, path so far, total distance, transfers, route type]
 
     while (queue.length > 0) {
-        const [current, path, totalDistance, transfers] = queue.shift();
+        const [current, path, totalDistance, transfers, currentType] = queue.shift();
 
         if (current === end) {
             paths.push({
@@ -40,15 +40,14 @@ function findAllPaths(graph, start, end) {
             const edge = graph[current][neighbor];
 
             if (!path.includes(neighbor)) {
-                const newTransfers = path.length > 1 && edge.type !== graph[path[path.length - 2]][current].type
-                    ? transfers + 1
-                    : transfers;
+                const newTransfers = currentType && edge.type !== currentType ? transfers + 1 : transfers;
 
                 queue.push([
                     neighbor,
                     [...path, neighbor],
                     totalDistance + edge.distance,
                     newTransfers,
+                    edge.type,
                 ]);
             }
         }
@@ -63,11 +62,29 @@ function findOptimalRoute(graph, start, end, optimizationType) {
 
     if (!allPaths.length) return { path: [], distance: 0 };
 
-    if (optimizationType === "minimumStations") {
+    if (optimizationType === "minimumTransfers") {
+        // Check if any path exists with only one route type
+        const singleRoutePaths = allPaths.filter((path) => path.transfers === 0);
+
+        if (singleRoutePaths.length > 0) {
+            // Among single-route paths, find the one with the shortest distance
+            return singleRoutePaths.reduce((best, current) => {
+                if (
+                    current.totalDistance < best.totalDistance ||
+                    (current.totalDistance === best.totalDistance && current.stationCount < best.stationCount)
+                ) {
+                    return current;
+                }
+                return best;
+            }, singleRoutePaths[0]);
+        }
+
+        // If no single-route path, find the path with the fewest transfers
         return allPaths.reduce((best, current) => {
             if (
-                current.stationCount < best.stationCount ||
-                (current.stationCount === best.stationCount && current.totalDistance < best.totalDistance)
+                current.transfers < best.transfers ||
+                (current.transfers === best.transfers && current.totalDistance < best.totalDistance) ||
+                (current.transfers === best.transfers && current.totalDistance === best.totalDistance && current.stationCount < best.stationCount)
             ) {
                 return current;
             }
@@ -75,11 +92,11 @@ function findOptimalRoute(graph, start, end, optimizationType) {
         }, allPaths[0]);
     }
 
-    if (optimizationType === "minimumTransfers") {
+    if (optimizationType === "minimumStations") {
         return allPaths.reduce((best, current) => {
             if (
-                current.transfers < best.transfers ||
-                (current.transfers === best.transfers && current.totalDistance < best.totalDistance)
+                current.stationCount < best.stationCount ||
+                (current.stationCount === best.stationCount && current.totalDistance < best.totalDistance)
             ) {
                 return current;
             }
