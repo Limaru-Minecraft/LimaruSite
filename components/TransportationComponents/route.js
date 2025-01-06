@@ -211,22 +211,6 @@ const RouteDetails = () => {
                                                         {freq}
                                                     </p>
                                                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                    <img
-                                                        src={"/transport/badge.svg"}
-                                                        alt="test"
-                                                        className={`absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 ${!(route.includes("Tokaido") || route.includes("Kotoha")) ? "invert" : ""}`}
-                                                        style={{
-                                                            marginTop: "37px",
-                                                            marginLeft: "37px",
-                                                        }}
-                                                    />
-                                                    <p className={`text-sm whitespace-nowrap inline-block ${!(route.includes("Tokaido") || route.includes("Kotoha")) ? "text-white" : "text-black font-bold"}`}
-                                                       style={{
-                                                           marginLeft: "56px",
-                                                           marginTop: "3px",
-                                                       }}>
-                                                        Licensed driver need to be requested on this line
-                                                    </p>
                                                     
                                                 </div>
                                             )}
@@ -319,7 +303,7 @@ const RouteDetails = () => {
                                                         <img
                                                             src={route.includes("Bus") ? "/transport/bus.svg" : "/transport/metro.svg"}
                                                             alt="Transport Icon"
-                                                            className={`absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 ${isDark(routeSegments[0]?.color || "#2b2b2b") ? "invert" : ""}`}
+                                                            className={`absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 ${isDark(routeSegments[index]?.color || "#2b2b2b") ? "invert" : ""}`}
                                                             style={{
                                                                 marginTop: route.includes("Bus") ? "8px" : "7px",
                                                                 marginLeft: "38px",
@@ -329,11 +313,11 @@ const RouteDetails = () => {
                                                             className="ml-6 text-sm whitespace-nowrap inline-block rounded-lg px-2 py-1"
                                                             style={{
                                                                 marginTop: "8px", // Move text down by 2px
-                                                                backgroundColor: routeSegments[0]?.color || "#2b2b2b",
-                                                                color: isDark(routeSegments[0]?.color || "#2b2b2b") ? "white" : "black", // Conditional text color
+                                                                backgroundColor: routeSegments[index]?.color || "#2b2b2b",
+                                                                color: isDark(routeSegments[index]?.color || "#2b2b2b") ? "white" : "black", // Conditional text color
                                                             }}
                                                         >
-                                                            <p className="ml-7">{route}</p>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{route}
                                                         </p>
                                                         <p className="ml-1 text-sm whitespace-nowrap inline-block font-bold"
                                                            style={{
@@ -349,24 +333,6 @@ const RouteDetails = () => {
                                                        }}>
                                                         {freq}
                                                     </p>
-                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                    <img
-                                                        src={"/transport/badge.svg"}
-                                                        alt="test"
-                                                        className={`absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 ${!(route.includes("Tokaido") || route.includes("Kotoha")) ? "invert" : ""}`}
-                                                        style={{
-                                                            marginTop: "37px",
-                                                            marginLeft: "37px",
-                                                        }}
-                                                    />
-                                                    <p className={`text-sm whitespace-nowrap inline-block ${!(route.includes("Tokaido") || route.includes("Kotoha")) ? "text-white" : "text-black font-bold"}`}
-                                                       style={{
-                                                           marginLeft: "56px",
-                                                           marginTop: "3px",
-                                                       }}>
-                                                        Licensed driver need to be requested on this line
-                                                    </p>
-
                                                 </div>
 
 
