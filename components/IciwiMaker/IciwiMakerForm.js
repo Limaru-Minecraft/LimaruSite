@@ -1,4 +1,4 @@
-import Heading from './LayoutComponents/Heading';
+import Heading from '@/components/LayoutComponents/Heading'
 import RouteTable from './RouteTable';
 import FareTable from './FareTable';
 import { useState } from 'react';
