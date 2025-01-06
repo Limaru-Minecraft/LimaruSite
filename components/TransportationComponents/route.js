@@ -81,11 +81,20 @@ const RouteDetails = () => {
 
     return (
         <div className="p-4">
-            <h2 className="text-xl font-bold mb-4">
-                Suggested Route{" "}
-                <span className="text-lg font-medium ml-10 mr-2">{origin}</span> →{" "}
-                <span className="text-lg font-medium mx-2">{destination}</span>
+            <h2 className="text-xl font-bold mb-4 flex items-center">
+                Suggested Route
+                <div className="flex items-center text-lg font-medium ml-4">
+                    <span className="mr-2">{origin}</span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                        src="/transport/arrow.svg"
+                        alt="Transport Icon"
+                        className="w-6 h-6 mx-2"
+                    />
+                    <span>{destination}</span>
+                </div>
             </h2>
+
 
             {routeSegments.length > 0 ? (
                 <div className="relative flex flex-col items-start">
@@ -116,10 +125,9 @@ const RouteDetails = () => {
                             let route;
                             let eachDest;
                             let freq;
-                            let eachDestF;
                             if (station === origin) {
                                 route = `${routeNames[0]}`;
-                                eachDestF = `${routeSegments[0].destination}`
+                                eachDest = `${routeSegments[0].destination}`
                                 routeSegments[0].frequency === 1
                                     ? freq = `Every ${routeSegments[0].frequency} min`
                                     : routeSegments[0]?.frequency
@@ -188,11 +196,11 @@ const RouteDetails = () => {
                                                         >
                                                             <p className="ml-7">{route}</p>
                                                         </p>
-                                                        <p className="text-sm whitespace-nowrap inline-block font-bold"
+                                                        <p className="ml-1 text-sm whitespace-nowrap inline-block font-bold"
                                                            style={{
                                                                marginTop: "10px"
                                                            }}>
-                                                            &nbsp;to {eachDestF}
+                                                            to {eachDest}
                                                         </p>
                                                     </div>
                                                     <p className="ml-8 text-sm whitespace-nowrap inline-block"
@@ -202,6 +210,24 @@ const RouteDetails = () => {
                                                        }}>
                                                         {freq}
                                                     </p>
+                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                    <img
+                                                        src={"/transport/badge.svg"}
+                                                        alt="test"
+                                                        className={`absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 ${!(route.includes("Tokaido") || route.includes("Kotoha")) ? "invert" : ""}`}
+                                                        style={{
+                                                            marginTop: "37px",
+                                                            marginLeft: "37px",
+                                                        }}
+                                                    />
+                                                    <p className={`text-sm whitespace-nowrap inline-block ${!(route.includes("Tokaido") || route.includes("Kotoha")) ? "text-white" : "text-black font-bold"}`}
+                                                       style={{
+                                                           marginLeft: "56px",
+                                                           marginTop: "3px",
+                                                       }}>
+                                                        Licensed driver need to be requested on this line
+                                                    </p>
+                                                    
                                                 </div>
                                             )}
                                             {index !== 0 && (
@@ -293,7 +319,7 @@ const RouteDetails = () => {
                                                         <img
                                                             src={route.includes("Bus") ? "/transport/bus.svg" : "/transport/metro.svg"}
                                                             alt="Transport Icon"
-                                                            className={`absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 ${isDark(routeSegments[index]?.color || "#2b2b2b") ? "invert" : ""}`}
+                                                            className={`absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 ${isDark(routeSegments[0]?.color || "#2b2b2b") ? "invert" : ""}`}
                                                             style={{
                                                                 marginTop: route.includes("Bus") ? "8px" : "7px",
                                                                 marginLeft: "38px",
@@ -303,17 +329,17 @@ const RouteDetails = () => {
                                                             className="ml-6 text-sm whitespace-nowrap inline-block rounded-lg px-2 py-1"
                                                             style={{
                                                                 marginTop: "8px", // Move text down by 2px
-                                                                backgroundColor: routeSegments[index]?.color || "#2b2b2b",
-                                                                color: isDark(routeSegments[index]?.color || "#2b2b2b") ? "white" : "black", // Conditional text color
+                                                                backgroundColor: routeSegments[0]?.color || "#2b2b2b",
+                                                                color: isDark(routeSegments[0]?.color || "#2b2b2b") ? "white" : "black", // Conditional text color
                                                             }}
                                                         >
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{route}
+                                                            <p className="ml-7">{route}</p>
                                                         </p>
-                                                        <p className="text-sm whitespace-nowrap inline-block font-bold"
+                                                        <p className="ml-1 text-sm whitespace-nowrap inline-block font-bold"
                                                            style={{
                                                                marginTop: "10px"
                                                            }}>
-                                                            &nbsp;to {eachDest}
+                                                            to {eachDest}
                                                         </p>
                                                     </div>
                                                     <p className="ml-8 text-sm whitespace-nowrap inline-block"
@@ -323,6 +349,24 @@ const RouteDetails = () => {
                                                        }}>
                                                         {freq}
                                                     </p>
+                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                    <img
+                                                        src={"/transport/badge.svg"}
+                                                        alt="test"
+                                                        className={`absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 ${!(route.includes("Tokaido") || route.includes("Kotoha")) ? "invert" : ""}`}
+                                                        style={{
+                                                            marginTop: "37px",
+                                                            marginLeft: "37px",
+                                                        }}
+                                                    />
+                                                    <p className={`text-sm whitespace-nowrap inline-block ${!(route.includes("Tokaido") || route.includes("Kotoha")) ? "text-white" : "text-black font-bold"}`}
+                                                       style={{
+                                                           marginLeft: "56px",
+                                                           marginTop: "3px",
+                                                       }}>
+                                                        Licensed driver need to be requested on this line
+                                                    </p>
+
                                                 </div>
 
 
