@@ -7,10 +7,10 @@ export default function HomeLayout({ children }) {
         <>
             <Navbar/>
             <div className='h-16'/>
-            <VideoBanner YouTubeVideoID="DX7kYO1slDs" title="Welcome to Limaru" serverip={true} subtitle={<>
-                A Minecraft City-Building and Transportation Community that strives in interactivity.
+            <VideoBanner YouTubeVideoID="DX7kYO1slDs" title="Innovate, Create, Experience." serverip={true} subtitle={<>
+                Welcome to Limaru, a community of Minecraft players who like creative building and transportation.
                 <br/>
-                Come be a part of our thriving community that fosters creativity and innovation, and explore our server filled with places to visit and explore!
+                Come explore our server today!
             </>} />
             <div className="max-w-7xl mx-auto px-2 py-12 sm:px-6 lg:px-8">{children}</div>
             <Footer/>

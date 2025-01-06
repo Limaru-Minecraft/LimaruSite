@@ -4,6 +4,8 @@ import routes from "./routes.json"; // Assuming routes.json contains the graph d
 
 const travelOptions = [
     { value: "all", label: "All" },
+    { value: "minimumStations", label: "Minimum Stations" },
+    { value: "minimumTransfers", label: "Minimum Transfers" },
 ];
 
 const allStations = Object.keys(routes);
@@ -11,42 +13,42 @@ const allStations = Object.keys(routes);
 // Function to check if a direct route exists
 function findDirectRoute(graph, start, end) {
     if (graph[start] && graph[start][end]) {
-        return { path: [start, end], distance: graph[start][end].distance, type: graph[start][end].type };
+        return { path: [start, end], distance: graph[start][end].distance };
     }
     return null;
 }
 
-// BFS to find all possible paths, taking into account mode of transport
-function findAllPaths(graph, start, end, allowedTypes) {
+// BFS to find all possible paths
+function findAllPaths(graph, start, end) {
     const paths = [];
-    const queue = [[start, [start], 0, null]]; // [current station, path so far, total distance, current route type]
+    const queue = [[start, [start], 0, 0, null]]; // [current station, path so far, total distance, transfers, route type]
 
     while (queue.length > 0) {
-        const [current, path, totalDistance, currentType] = queue.shift();
+        const [current, path, totalDistance, transfers, currentType] = queue.shift();
 
-        // If the current station is the destination, add the path to results
         if (current === end) {
-            paths.push({ path, totalDistance, routeConsistency: true });
+            paths.push({
+                path,
+                totalDistance,
+                stationCount: path.length,
+                transfers,
+            });
             continue;
         }
 
         for (const neighbor in graph[current]) {
             const edge = graph[current][neighbor];
 
-            if (
-                (!allowedTypes || allowedTypes.includes(edge.type)) && // Allowed transport type
-                !path.includes(neighbor) // Avoid revisiting stations in the same path
-            ) {
-                const isSameRoute = currentType === null || currentType === edge.type;
+            if (!path.includes(neighbor)) {
+                const newTransfers = currentType && edge.type !== currentType ? transfers + 1 : transfers;
+
                 queue.push([
                     neighbor,
                     [...path, neighbor],
                     totalDistance + edge.distance,
+                    newTransfers,
                     edge.type,
                 ]);
-                if (!isSameRoute) {
-                    paths.push({ path: [...path, neighbor], totalDistance: totalDistance + edge.distance, routeConsistency: false });
-                }
             }
         }
     }
@@ -54,34 +56,62 @@ function findAllPaths(graph, start, end, allowedTypes) {
     return paths;
 }
 
+// Function to find the optimal route based on user selection
+function findOptimalRoute(graph, start, end, optimizationType) {
+    const allPaths = findAllPaths(graph, start, end);
 
-// Function to select the path with the minimum station count, same route if possible, then minimum distance
-// Function to select the path with the shortest distance
-function findOptimalRoute(graph, start, end, allowedTypes) {
-    const allPaths = findAllPaths(graph, start, end, allowedTypes);
+    if (!allPaths.length) return { path: [], distance: 0 };
 
-    if (!allPaths.length) return { path: [], distance: 0 }; // No paths found
+    if (optimizationType === "minimumTransfers") {
+        // Check if any path exists with only one route type
+        const singleRoutePaths = allPaths.filter((path) => path.transfers === 0);
 
-    let bestPath = null;
-    let minDistance = Infinity;
-
-    allPaths.forEach(({ path, totalDistance }) => {
-        // Update best path based on distance only
-        if (totalDistance < minDistance) {
-            minDistance = totalDistance;
-            bestPath = path;
+        if (singleRoutePaths.length > 0) {
+            // Among single-route paths, find the one with the shortest distance
+            return singleRoutePaths.reduce((best, current) => {
+                if (
+                    current.totalDistance < best.totalDistance ||
+                    (current.totalDistance === best.totalDistance && current.stationCount < best.stationCount)
+                ) {
+                    return current;
+                }
+                return best;
+            }, singleRoutePaths[0]);
         }
-    });
 
-    return {
-        path: bestPath,
-        distance: minDistance,
-    };
+        // If no single-route path, find the path with the fewest transfers
+        return allPaths.reduce((best, current) => {
+            if (
+                current.transfers < best.transfers ||
+                (current.transfers === best.transfers && current.totalDistance < best.totalDistance) ||
+                (current.transfers === best.transfers && current.totalDistance === best.totalDistance && current.stationCount < best.stationCount)
+            ) {
+                return current;
+            }
+            return best;
+        }, allPaths[0]);
+    }
+
+    if (optimizationType === "minimumStations") {
+        return allPaths.reduce((best, current) => {
+            if (
+                current.stationCount < best.stationCount ||
+                (current.stationCount === best.stationCount && current.totalDistance < best.totalDistance)
+            ) {
+                return current;
+            }
+            return best;
+        }, allPaths[0]);
+    }
+
+    // Default to shortest distance
+    return allPaths.reduce((best, current) => {
+        if (current.totalDistance < best.totalDistance) {
+            return current;
+        }
+        return best;
+    }, allPaths[0]);
 }
-
-
-
-
 
 const Pathfinder = () => {
     const [selectedTravelOption, setSelectedTravelOption] = useState("all");
@@ -162,22 +192,25 @@ const Pathfinder = () => {
                     distance: directRoute.distance,
                     origin,
                     destination,
-                    travelOption: selectedTravelOption,
+                    travelOption: "all", // Always ship "all" as travelOption
                 },
             });
         } else {
-            const allowedTypes =
-                selectedTravelOption === "all" ? null : selectedTravelOption.split("-and-");
-            const calculatedRoute = findOptimalRoute(routes, origin, destination, allowedTypes);
+            const calculatedRoute = findOptimalRoute(
+                routes,
+                origin,
+                destination,
+                selectedTravelOption
+            );
 
             router.push({
                 pathname: "/route",
                 query: {
                     path: calculatedRoute.path ? calculatedRoute.path.join(",") : "",
-                    distance: calculatedRoute.distance || 0,
+                    distance: calculatedRoute.totalDistance || 0,
                     origin,
                     destination,
-                    travelOption: selectedTravelOption,
+                    travelOption: "all", // Always ship "all" as travelOption
                 },
             });
         }
@@ -201,7 +234,7 @@ const Pathfinder = () => {
                         value={selectedTravelOption}
                         onChange={(e) => setSelectedTravelOption(e.target.value)}
                         className="border rounded p-2"
-                        style={{ width: "150px" }}
+                        style={{ width: "200px" }}
                     >
                         {travelOptions.map((option) => (
                             <option key={option.value} value={option.value}>
@@ -220,27 +253,24 @@ const Pathfinder = () => {
                             type="text"
                             id="origin"
                             className="border rounded p-2 w-full"
-                            style={{ width: "300px" }}
                             value={origin}
                             onFocus={handleOriginFocus}
                             onChange={handleOriginChange}
                         />
                         {originSuggestions.length > 0 && (
                             <ul className="absolute bg-white border rounded mt-1 w-full max-h-40 overflow-auto">
-                                {originSuggestions
-                                    .sort((a, b) => a.localeCompare(b)) // Sort suggestions alphabetically
-                                    .map((station) => (
-                                        <li
-                                            key={station}
-                                            className="p-2 hover:bg-gray-200 cursor-pointer"
-                                            onClick={() => {
-                                                setOrigin(station);
-                                                setOriginSuggestions([]);
-                                            }}
-                                        >
-                                            {station}
-                                        </li>
-                                    ))}
+                                {originSuggestions.map((station) => (
+                                    <li
+                                        key={station}
+                                        className="p-2 hover:bg-gray-200 cursor-pointer"
+                                        onClick={() => {
+                                            setOrigin(station);
+                                            setOriginSuggestions([]);
+                                        }}
+                                    >
+                                        {station}
+                                    </li>
+                                ))}
                             </ul>
                         )}
                     </div>
@@ -260,27 +290,24 @@ const Pathfinder = () => {
                             type="text"
                             id="destination"
                             className="border rounded p-2 w-full"
-                            style={{ width: "300px" }}
                             value={destination}
                             onFocus={handleDestinationFocus}
                             onChange={handleDestinationChange}
                         />
                         {destinationSuggestions.length > 0 && (
                             <ul className="absolute bg-white border rounded mt-1 w-full max-h-40 overflow-auto">
-                                {destinationSuggestions
-                                    .sort((a, b) => a.localeCompare(b)) // Sort suggestions alphabetically
-                                    .map((station) => (
-                                        <li
-                                            key={station}
-                                            className="p-2 hover:bg-gray-200 cursor-pointer"
-                                            onClick={() => {
-                                                setDestination(station);
-                                                setDestinationSuggestions([]);
-                                            }}
-                                        >
-                                            {station}
-                                        </li>
-                                    ))}
+                                {destinationSuggestions.map((station) => (
+                                    <li
+                                        key={station}
+                                        className="p-2 hover:bg-gray-200 cursor-pointer"
+                                        onClick={() => {
+                                            setDestination(station);
+                                            setDestinationSuggestions([]);
+                                        }}
+                                    >
+                                        {station}
+                                    </li>
+                                ))}
                             </ul>
                         )}
                     </div>

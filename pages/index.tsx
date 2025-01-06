@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <>
       <Head
-        title="Limaru - Innovate, Create, Experience."
-        description="Welcome to Limaru, a Minecraft City-Building and Transportation Community. Join our community that fosters creativity and innovation!"
+        title="Limaru Minecraft Server - Innovate, Create, Experience."
+        description="Welcome to Limaru, a Minecraft City-Building and Transportation Community. Come explore our server today!"
         author="YJJcoolcool"
         keywords="limaru, limaru city server, limaru minecraft server"
       />
@@ -72,6 +72,10 @@ export default function Home() {
               image: "/glass_factory.webp",
             },
           ]} />
+        </SectionBox>
+        <SectionBox>
+          <Heading level={2}>A low level of entry for aspiring builders.</Heading>
+          <p>Being a relatively small community, we are open to builders of any kind - from beginners to experienced builders. Our rank system is simple to understand and we actively work with each other to improve our building skills.</p>
         </SectionBox>
         <SectionBox>
           <Heading level={2}>Quick Links</Heading>
