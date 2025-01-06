@@ -98,8 +98,8 @@ const RouteDetails = () => {
                                         ? ` - Frequency: ${routeSegments[0].frequency}`
                                         : ""
                                 }${
-                                    routeSegments[0]?.routeDestination
-                                        ? ` - Destination: ${routeSegments[0].routeDestination}`
+                                    routeSegments[0].destination
+                                        ? ` - Destination: ${routeSegments[0].destination}`
                                         : ""
                                 }`}
                             </p>
@@ -113,66 +113,33 @@ const RouteDetails = () => {
                             const isLastStation = index === stations.length - 1;
 
                             // Determine station type
-                            let firstStation;
                             let route;
                             let eachDest;
                             let freq;
-                            let routeF;
                             let eachDestF;
-                            let freqF;
                             if (station === origin) {
-                                firstStation =
-                                    routeNames[0] === "Walking"
-                                        ? "(Out-of-Station Interchange)"
-                                        : routeNames[0]
-                                            ? `(Take the ${routeNames[0]}${
-                                                routeSegments[0]?.frequency
-                                                    ? ` - Frequency: ${routeSegments[0].frequency}`
-                                                    : ""
-                                            }${
-                                                routeSegments[0]?.routeDestination
-                                                    ? ` - Destination: ${routeSegments[0].routeDestination}`
-                                                    : ""
-                                            })`
-                                            : "";
-                                routeF = `${routeNames[0]}`;
-                                eachDestF = `${routeSegments[0].routeDestination}`
-                                freqF = freq === 1
-                                    ? `Every ${routeSegments[0].frequency} min`
+                                route = `${routeNames[0]}`;
+                                eachDestF = `${routeSegments[0].destination}`
+                                routeSegments[0].frequency === 1
+                                    ? freq = `Every ${routeSegments[0].frequency} min`
                                     : routeSegments[0]?.frequency
-                                        ? `Every ${routeSegments[0].frequency} mins`
+                                        ? freq = `Every ${routeSegments[0].frequency} mins`
                                         : "";
                             } else if (station === destination) {
-                                firstStation = "";
                             } else if (transferPoints.includes(station)) {
                                 const transferIndex = routeSegments.findIndex(
                                     (seg) => seg.from === station
                                 );
-                                // stationType =
-                                //     routeNames[transferIndex] === "Walking"
-                                //         ? "(Out-of-Station Interchange)"
-                                //         : routeNames[transferIndex]
-                                //             ? `(Transfer to the ${routeNames[transferIndex]}${
-                                //                 routeSegments[transferIndex]?.frequency
-                                //                     ? ` - Frequency: ${routeSegments[transferIndex].frequency}`
-                                //                     : ""
-                                //             }${
-                                //                 routeSegments[transferIndex]?.routeDestination
-                                //                     ? ` - Destination: ${routeSegments[transferIndex].routeDestination}`
-                                //                     : ""
-                                //             })`
-                                //             : "(Transfer to the route)";
                                 route = `${routeNames[transferIndex]}`;
-                                eachDest = `${routeSegments[transferIndex].routeDestination}`
-                                freq = freq === 1
-                                    ? `Every ${routeSegments[transferIndex].frequency} min`
-                                    : routeSegments[transferIndex]?.frequency
-                                        ? `Every ${routeSegments[transferIndex].frequency} mins`
+                                eachDest = `${routeSegments[transferIndex].destination}`
+                                routeSegments[0].frequency === 1
+                                    ? freq = `Every ${routeSegments[0].frequency} min`
+                                    : routeSegments[0]?.frequency
+                                        ? freq = `Every ${routeSegments[0].frequency} mins`
                                         : "";
 
 
                             } else {
-                                firstStation = "";
                             }
 
                             return (
@@ -201,12 +168,13 @@ const RouteDetails = () => {
                                                     }}
                                                 >
                                                     <div className="flex items-center">
+                                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                                         <img
-                                                            src={routeF.includes("Bus") ? "/transport/bus.svg" : "/transport/metro.svg"}
+                                                            src={route.includes("Bus") ? "/transport/bus.svg" : "/transport/metro.svg"}
                                                             alt="Transport Icon"
                                                             className={`absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 ${isDark(routeSegments[0]?.color || "#2b2b2b") ? "invert" : ""}`}
                                                             style={{
-                                                                marginTop: routeF.includes("Bus") ? "8px" : "7px",
+                                                                marginTop: route.includes("Bus") ? "8px" : "7px",
                                                                 marginLeft: "38px",
                                                             }}
                                                         />
@@ -218,7 +186,7 @@ const RouteDetails = () => {
                                                                 color: isDark(routeSegments[0]?.color || "#2b2b2b") ? "white" : "black", // Conditional text color
                                                             }}
                                                         >
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{routeF}
+                                                            <p className="ml-7">{route}</p>
                                                         </p>
                                                         <p className="text-sm whitespace-nowrap inline-block font-bold"
                                                            style={{
@@ -232,7 +200,7 @@ const RouteDetails = () => {
                                                            marginTop: "2px",
                                                            color: "gray"
                                                        }}>
-                                                        {freqF}
+                                                        {freq}
                                                     </p>
                                                 </div>
                                             )}
@@ -281,6 +249,7 @@ const RouteDetails = () => {
                                                         borderLeft: "4px dotted #2b2b2b",
                                                     }}
                                                 ></div>
+                                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                                 <img
                                                     src="/transport/transfer.svg"
                                                     alt="Interchange Guy"
@@ -320,6 +289,7 @@ const RouteDetails = () => {
                                                     }}
                                                 >
                                                     <div className="flex items-center">
+                                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                                         <img
                                                             src={route.includes("Bus") ? "/transport/bus.svg" : "/transport/metro.svg"}
                                                             alt="Transport Icon"
