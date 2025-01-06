@@ -12,7 +12,7 @@ export default function TitleBanner({title, subtitle=false, image=false}) {
                 </Heading>
                 {subtitle && (
                     <p className="text-2xl text-left mb-8 drop-shadow-md">
-                        <span className="bg-yellow-700 px-2 box-decoration-clone">
+                        <span className="bg-yellow-400 px-2 box-decoration-clone">
                             {subtitle}
                         </span>
                     </p>

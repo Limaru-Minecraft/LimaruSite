@@ -111,7 +111,7 @@ export const footer_resource_links: NavLink[] = [
 
 export const social_media_links: SocialLink[] = [
   { href: 'https://youtube.com/LiMARU', icon: 'youtube' },
-  { href: 'https://instagram.com/YJJCityProject', icon: 'instagram' },
+  { href: 'https://www.instagram.com/limaru.minecraft', icon: 'instagram' },
   //{ href: 'https://twitter.com/FRoLserver', icon: 'twitter' },
 ];
 

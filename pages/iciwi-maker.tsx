@@ -3,12 +3,13 @@ import PageLayout from '@/components/PageLayout'
 import SectionBox from '@/components/SectionBox'
 import Heading from '@/components/LayoutComponents/Heading'
 import UnderConstruction from '@/components/LayoutComponents/UnderConstruction'
-import DynamicForm from '@/components/DynamicForm'
+import IciwiMakerForm from '@/components/IciwiMakerForm'
 
 export default function Home() {
 
-  const processTable = (e: any) => {
-    console.log('Form submitted:', e);
+  const processTable = (routes: any, fares: any) => {
+    console.log('Routes:', routes);
+    console.log('Fares:', fares);
   }
 
   return (
@@ -23,7 +24,7 @@ export default function Home() {
         <UnderConstruction type="page" />
         <SectionBox>
           <Heading level={2}>Create your own fares.yml here!</Heading>
-          <DynamicForm submitFunction={processTable}></DynamicForm>
+          <IciwiMakerForm submitFunction={processTable}></IciwiMakerForm>
         </SectionBox>
       </PageLayout>
     </>
