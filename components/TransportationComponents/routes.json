@@ -91,57 +91,57 @@
     "Brentwood": {
       "distance": 1,
       "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8b4513",
-      "destination": "Flower Hill"
+      "line": ["Tokaido Line", "Kotoha Line"],
+      "color": ["#8b4513", "#15754c"],
+      "destination": ["Flower Hill", "Shinten"]
     }
   },
   "Brentwood": {
     "Mizuno Filius": {
       "distance": 1,
       "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8b4513",
-      "destination": "Mizuno Filius"
+      "line": ["Tokaido Line", "Kotoha Line"],
+      "color": ["#8b4513", "#15754c"],
+      "destination": ["Mizuno Filius", "Kimitsu"]
     },
     "Brentwood Pier": {
       "distance": 1,
       "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8b4513",
-      "destination": "Flower Hill"
+      "line": ["Tokaido Line", "Kotoha Line"],
+      "color": ["#8b4513", "#15754c"],
+      "destination": ["Flower Hill", "Shinten"]
     }
   },
   "Brentwood Pier": {
     "Brentwood": {
       "distance": 1,
       "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8b4513",
-      "destination": "Mizuno Filius"
+      "line": ["Tokaido Line", "Kotoha Line"],
+      "color": ["#8b4513", "#15754c"],
+      "destination": ["Mizuno Filius", "Kimitsu"]
     },
     "Twyford": {
       "distance": 1,
       "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8b4513",
-      "destination": "Flower Hill"
+      "line": ["Tokaido Line", "Kotoha Line"],
+      "color": ["#8b4513", "#15754c"],
+      "destination": ["Flower Hill", "Shinten"]
     }
   },
   "Twyford": {
     "Minagi": {
       "distance": 1,
       "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8b4513",
-      "destination": "Flower Hill"
+      "line": ["Tokaido Line", "Kotoha Line"],
+      "color": ["#8b4513", "#15754c"],
+      "destination": ["Flower Hill", "Shinten"]
     },
     "Brentwood Pier": {
       "distance": 1,
       "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8b4513",
-      "destination": "Mizuno Filius"
+      "line": ["Tokaido Line", "Kotoha Line"],
+      "color": ["#8b4513", "#15754c"],
+      "destination": ["Mizuno Filius", "Kimitsu"]
     },
     "Eastminster": {
       "distance": 1,
@@ -156,16 +156,16 @@
     "Twyford": {
       "distance": 1,
       "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8b4513",
-      "destination": "Mizuno Filius"
+      "line": ["Tokaido Line", "Kotoha Line"],
+      "color": ["#8b4513", "#15754c"],
+      "destination": ["Mizuno Filius", "Kimitsu"]
     },
     "Otaki": {
       "distance": 1,
       "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8b4513",
-      "destination": "Flower Hill"
+      "line": ["Tokaido Line", "Kotoha Line"],
+      "color": ["#8b4513", "#15754c"],
+      "destination": ["Flower Hill", "Shinten"]
     },
     "Sorawo": {
       "distance": 1,
@@ -188,25 +188,25 @@
     "Minagi": {
       "distance": 1,
       "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8b4513",
-      "destination": "Mizuno Filius"
+      "line": ["Tokaido Line", "Kotoha Line"],
+      "color": ["#8b4513", "#15754c"],
+      "destination": ["Mizuno Filius", "Kimitsu"]
     },
     "Hokuyo": {
       "distance": 1,
       "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8b4513",
-      "destination": "Flower Hill"
+      "line": ["Tokaido Line", "Kotoha Line"],
+      "color": ["#8b4513", "#15754c"],
+      "destination": ["Flower Hill", "Shinten"]
     }
   },
   "Hokuyo": {
     "Otaki": {
       "distance": 1,
       "type": "metro",
-      "line": "Tokaido Line",
-      "color": "#8b4513",
-      "destination": "Mizuno Filius"
+      "line": ["Tokaido Line", "Kotoha Line"],
+      "color": ["#8b4513", "#15754c"],
+      "destination": ["Mizuno Filius", "Kimitsu"]
     },
     "Maruyama": {
       "distance": 1,
@@ -625,10 +625,10 @@
     "Yachiyo": {
       "distance": 1,
       "type": "metro",
-      "line": "Namboku Line",
-      "color": "#00cc00",
+      "line": ["Namboku Line", "Central Line"],
+      "color": ["#00cc00", "#aaff00"],
       "frequency": 4,
-      "destination": "Katsuragi Chinatown"
+      "destination": ["Katsuragi Chinatown", "Yachiyo"]
     },
     "Downtown": {
       "distance": 1,
@@ -643,10 +643,10 @@
     "Kaname": {
       "distance": 1,
       "type": "metro",
-      "line": "Namboku Line",
-      "color": "#00cc00",
+      "line": ["Namboku Line", "Central Line"],
+      "color": ["#00cc00", "#aaff00"],
       "frequency": 4,
-      "destination": "Downtown"
+      "destination": ["Downtown", "Tuck Park"]
     },
     "Kasuga": {
       "distance": 1,

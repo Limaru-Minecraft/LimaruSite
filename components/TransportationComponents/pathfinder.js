@@ -19,72 +19,74 @@ function findDirectRoute(graph, start, end) {
 }
 
 // BFS to find all possible paths
+// BFS to find all possible paths
 function findAllPaths(graph, start, end) {
     const paths = [];
-    const queue = [[start, [start], 0, 0, null]]; // [current station, path so far, total distance, transfers, route type]
+    const queue = [[start, [start], 0, 0, null]]; // [current station, path, totalDistance, transfers, currentLine]
 
     while (queue.length > 0) {
-        const [current, path, totalDistance, transfers, currentType] = queue.shift();
+        const [current, path, totalDistance, transfers, currentLine] = queue.shift();
 
+        // If we've reached the destination, save the path
         if (current === end) {
             paths.push({
                 path,
                 totalDistance,
-                stationCount: path.length,
+                stationCount: path.length - 1,
                 transfers,
             });
             continue;
         }
 
+        // Explore all neighbors
         for (const neighbor in graph[current]) {
             const edge = graph[current][neighbor];
+            const { distance, line } = edge; // Extract "line" field
 
             if (!path.includes(neighbor)) {
-                const newTransfers = currentType && edge.type !== currentType ? transfers + 1 : transfers;
+                // If line is an array, we will need to check each line
+                const linesToCheck = Array.isArray(line) ? line : [line];
 
-                queue.push([
-                    neighbor,
-                    [...path, neighbor],
-                    totalDistance + edge.distance,
-                    newTransfers,
-                    edge.type,
-                ]);
+                let newTransfers = transfers;
+
+                // Increment transfers if we are switching lines
+                if (currentLine && linesToCheck.every(newLine => newLine !== currentLine)) {
+                    newTransfers = transfers + 1; // We have changed lines
+                }
+
+                // Add the new path to the queue
+                linesToCheck.forEach(newLine => {
+                    queue.push([
+                        neighbor,
+                        [...path, neighbor],
+                        totalDistance + distance,
+                        newTransfers, // Update transfers correctly
+                        newLine, // Set current line to the new line
+                    ]);
+                });
             }
         }
     }
 
+    console.log("Paths Found (with transfers):", paths); // Debugging paths
     return paths;
 }
+
 
 // Function to find the optimal route based on user selection
 function findOptimalRoute(graph, start, end, optimizationType) {
     const allPaths = findAllPaths(graph, start, end);
 
-    if (!allPaths.length) return { path: [], distance: 0 };
+    if (!allPaths.length) return { path: [], totalDistance: 0 };
 
     if (optimizationType === "minimumTransfers") {
-        // Check if any path exists with only one route type
-        const singleRoutePaths = allPaths.filter((path) => path.transfers === 0);
-
-        if (singleRoutePaths.length > 0) {
-            // Among single-route paths, find the one with the shortest distance
-            return singleRoutePaths.reduce((best, current) => {
-                if (
-                    current.totalDistance < best.totalDistance ||
-                    (current.totalDistance === best.totalDistance && current.stationCount < best.stationCount)
-                ) {
-                    return current;
-                }
-                return best;
-            }, singleRoutePaths[0]);
-        }
-
-        // If no single-route path, find the path with the fewest transfers
         return allPaths.reduce((best, current) => {
             if (
-                current.transfers < best.transfers ||
-                (current.transfers === best.transfers && current.totalDistance < best.totalDistance) ||
-                (current.transfers === best.transfers && current.totalDistance === best.totalDistance && current.stationCount < best.stationCount)
+                current.transfers < best.transfers || // Fewer transfers
+                (current.transfers === best.transfers && current.totalDistance < best.totalDistance) || // Tie in transfers, prefer shorter distance
+                (current.transfers === best.transfers &&
+                    current.totalDistance === best.totalDistance &&
+                    current.stationCount < best.stationCount) // Further tie, prefer fewer stations
             ) {
                 return current;
             }
@@ -95,11 +97,31 @@ function findOptimalRoute(graph, start, end, optimizationType) {
     if (optimizationType === "minimumStations") {
         return allPaths.reduce((best, current) => {
             if (
-                current.stationCount < best.stationCount ||
-                (current.stationCount === best.stationCount && current.totalDistance < best.totalDistance)
+                current.stationCount < best.stationCount || // Fewer stations
+                (current.stationCount === best.stationCount && current.totalDistance < best.totalDistance) // Tie in stations, prefer shorter distance
             ) {
                 return current;
             }
+            return best;
+        }, allPaths[0]);
+    }
+
+    if (optimizationType === "all") {
+        return allPaths.reduce((best, current) => {
+            // Compare based on both transfers and station count
+            const compareTransfers = current.transfers < best.transfers;
+            const compareStations = current.stationCount < best.stationCount;
+            const compareDistance = current.totalDistance < best.totalDistance;
+
+            if (
+                compareTransfers || // Prefer fewer transfers
+                (current.transfers === best.transfers &&
+                    (compareStations || // Tie on transfers, prefer fewer stations
+                        (current.stationCount === best.stationCount && compareDistance))) // Tie on both, prefer shorter distance
+            ) {
+                return current;
+            }
+
             return best;
         }, allPaths[0]);
     }
@@ -182,9 +204,12 @@ const Pathfinder = () => {
             return;
         }
 
+        console.log("Finding route from:", origin, "to:", destination, "with option:", selectedTravelOption);
+
         const directRoute = findDirectRoute(routes, origin, destination);
 
         if (directRoute) {
+            console.log("Direct route found:", directRoute);
             router.push({
                 pathname: "/route",
                 query: {
@@ -192,28 +217,36 @@ const Pathfinder = () => {
                     distance: directRoute.distance,
                     origin,
                     destination,
-                    travelOption: "all", // Always ship "all" as travelOption
+                    travelOption: "all",
                 },
             });
-        } else {
-            const calculatedRoute = findOptimalRoute(
-                routes,
+            return;
+        }
+
+        const calculatedRoute = findOptimalRoute(
+            routes,
+            origin,
+            destination,
+            selectedTravelOption
+        );
+
+        if (!calculatedRoute.path.length) {
+            alert("No route found between the selected stations.");
+            return;
+        }
+
+        console.log("Calculated route:", calculatedRoute);
+
+        router.push({
+            pathname: "/route",
+            query: {
+                path: calculatedRoute.path.join(","),
+                distance: calculatedRoute.totalDistance,
                 origin,
                 destination,
-                selectedTravelOption
-            );
-
-            router.push({
-                pathname: "/route",
-                query: {
-                    path: calculatedRoute.path ? calculatedRoute.path.join(",") : "",
-                    distance: calculatedRoute.totalDistance || 0,
-                    origin,
-                    destination,
-                    travelOption: "all", // Always ship "all" as travelOption
-                },
-            });
-        }
+                travelOption: "all",
+            },
+        });
     };
 
     const handleSwap = () => {
@@ -223,8 +256,7 @@ const Pathfinder = () => {
     };
 
     return (
-        <div className="bg-white p-4 rounded shadow-md"
-             style={{ position: 'relative', zIndex: 10 }}>
+        <div className="bg-white p-4 rounded shadow-md" style={{ position: 'relative', zIndex: 10 }}>
             <div className="flex flex-wrap items-end gap-4">
                 <div>
                     <label htmlFor="travel-option" className="block font-medium mb-1">
@@ -262,17 +294,17 @@ const Pathfinder = () => {
                             <ul className="absolute bg-white border rounded mt-1 w-full max-h-40 overflow-auto">
                                 {originSuggestions.sort((a, b) => a.localeCompare(b))
                                     .map((station) => (
-                                    <li
-                                        key={station}
-                                        className="p-2 hover:bg-gray-200 cursor-pointer"
-                                        onClick={() => {
-                                            setOrigin(station);
-                                            setOriginSuggestions([]);
-                                        }}
-                                    >
-                                        {station}
-                                    </li>
-                                ))}
+                                        <li
+                                            key={station}
+                                            className="p-2 hover:bg-gray-200 cursor-pointer"
+                                            onClick={() => {
+                                                setOrigin(station);
+                                                setOriginSuggestions([]);
+                                            }}
+                                        >
+                                            {station}
+                                        </li>
+                                    ))}
                             </ul>
                         )}
                     </div>
@@ -300,17 +332,17 @@ const Pathfinder = () => {
                             <ul className="absolute bg-white border rounded mt-1 w-full max-h-40 overflow-auto">
                                 {destinationSuggestions.sort((a, b) => a.localeCompare(b))
                                     .map((station) => (
-                                    <li
-                                        key={station}
-                                        className="p-2 hover:bg-gray-200 cursor-pointer"
-                                        onClick={() => {
-                                            setDestination(station);
-                                            setDestinationSuggestions([]);
-                                        }}
-                                    >
-                                        {station}
-                                    </li>
-                                ))}
+                                        <li
+                                            key={station}
+                                            className="p-2 hover:bg-gray-200 cursor-pointer"
+                                            onClick={() => {
+                                                setDestination(station);
+                                                setDestinationSuggestions([]);
+                                            }}
+                                        >
+                                            {station}
+                                        </li>
+                                    ))}
                             </ul>
                         )}
                     </div>

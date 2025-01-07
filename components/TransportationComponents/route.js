@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import React from "react";
 import routes from "./routes.json";
 
@@ -32,31 +32,91 @@ function isDark(color) {
 }
 
 
+console.log("Debugging Start");
+
 const RouteDetails = () => {
     const router = useRouter();
-    const { path } = router.query;
+    const {path} = router.query;
 
     const stations = path ? path.split(",") : [];
     const routeNames = []; // Collect all route names here
     const routeSegments = [];
+
+    let previousRoute = null; // Track the previously used route
+
     for (let i = 0; i < stations.length - 1; i++) {
         const currentStation = stations[i];
         const nextStation = stations[i + 1];
         const routeData = routes[currentStation]?.[nextStation];
 
         if (routeData) {
+            // Determine the selected route
+            let selectedRoute, selectedColor, selectedDestination;
+
+            if (Array.isArray(routeData.line)) {
+                // Retrieve the next and previous stations route data
+                const nextRouteData = routes[nextStation]?.[stations[i + 2]];
+                const previousRouteData = routes[stations[i - 1]]?.[currentStation];
+
+                // Shared lines between both next and previous stations
+                const sharedLinesBoth = routeData.line.filter(line =>
+                    (nextRouteData?.line || []).includes(line) &&
+                    (previousRouteData?.line || []).includes(line)
+                );
+
+                // Shared lines between either next or previous stations
+                const sharedLinesEither = routeData.line.filter(line =>
+                    (nextRouteData?.line || []).includes(line) ||
+                    (previousRouteData?.line || []).includes(line)
+                );
+
+                // Prioritize shared lines between next and previous stations
+                selectedRoute = sharedLinesBoth[0] ||
+                    sharedLinesEither[0] ||
+                    previousRoute || // Use previous route if available
+                    routeData.line[0]; // Fall back to the first line if no shared or previous routes
+
+                // Find the index of the selected route in the original array
+                const routeIndex = routeData.line.indexOf(selectedRoute);
+
+                // Map line to color and destination
+                selectedColor = routeData.color[routeIndex];
+                selectedDestination = routeData.destination[routeIndex];
+            } else {
+                selectedRoute = routeData.line;
+                selectedColor = routeData.color;
+                selectedDestination = routeData.destination;
+            }
+
+            // Update previousRoute to be used in the next iteration
+            previousRoute = selectedRoute;
+
+            if (Array.isArray(routeData.line)) console.log(i, routeData.line[0], routeData.line[1], selectedRoute);
+            else console.log(i, routeData.line, selectedRoute);
+            // Log for debugging
+
+
+            // Push the route data to routeSegments
             routeSegments.push({
                 from: currentStation,
                 to: nextStation,
-                ...routeData,
+                distance: routeData.distance,
+                type: routeData.type,
+                line: selectedRoute,
+                color: selectedColor,
+                destination: selectedDestination,
+                frequency: routeData.frequency,
             });
 
-            // Add route name if it exists
-            if (routeData.line) {
-                routeNames.push(routeData.line);
+            // Add the selected route to routeNames
+            if (selectedRoute) {
+                routeNames.push(selectedRoute);
             }
+
         }
     }
+
+
 
     // Separate stations into categories
     const origin = stations[0];
@@ -71,8 +131,7 @@ const RouteDetails = () => {
     // Track where the transfers occur
     for (let i = 1; i < stations.length - 1; i++) {
         const currentStation = stations[i];
-        const isRouteChange =
-            routeNames[i - 1] !== routeNames[i];
+        const isRouteChange = routeNames[i - 1] !== routeNames[i];
 
         if (isRouteChange) {
             transferPoints.push(currentStation);
@@ -84,95 +143,62 @@ const RouteDetails = () => {
             <h2 className="text-xl font-bold mb-4 flex items-center">
                 Suggested Route
                 <div className="flex items-center text-lg font-medium ml-4">
-                    <span className="mr-2">{origin}</span>
+                    <span>{origin}</span>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         src="/transport/arrow.svg"
                         alt="Transport Icon"
                         className="w-6 h-6 mx-2"
                     />
-                    <span>{destination}</span>
+                    <span>{destination} | with total of {stations.length} stations</span>
                 </div>
             </h2>
-
 
             {routeSegments.length > 0 ? (
                 <div className="relative flex flex-col items-start">
                     {isSingleRoute ? (
-                        // Direct route with no transfers
-                        <div className="flex items-center">
-                            <p className="ml-4 text-sm">
-                                {`Take the ${routeNames[0]}${
-                                    routeSegments[0]?.frequency
-                                        ? ` - Frequency: ${routeSegments[0].frequency}`
-                                        : ""
-                                }${
-                                    routeSegments[0].destination
-                                        ? ` - Destination: ${routeSegments[0].destination}`
-                                        : ""
-                                }`}
-                            </p>
-                        </div>
+                        <div></div>
                     ) : (
                         // Multiple routes with transfers
                         stations.map((station, index) => {
-                            const isRouteChange =
-                                index > 0 && routeNames[index - 1] !== routeNames[index];
-
+                            const isRouteChange = index > 0 && routeNames[index - 1] !== routeNames[index];
                             const isLastStation = index === stations.length - 1;
 
-                            // Determine station type
-                            let route;
-                            let eachDest;
-                            let freq;
-                            if (station === origin) {
-                                route = `${routeNames[0]}`;
-                                eachDest = `${routeSegments[0].destination}`
-                                routeSegments[0].frequency === 1
-                                    ? freq = `Every ${routeSegments[0].frequency} min`
-                                    : routeSegments[0]?.frequency
-                                        ? freq = `Every ${routeSegments[0].frequency} mins`
-                                        : "";
-                            } else if (station === destination) {
-                            } else if (transferPoints.includes(station)) {
-                                const transferIndex = routeSegments.findIndex(
-                                    (seg) => seg.from === station
-                                );
-                                route = `${routeNames[transferIndex]}`;
-                                eachDest = `${routeSegments[transferIndex].destination}`
-                                routeSegments[0].frequency === 1
-                                    ? freq = `Every ${routeSegments[0].frequency} min`
-                                    : routeSegments[0]?.frequency
-                                        ? freq = `Every ${routeSegments[0].frequency} mins`
-                                        : "";
+                            // Determine route details
+                            const transferIndex = routeSegments.findIndex((seg) => seg.from === station);
+                            let route = "", eachDest = "", freq = "";
 
+                            if (transferIndex !== -1) {
+                                route = routeNames[transferIndex];
+                                eachDest = routeSegments[transferIndex]?.destination || "";
 
-                            } else {
+                                const frequency = routeSegments[transferIndex]?.frequency || routeSegments[0]?.frequency;
+                                freq = frequency
+                                    ? `Every ${frequency} ${frequency === 1 ? "min" : "mins"}`
+                                    : "";
                             }
 
                             return (
-                                <React.Fragment key={index}>
-                                    {/* Normal Station */}
+                                <React.Fragment key={index}> {/* Normal Station */}
                                     <div className="flex items-center">
                                         <div className="flex flex-col items-center">
                                             <div
-                                                className="w-5 h-5 rounded-full"
+                                                className={`rounded-full ${station === origin || station === destination || transferPoints.includes(station) ? "w-5 h-5" : "w-3 h-3"}`}
                                                 style={{
-                                                    backgroundColor:
-                                                        routeSegments[index - 1]?.color ||
-                                                        routeSegments[index]?.color ||
-                                                        "#2b2b2b",
-                                                    marginTop: isLastStation ? "0px" : "0px",
+                                                    backgroundColor: routeSegments[index - 1]?.color || routeSegments[index]?.color || "#2b2b2b",
+                                                    marginTop: "0px",
+                                                    marginLeft: !(station === origin || station === destination || transferPoints.includes(station)) ? "4px" : "",
                                                 }}
                                             ></div>
+
                                             {/* Connecting line */}
-                                            {index === 0 && (
+                                            {index === 0 ? (
                                                 <div
-                                                    className="w-1000 h-16 flex flex-col items-start" // Add flex-col for vertical layout
+                                                    className="w-1000 h-16 flex flex-col items-start"
                                                     style={{
                                                         backgroundColor: routeSegments[0]?.color || "#2b2b2b",
                                                         marginTop: "-4px",
-                                                        width: "4px", // Aligns with the second transfer
+                                                        width: "4px",
                                                     }}
                                                 >
                                                     <div className="flex items-center">
@@ -189,62 +215,52 @@ const RouteDetails = () => {
                                                         <p
                                                             className="ml-6 text-sm whitespace-nowrap inline-block rounded-lg px-2 py-1"
                                                             style={{
-                                                                marginTop: "8px", // Move text down by 2px
+                                                                marginTop: "8px",
                                                                 backgroundColor: routeSegments[0]?.color || "#2b2b2b",
-                                                                color: isDark(routeSegments[0]?.color || "#2b2b2b") ? "white" : "black", // Conditional text color
+                                                                color: isDark(routeSegments[0]?.color || "#2b2b2b") ? "white" : "black",
                                                             }}
                                                         >
-                                                            <p className="ml-7">{route}</p>
+                            <span
+                                className="ml-7"
+                                style={{
+                                    marginLeft: transferPoints.includes(station) ? "16px" : "",
+                                }}
+                            >
+                                {route}
+                            </span>
                                                         </p>
-                                                        <p className="ml-1 text-sm whitespace-nowrap inline-block font-bold"
-                                                           style={{
-                                                               marginTop: "10px"
-                                                           }}>
+                                                        <p
+                                                            className="ml-1 text-sm whitespace-nowrap inline-block font-bold"
+                                                            style={{ marginTop: "10px" }}
+                                                        >
                                                             to {eachDest}
                                                         </p>
                                                     </div>
-                                                    <p className="ml-8 text-sm whitespace-nowrap inline-block"
-                                                       style={{
-                                                           marginTop: "2px",
-                                                           color: "gray"
-                                                       }}>
+                                                    <p
+                                                        className="ml-8 text-sm whitespace-nowrap inline-block"
+                                                        style={{ marginTop: "2px", color: "gray" }}
+                                                    >
                                                         {freq}
                                                     </p>
-                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                    
                                                 </div>
-                                            )}
-                                            {index !== 0 && (
+                                            ) : (
                                                 <div
-
-                                                    className={
-                                                        index === 0 ? "w-1 h-16 mx-auto" : "w-1 h-6 mx-auto"
-                                                    }
+                                                    className="ml-2 w-1 h-6 mx-auto"
                                                     style={{
-                                                        backgroundColor: isRouteChange
-                                                            ? "transparent"
-                                                            : routeSegments[index]?.color || "#2b2b2b",
+                                                        backgroundColor: isRouteChange ? "transparent" : routeSegments[index]?.color || "#2b2b2b",
                                                         borderLeft: isRouteChange && !isLastStation ? "4px dotted #2b2b2b" : "none",
                                                     }}
-                                                >
-
-                                                </div>
+                                                ></div>
                                             )}
                                         </div>
                                         <p
-                                            className={`ml-4 text-sm flex items-center h-30 ${
-                                                station === origin || station === destination || transferPoints.includes(station)
-                                                    ? "font-bold"
-                                                    : ""
-                                            }`}
+                                            className={`ml-4 text-sm flex items-center h-30 ${station === origin || station === destination || transferPoints.includes(station) ? "font-bold" : ""}`}
                                             style={{
-                                                marginTop: isLastStation ? "-26px" :
-                                                    index === 0 ? "-64px" : "-24px",
+                                                marginTop: isLastStation ? "-26px" : index === 0 ? "-64px" : "-24px",
+                                                marginLeft: transferPoints.includes(station) ? "16px" : station !== origin && station !== destination ? "19.5px" : "17px",
                                             }}
                                         >
                                             {station}
-                                            <span className="ml-2 text-gray-500 italic">
-                                            </span>
                                         </p>
                                     </div>
 
@@ -252,50 +268,33 @@ const RouteDetails = () => {
                                     {isRouteChange && !isLastStation && (
                                         <div className="flex items-center">
                                             <div className="flex flex-col items-center">
-                                                {/* Gray line */}
-                                                <div
-                                                    className="w-1 h-14 mx-auto"
-                                                    style={{
-                                                        borderLeft: "4px dotted #2b2b2b",
-                                                    }}
-                                                ></div>
+                                                <div className="w-1 h-14 mx-auto" style={{ borderLeft: "4px dotted #2b2b2b" }}></div>
                                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                                 <img
                                                     src="/transport/transfer.svg"
-                                                    alt="Interchange Guy"
+                                                    alt="Interchange Icon"
                                                     className="absolute w-6 h-6 top-23 left-2.5 transform -translate-x-1/2 bg-white rounded"
-                                                    style={{
-                                                        marginTop: "-8px",
-                                                    }}
+                                                    style={{ marginTop: "-8px" }}
                                                 />
-
                                                 <div
                                                     className="absolute w-6 h-6 top-20.5 left-12 transform -translate-x-1/2 italic"
-                                                    style={{
-                                                        marginTop: "-8px", // Move text down by 2px
-                                                        color: '#2b2b2b' // Hex color for text
-                                                    }}>
+                                                    style={{ marginTop: "-8px", color: "#2b2b2b" }}
+                                                >
                                                     Transfer
                                                 </div>
-
-                                                {/* Image above the line */}
-
-                                                {/* Second Circle */}
                                                 <div
                                                     className="w-5 h-5 rounded-full"
                                                     style={{
-                                                        backgroundColor:
-                                                            routeSegments[index]?.color || "#2b2b2b",
-                                                        marginTop: "-20px", // Move the second transfer circle up by 8px
+                                                        backgroundColor: routeSegments[index]?.color || "#2b2b2b",
+                                                        marginTop: "-20px",
                                                     }}
                                                 ></div>
-                                                {/* Connecting line to the next stop */}
                                                 <div
-                                                    className="w-1000 h-16 flex flex-col items-start" // Add flex-col for vertical layout
+                                                    className="w-1000 h-16 flex flex-col items-start"
                                                     style={{
                                                         backgroundColor: routeSegments[index]?.color || "#2b2b2b",
                                                         marginTop: "-4px",
-                                                        width: "4px", // Aligns with the second transfer
+                                                        width: "4px",
                                                     }}
                                                 >
                                                     <div className="flex items-center">
@@ -312,61 +311,58 @@ const RouteDetails = () => {
                                                         <p
                                                             className="ml-6 text-sm whitespace-nowrap inline-block rounded-lg px-2 py-1"
                                                             style={{
-                                                                marginTop: "8px", // Move text down by 2px
+                                                                marginTop: "8px",
                                                                 backgroundColor: routeSegments[index]?.color || "#2b2b2b",
-                                                                color: isDark(routeSegments[index]?.color || "#2b2b2b") ? "white" : "black", // Conditional text color
+                                                                color: isDark(routeSegments[index]?.color || "#2b2b2b") ? "white" : "black",
                                                             }}
                                                         >
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{route}
+                            <span
+                                style={{
+                                    marginLeft: transferPoints.includes(station) ? "28px" : "",
+                                }}
+                            >
+                                {route}
+                            </span>
                                                         </p>
-                                                        <p className="ml-1 text-sm whitespace-nowrap inline-block font-bold"
-                                                           style={{
-                                                               marginTop: "10px"
-                                                           }}>
+                                                        <p
+                                                            className="ml-1 text-sm whitespace-nowrap inline-block font-bold"
+                                                            style={{ marginTop: "10px" }}
+                                                        >
                                                             to {eachDest}
                                                         </p>
                                                     </div>
-                                                    <p className="ml-8 text-sm whitespace-nowrap inline-block"
-                                                       style={{
-                                                           marginTop: "2px",
-                                                           color: "gray"
-                                                       }}>
+                                                    <p
+                                                        className="ml-8 text-sm whitespace-nowrap inline-block"
+                                                        style={{ marginTop: "2px", color: "gray" }}
+                                                    >
                                                         {freq}
                                                     </p>
                                                 </div>
-
-
                                             </div>
                                             <p
-                                                className={`ml-4 text-sm flex items-center h-8 ${
-                                                    station === origin || station === destination || transferPoints.includes(station)
-                                                        ? "font-bold"
-                                                        : ""
-                                                }`}
-                                                style={{
-                                                    marginTop: "-24px", // Move text down by 2px
-                                                }}
+                                                className={`ml-4 text-sm flex items-center h-8 ${station === origin || station === destination || transferPoints.includes(station) ? "font-bold" : ""}`}
+                                                style={{ marginTop: "-24px" }}
                                             >
                                                 {station}
-                                                <span className="ml-2 text-gray-500 italic">
-                                                </span>
                                             </p>
-
                                         </div>
-
                                     )}
                                 </React.Fragment>
+
+
+
                             );
                         })
                     )}
                 </div>
             ) : origin === destination ? (
-                    <p>The origin station is same as your destination.</p>
-                ) :
-                (
-                    <p>We&apos;re sorry, but we can&apos;t find the possible route. Is origin the same as destination?
-                        Or typo?</p>
-                )}
+                <p>The origin station is same as your destination.</p>
+            ) : (
+                <p>
+                    We&apos;re sorry, but we can&apos;t find the possible route. Is origin the same as
+                    destination? Or typo?
+                </p>
+            )}
             <div className="mt-4">
                 <button
                     onClick={() => router.push("/transportation")}
