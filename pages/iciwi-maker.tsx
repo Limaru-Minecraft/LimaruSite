@@ -25,7 +25,7 @@ export default function Home() {
   const processTable = (routes: [{line: string, stations:[string]}], fares: [[string]]) => {
     // process fare table
     let classNames: Array<string>;
-    let fareMap: {[k: string]: {[k: string]: string}} = {};
+    let fareMap: {[c: string]: {[d: string]: string}} = {};
     fares.forEach((stage, idx) => {
       if (idx === 0) {
         classNames = stage.slice(1);
@@ -43,7 +43,7 @@ export default function Home() {
     let pathMap = calculatePaths(translateMap(routes))
     let fareChart = toFares(pathMap, fareMap);
     console.log(fareChart);
-    console.log(yaml.dump(fareChart));
+    download('fares.yml', yaml.dump(fareChart));
   };
 
   return (
