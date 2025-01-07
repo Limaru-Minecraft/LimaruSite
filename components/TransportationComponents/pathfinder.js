@@ -223,7 +223,8 @@ const Pathfinder = () => {
     };
 
     return (
-        <div className="bg-white p-4 rounded shadow-md">
+        <div className="bg-white p-4 rounded shadow-md"
+             style={{ position: 'relative', zIndex: 10 }}>
             <div className="flex flex-wrap items-end gap-4">
                 <div>
                     <label htmlFor="travel-option" className="block font-medium mb-1">
