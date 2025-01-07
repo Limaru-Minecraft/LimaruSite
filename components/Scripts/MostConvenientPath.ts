@@ -53,7 +53,6 @@ const toSingleClassFares = (distancesMap: {[x: string]: {[x: string]: number}}, 
             let realDistance = distancesMap[iName][oName];
             if (realDistance == Infinity) delete dmap[iName][oName];
             let fareStages = Object.keys(fareClassChart).map(a => Number(a)).sort( (a, b) => a === b ? 0 : a < b ? -1 : 1 );
-			console.log(fareStages);
 
             let chargeDistance = getNextLow(realDistance, fareStages.map(s => Number(s)))
             dmap[iName][oName] = Number(fareClassChart[chargeDistance]);

@@ -42,7 +42,6 @@ export default function Home() {
 
     let pathMap = calculatePaths(translateMap(routes))
     let fareChart = toFares(pathMap, fareMap);
-    console.log(fareChart);
     download('fares.yml', yaml.dump(fareChart));
   };
 
