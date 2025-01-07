@@ -51,7 +51,7 @@ export default function Home() {
       <Head
         title="Iciwi Maker | Limaru"
         description="Create your own fares.yml!"
-        author="YJJcoolcool"
+        author="Mineshafter61"
         keywords="limaru, limaru city server, limaru minecraft server"
       />
       <PageLayout title='Iciwi Maker'>
