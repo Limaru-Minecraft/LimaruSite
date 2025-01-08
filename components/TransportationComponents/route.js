@@ -41,8 +41,7 @@ const RouteDetails = () => {
 
                 // Check if the express route of the same type exists
                 const expressRouteSameLine = routeData.line.find((line, index) =>
-                    line.toLowerCase().includes("express") &&
-                    sharedLinesBoth === line
+                    line.toLowerCase().includes("express")
                 );
 
                 // Prioritize express route of the same line if available
