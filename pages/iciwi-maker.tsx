@@ -54,7 +54,6 @@ export default function Home() {
         keywords="limaru, limaru city server, limaru minecraft server"
       />
       <PageLayout title='Iciwi Maker'>
-        <UnderConstruction type="page" />
         <SectionBox>
           <Heading level={2}>Create your own fares.yml here!</Heading>
           <IciwiMakerForm submitFunction={processTable}></IciwiMakerForm>
