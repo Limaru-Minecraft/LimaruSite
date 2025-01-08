@@ -6,6 +6,7 @@ const travelOptions = [
     { value: "all", label: "All" },
     { value: "minimumStations", label: "Minimum Stations" },
     { value: "minimumTransfers", label: "Minimum Transfers" },
+    { value: "isDriverless", label: "Without Driver First" }, // New option for driverless routes
 ];
 
 const allStations = Object.keys(routes);
@@ -18,7 +19,6 @@ function findDirectRoute(graph, start, end) {
     return null;
 }
 
-// BFS to find all possible paths
 // BFS to find all possible paths
 function findAllPaths(graph, start, end) {
     const paths = [];
@@ -41,12 +41,10 @@ function findAllPaths(graph, start, end) {
         // Explore all neighbors
         for (const neighbor in graph[current]) {
             const edge = graph[current][neighbor];
-            const { distance, line } = edge; // Extract "line" field
+            const { distance, line, frequency } = edge; // Extract "line" and "frequency" fields
 
             if (!path.includes(neighbor)) {
-                // If line is an array, we will need to check each line
                 const linesToCheck = Array.isArray(line) ? line : [line];
-
                 let newTransfers = transfers;
 
                 // Increment transfers if we are switching lines
@@ -54,24 +52,21 @@ function findAllPaths(graph, start, end) {
                     newTransfers = transfers + 1; // We have changed lines
                 }
 
-                // Add the new path to the queue
                 linesToCheck.forEach(newLine => {
                     queue.push([
                         neighbor,
                         [...path, neighbor],
                         totalDistance + distance,
-                        newTransfers, // Update transfers correctly
-                        newLine, // Set current line to the new line
+                        newTransfers,
+                        newLine,
                     ]);
                 });
             }
         }
     }
 
-    console.log("Paths Found (with transfers):", paths); // Debugging paths
     return paths;
 }
-
 
 // Function to find the optimal route based on user selection
 function findOptimalRoute(graph, start, end, optimizationType) {
@@ -79,14 +74,31 @@ function findOptimalRoute(graph, start, end, optimizationType) {
 
     if (!allPaths.length) return { path: [], totalDistance: 0 };
 
+    // Handle "No Driver Route" mode
+    if (optimizationType === "isDriverless") {
+        // Prioritize routes with frequency field not null (automatic routes)
+        const driverlessPaths = allPaths.filter(path => {
+            return path.path.some(station => {
+                const edge = graph[station] && graph[station][path.path[path.path.indexOf(station) + 1]];
+                return edge && edge.frequency !== null; // Check for non-null frequency
+            });
+        });
+
+        if (driverlessPaths.length) {
+            // Return the first valid driverless path
+            return driverlessPaths[0];
+        }
+    }
+
+    // Default to the other modes if "No Driver Route" paths are not found
     if (optimizationType === "minimumTransfers") {
         return allPaths.reduce((best, current) => {
             if (
-                current.transfers < best.transfers || // Fewer transfers
-                (current.transfers === best.transfers && current.totalDistance < best.totalDistance) || // Tie in transfers, prefer shorter distance
+                current.transfers < best.transfers ||
+                (current.transfers === best.transfers && current.totalDistance < best.totalDistance) ||
                 (current.transfers === best.transfers &&
                     current.totalDistance === best.totalDistance &&
-                    current.stationCount < best.stationCount) // Further tie, prefer fewer stations
+                    current.stationCount < best.stationCount)
             ) {
                 return current;
             }
@@ -97,8 +109,8 @@ function findOptimalRoute(graph, start, end, optimizationType) {
     if (optimizationType === "minimumStations") {
         return allPaths.reduce((best, current) => {
             if (
-                current.stationCount < best.stationCount || // Fewer stations
-                (current.stationCount === best.stationCount && current.totalDistance < best.totalDistance) // Tie in stations, prefer shorter distance
+                current.stationCount < best.stationCount ||
+                (current.stationCount === best.stationCount && current.totalDistance < best.totalDistance)
             ) {
                 return current;
             }
@@ -108,16 +120,14 @@ function findOptimalRoute(graph, start, end, optimizationType) {
 
     if (optimizationType === "all") {
         return allPaths.reduce((best, current) => {
-            // Compare based on both transfers and station count
             const compareTransfers = current.transfers < best.transfers;
             const compareStations = current.stationCount < best.stationCount;
             const compareDistance = current.totalDistance < best.totalDistance;
 
             if (
-                compareTransfers || // Prefer fewer transfers
+                compareTransfers ||
                 (current.transfers === best.transfers &&
-                    (compareStations || // Tie on transfers, prefer fewer stations
-                        (current.stationCount === best.stationCount && compareDistance))) // Tie on both, prefer shorter distance
+                    (compareStations || (current.stationCount === best.stationCount && compareDistance)))
             ) {
                 return current;
             }
@@ -147,10 +157,14 @@ const Pathfinder = () => {
     const router = useRouter();
 
     useEffect(() => {
-        // Prefill origin and destination from URL query
+        // Prefill origin, destination, and travelOption from URL query
         if (router.query.origin && router.query.destination) {
             setOrigin(router.query.origin);
             setDestination(router.query.destination);
+        }
+
+        if (router.query.travelOption) {
+            setSelectedTravelOption(router.query.travelOption);
         }
 
         const handleClickOutside = (event) => {
@@ -164,11 +178,12 @@ const Pathfinder = () => {
                 setDestinationSuggestions([]);
             }
         };
+
         document.addEventListener("click", handleClickOutside);
         return () => {
             document.removeEventListener("click", handleClickOutside);
         };
-    }, [router.query.origin, router.query.destination]);
+    }, [router.query.origin, router.query.destination, router.query.travelOption]);
 
     const handleOriginFocus = () => {
         setOriginSuggestions(allStations);
@@ -204,12 +219,9 @@ const Pathfinder = () => {
             return;
         }
 
-        console.log("Finding route from:", origin, "to:", destination, "with option:", selectedTravelOption);
-
         const directRoute = findDirectRoute(routes, origin, destination);
 
         if (directRoute) {
-            console.log("Direct route found:", directRoute);
             router.push({
                 pathname: "/route",
                 query: {
@@ -217,8 +229,10 @@ const Pathfinder = () => {
                     distance: directRoute.distance,
                     origin,
                     destination,
-                    travelOption: "all",
+                    travelOption: selectedTravelOption,
                 },
+            }).then(() => {
+                router.reload(); // Refresh the page after navigation
             });
             return;
         }
@@ -235,8 +249,6 @@ const Pathfinder = () => {
             return;
         }
 
-        console.log("Calculated route:", calculatedRoute);
-
         router.push({
             pathname: "/route",
             query: {
@@ -244,8 +256,10 @@ const Pathfinder = () => {
                 distance: calculatedRoute.totalDistance,
                 origin,
                 destination,
-                travelOption: "all",
+                travelOption: selectedTravelOption,
             },
+        }).then(() => {
+            router.reload(); // Refresh the page after navigation
         });
     };
 
