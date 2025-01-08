@@ -3,12 +3,11 @@ import {isDark} from "./utils";
 import {useRouter} from "next/router";
 
 const RouteSegmentsDisplay = ({ stations, routeSegments, routeNames, transferPoints, origin, destination, path }) => {
-    const isSingleRoute = routeSegments.length <= 1;
 
     const router = useRouter();
 
     return (<div className="p-4">
-        <h2 className="text-xl font-bold mb-4 flex items-center">
+        {routeSegments.length > 0 ? (<h2 className="text-xl font-bold mb-4 flex items-center">
             Suggested Route
             <div className="flex items-center text-lg font-medium ml-4">
                 <span>{origin}</span>
@@ -20,10 +19,10 @@ const RouteSegmentsDisplay = ({ stations, routeSegments, routeNames, transferPoi
                 />
                 <span>{destination} | with total of {stations.length} stations</span>
             </div>
-        </h2>
+        </h2>) : <div/>}
 
         {routeSegments.length > 0 ? (<div className="relative flex flex-col items-start">
-            {isSingleRoute ? (<div></div>) : (// Multiple routes with transfers
+            {(// Multiple routes with transfers
                 stations.map((station, index) => {
                     const isRouteChange = index > 0 && routeNames[index - 1] !== routeNames[index];
                     const isLastStation = index === stations.length - 1;

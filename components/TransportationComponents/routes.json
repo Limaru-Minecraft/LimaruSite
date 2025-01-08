@@ -252,10 +252,10 @@
     "Eastminster": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Tozai Line (Express)"],
+      "color": ["#00ffaa", "#00ffaa"],
       "frequency": 8,
-      "destination": "YJJ City Main Station"
+      "destination": ["YJJ City Main Station", "YJJ City Main Station"]
     }
   },
   "Eastminster": {
@@ -270,18 +270,18 @@
     "Sakauji and Ashfield": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Tozai Line (Express)"],
+      "color": ["#00ffaa", "#00ffaa"],
       "frequency": 8,
-      "destination": "YJJ City Main Station"
+      "destination": ["YJJ City Main Station", "YJJ City Main Station"]
     },
     "Twyford": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line (Twyford Branch)",
-      "color": "#00ffaa",
+      "line": ["Tozai Line (Twyford Branch)", "Tozai Line (Express)"],
+      "color": ["#00ffaa", "#00ffaa"],
       "frequency": 8,
-      "destination": "Twyford"
+      "destination": ["Twyford", "Twyford"]
     }
   },
   "Sakauji and Ashfield": {
@@ -300,6 +300,14 @@
       "color": "#00ffaa",
       "frequency": 8,
       "destination": "YJJ City Main Station"
+    },
+    "University": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Express)",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "destination": "YJJ City Main Station"
     }
   },
   "Nakano": {
@@ -314,15 +322,15 @@
     "Sakae": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Keishin Line"],
+      "color": ["#00ffaa", "#00aaff"],
       "frequency": 8,
-      "destination": "YJJ City Main Station"
+      "destination": ["YJJ City Main Station", "Rising Sun"]
     },
     "Senri": {
       "distance": 1,
       "type": "metro",
-      "line": "Keishin Line (Eastern Section)",
+      "line": "Keishin Line",
       "color": "#00aaff",
       "frequency": 7,
       "destination": "Pineappleton"
@@ -332,33 +340,49 @@
     "Nakano": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Keishin Line"],
+      "color": ["#00ffaa", "#00aaff"],
       "frequency": 8,
-      "destination": "Epping"
+      "destination": ["Epping", "Pineappleton"]
     },
     "University": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Keishin Line"],
+      "color": ["#00ffaa", "#00aaff"],
       "frequency": 8,
-      "destination": "YJJ City Main Station"
+      "destination": ["YJJ City Main Station", "Rising Sun"]
     }
   },
   "University": {
     "Sakae": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Keishin Line"],
+      "color": ["#00ffaa", "#00aaff"],
       "frequency": 8,
-      "destination": "Epping"
+      "destination": ["Epping", "Pineappleton"]
     },
     "Civic Square": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
+      "line": ["Tozai Line", "Keishin Line"],
+      "color": ["#00ffaa", "#00aaff"],
+      "frequency": 8,
+      "destination": ["YJJ City Main Station", "Rising Sun"]
+    },
+    "Eastminster": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Express)",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "destination": "Twyford"
+    },
+    "Bartley Gate": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Express)",
       "color": "#00ffaa",
       "frequency": 8,
       "destination": "YJJ City Main Station"
@@ -368,10 +392,10 @@
     "University": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Keishin Line"],
+      "color": ["#00ffaa", "#00aaff"],
       "frequency": 8,
-      "destination": "Epping"
+      "destination": ["Epping", "Pineappleton"]
     },
     "Downtown": {
       "distance": 1,
@@ -380,6 +404,14 @@
       "color": "#00ffaa",
       "frequency": 8,
       "destination": "YJJ City Main Station"
+    },
+    "Highgate": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Keishin Line",
+      "color": "#00aaff",
+      "frequency": 8,
+      "destination": "Rising Sun"
     }
   },
   "Downtown": {
@@ -407,7 +439,7 @@
       "frequency": 4,
       "destination": "Katsuragi Chinatown"
     },
-    "✈ Lipan Airport": {
+    "Lipan Airport": {
       "distance": 1,
       "type": "metro",
       "line": "Bus 41",
@@ -445,107 +477,139 @@
     "Bartley Gate": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Keishin Line"],
+      "color": ["#00ffaa", "#00aaff"],
       "frequency": 8,
-      "destination": "YJJ City Main Station"
+      "destination": ["YJJ City Main Station", "Rising Sun"]
+    },
+    "Civic Square": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Keishin Line",
+      "color": "#00aaff",
+      "frequency": 8,
+      "destination": "Pineappleton"
     }
   },
   "Bartley Gate": {
     "Highgate": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Keishin Line"],
+      "color": ["#00ffaa", "#00aaff"],
       "frequency": 8,
-      "destination": "Epping"
+      "destination": ["Epping", "Pineappleton"]
     },
     "Municipal District": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
+      "line": ["Tozai Line", "Keishin Line"],
+      "color": ["#00ffaa", "#00aaff"],
+      "frequency": 8,
+      "destination": ["YJJ City Main Station", "Rising Sun"]
+    },
+    "Rising Sun": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Express)",
       "color": "#00ffaa",
       "frequency": 8,
       "destination": "YJJ City Main Station"
+    },
+    "University": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Express)",
+      "color": "#00ffaa",
+      "frequency": 8,
+      "destination": "Twyford"
     }
   },
   "Municipal District": {
     "Bartley Gate": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Keishin Line"],
+      "color": ["#00ffaa", "#00aaff"],
       "frequency": 8,
-      "destination": "Epping"
+      "destination": ["Epping", "Pineappleton"]
     },
     "Rising Sun": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Keishin Line"],
+      "color": ["#00ffaa", "#00aaff"],
       "frequency": 8,
-      "destination": "YJJ City Main Station"
+      "destination": ["YJJ City Main Station", "Rising Sun"]
     }
   },
   "Rising Sun": {
     "Municipal District": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Keishin Line"],
+      "color": ["#00ffaa", "#00aaff"],
       "frequency": 8,
-      "destination": "Epping"
+      "destination": ["Epping", "Pineappleton"]
     },
     "Land's End": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
+      "line": ["Tozai Line", "Tozai Line (Express)"],
+      "color": ["#00ffaa", "#00ffaa"],
+      "frequency": 8,
+      "destination": ["YJJ City Main Station", "YJJ City Main Station"]
+    },
+    "Bartley Gate": {
+      "distance": 1,
+      "type": "metro",
+      "line": "Tozai Line (Express)",
       "color": "#00ffaa",
       "frequency": 8,
-      "destination": "YJJ City Main Station"
+      "destination": "Twyford"
     }
   },
   "Land's End": {
     "Rising Sun": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Tozai Line (Express)"],
+      "color": ["#00ffaa", "#00ffaa"],
       "frequency": 8,
-      "destination": "Epping"
+      "destination": ["Epping", "Twyford"]
     },
     "YJJ City Main Station": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Tozai Line (Express)"],
+      "color": ["#00ffaa", "#00ffaa"],
       "frequency": 8,
-      "destination": "YJJ City Main Station"
+      "destination": ["YJJ City Main Station", "YJJ City Main Station"]
     }
   },
   "YJJ City Main Station": {
     "Land's End": {
       "distance": 1,
       "type": "metro",
-      "line": "Tozai Line",
-      "color": "#00ffaa",
+      "line": ["Tozai Line", "Tozai Line (Express)"],
+      "color": ["#00ffaa", "#00ffaa"],
       "frequency": 8,
-      "destination": "Epping"
+      "destination": ["Epping", "Twyford"]
     }
   },
   "Senri": {
     "Nakano": {
       "distance": 1,
       "type": "metro",
-      "line": "Keishin Line (Eastern Section)",
+      "line": "Keishin Line",
       "color": "#00aaff",
       "frequency": 7,
-      "destination": "Nakano"
+      "destination": "Rising Sun"
     },
     "Pineappleton": {
       "distance": 1,
       "type": "metro",
-      "line": "Keishin Line (Eastern Section)",
+      "line": "Keishin Line",
       "color": "#00aaff",
       "frequency": 7,
       "destination": "Pineappleton"
@@ -555,10 +619,10 @@
     "Senri": {
       "distance": 1,
       "type": "metro",
-      "line": "Keishin Line (Eastern Section)",
+      "line": "Keishin Line",
       "color": "#00aaff",
       "frequency": 7,
-      "destination": "Nakano"
+      "destination": "Rising Sun"
     },
     "Chiyoda University": {
       "distance": 1,
@@ -566,7 +630,7 @@
       "line": "Chiyoda Line",
       "color": "#ffd500",
       "frequency": 4,
-      "destination": "Emmaru ort"
+      "destination": "Emmaru Port"
     },
     "Minagi": {
       "distance": 1,
@@ -1160,7 +1224,7 @@
       "frequency": 4,
       "destination": "Moss Vale"
     },
-    "✈ Lipan Airport": {
+    "Lipan Airport": {
       "distance": 1,
       "type": "metro",
       "line": "Bus 41",
@@ -1268,7 +1332,7 @@
       "destination": "Lilydale Junction"
     }
   },
-  "✈ Lipan Airport": {
+  "Lipan Airport": {
     "Kaspar's Crossing": {
       "distance": 1,
       "type": "metro",
