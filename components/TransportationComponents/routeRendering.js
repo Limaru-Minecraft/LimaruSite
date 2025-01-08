@@ -1,8 +1,11 @@
 import React from "react";
 import {isDark} from "./utils";
+import {useRouter} from "next/router";
 
 const RouteSegmentsDisplay = ({ stations, routeSegments, routeNames, transferPoints, origin, destination, path }) => {
     const isSingleRoute = routeSegments.length <= 1;
+
+    const router = useRouter();
 
     return (<div className="p-4">
         <h2 className="text-xl font-bold mb-4 flex items-center">
