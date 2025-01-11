@@ -56,8 +56,8 @@ const FullMenu = ({ isVisible, onHover, onLinkFocusChange }) => {
                       >
                         {page.text}
                         {page.newtab ? (
-                          <span className="material-symbols-outlined pl-1 text-sm text-gray-700">
-                          open_in_new
+                          <span className="material-symbols-rounded pl-1 text-sm text-gray-700">
+                            open_in_new
                           </span>
                         ) : null}
                       </Link>
