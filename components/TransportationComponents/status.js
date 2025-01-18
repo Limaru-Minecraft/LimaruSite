@@ -5,6 +5,7 @@ const logo = {
     "Limaru Metro": { src: "/transport/metro.svg", width: 20, height: 20 },
     "Mainlines": { src: "/transport/train.svg", width: 20, height: 20 },
     "Bus Services": { src: "/transport/bus.svg", width: 20, height: 20 },
+    "Suburban Lines": { src: "/transport/suburban.svg", width: 20, height: 20},
 };
 
 const Status = () => {
