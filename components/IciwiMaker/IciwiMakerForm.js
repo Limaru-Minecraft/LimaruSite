@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export default function IciwiMakerForm ({submitFunction}) {
     const [routes, setRoutes] = useState([{ line: '', stations: [''] }]);
-    const [fares, setFares] = useState([['']]);
+    const [fares, setFares] = useState([['', ''], [0, '']]);
 
     // handle form submission
     const handleSubmit = (event) => {

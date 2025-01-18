@@ -25,7 +25,7 @@ export default function Home() {
   const processTable = (routes: [{line: string, stations:[string]}], fares: [[string]]) => {
     // process fare table
     let classNames: Array<string>;
-    let fareMap: {[k: string]: {[k: string]: string}} = {};
+    let fareMap: {[c: string]: {[d: string]: string}} = {};
     fares.forEach((stage, idx) => {
       if (idx === 0) {
         classNames = stage.slice(1);
@@ -42,8 +42,7 @@ export default function Home() {
 
     let pathMap = calculatePaths(translateMap(routes))
     let fareChart = toFares(pathMap, fareMap);
-    console.log(fareChart);
-    console.log(yaml.dump(fareChart));
+    download('fares.yml', yaml.dump(fareChart));
   };
 
   return (
@@ -51,11 +50,10 @@ export default function Home() {
       <Head
         title="Iciwi Maker | Limaru"
         description="Create your own fares.yml!"
-        author="YJJcoolcool"
+        author="Mineshafter61"
         keywords="limaru, limaru city server, limaru minecraft server"
       />
       <PageLayout title='Iciwi Maker'>
-        <UnderConstruction type="page" />
         <SectionBox>
           <Heading level={2}>Create your own fares.yml here!</Heading>
           <IciwiMakerForm submitFunction={processTable}></IciwiMakerForm>

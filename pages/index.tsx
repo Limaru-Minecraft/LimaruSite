@@ -74,8 +74,8 @@ export default function Home() {
           ]} />
         </SectionBox>
         <SectionBox>
-          <Heading level={2}>A low level of entry for aspiring builders.</Heading>
-          <p>Being a relatively small community, we are open to builders of any kind - from beginners to experienced builders. Our rank system is simple to understand and we actively work with each other to improve our building skills.</p>
+          <Heading level={2}>A Place For Aspiring Builders.</Heading>
+          <p>Being a relatively small community, we are open to builders of any kind - from beginners to experienced builders. We provide a low level of entry through a simple rank system, and we actively work with each other to improve our building skills.</p>
         </SectionBox>
         <SectionBox>
           <Heading level={2}>Quick Links</Heading>

@@ -1,9 +1,3 @@
-export interface NavLink {
-  href: string;
-  text: string;
-  newtab?: boolean;
-}
-
 export interface SocialLink {
   href: string;
   icon: string;
@@ -17,15 +11,6 @@ export interface QuickLink {
   newtab?: boolean;
 }
 
-/*export const nav_links: NavLink[] = [
-  { href: '/getting-started', text: 'Getting Started' },
-  { href: '/see-and-do', text: 'See & Do' },
-  { href: '/about', text: 'About' },
-  { href: '/transport', text: 'Transport' },
-  { href: 'https://wiki.limaru.net', text: 'Wiki', newtab: true },
-  { href: 'http://bluemap.limaru.net', text: 'Live Map', newtab: true },
-  { href: '/support-us', text: 'Support Us' },
-];*/
 export interface NavLink {
   href: string;
   newtab?: boolean;
@@ -35,10 +20,11 @@ export interface NavLink {
 
 export const nav_links: NavLink[] = [
   {
-    href: "/info",
+    href: "/about",
     text: "Information",
     pages: [
       { href: "/about", text: "About Limaru" },
+      { href: "/rules", text: "Rules" },
       { href: "/getting-started", text: "Getting Started" },
       { href: "https://wiki.limaru.net/wiki/Ranks", newtab: true, text: "Ranks" },
       { href: "/transportation", text: "Transportation" },
@@ -63,7 +49,6 @@ export const nav_links: NavLink[] = [
         newtab: true,
         text: "Discord",
       },
-      { href: "/rules", text: "Rules" },
       { href: "https://wiki.limaru.net", newtab: true, text: "Wiki" },
       { href: "https://bluemap.limaru.net", newtab: true, text: "BlueMap" },
       { href: "https://youtube.com/LiMARU", newtab: true, text: "YouTube" },
