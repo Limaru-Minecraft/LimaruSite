@@ -1,264 +1,297 @@
 import React, { useState, useRef, useEffect } from "react";
 
-// Travel options updated
+// --- UI Sub-components ---
 const travelOptions = [
-  { value: "fastest", label: "Recommended" },
-  { value: "minsta", label: "Minimum Stations" },
-  { value: "mintrans", label: "Minimum Transfers" },
+    { value: "fastest", label: "Recommended" },
+    { value: "minsta", label: "Minimum Stations" },
+    { value: "mintrans", label: "Minimum Transfers" },
 ];
 
-// Emoji Icon components for visual distinction in the suggestion list
-const TrainIcon = () => (
-    <span className="inline-block mr-3 text-xl flex-shrink-0" role="img" aria-label="Train">🚉</span>
-);
+const LineMarker = ({ lineKey, lineDetails }) => {
+    const lineInfo = lineDetails.get(lineKey) || {};
+    return <div className="inline-flex justify-center items-center w-6 h-6 rounded-full text-black bg-white text-xs font-bold flex-shrink-0 mt-0.5" style={{ boxShadow: `0 0 0 2px ${lineInfo.color || '#ccc'}` }}>{lineKey}</div>;
+};
 
-const BusIcon = () => (
-    <span className="inline-block mr-3 text-xl flex-shrink-0" role="img" aria-label="Bus">🚏</span>
-);
+const BusLinePills = ({ lines, lineDetails }) => {
+    if (!lines || lines.length === 0) return null;
+    return (
+        <div className="flex gap-1 flex-shrink-0">
+            {lines.map(lineKey => {
+                const lineInfo = lineDetails.get(lineKey) || {};
+                return <span key={lineKey} className="text-xs font-semibold px-1.5 py-0.5 border rounded" style={{ color: lineInfo.color, borderColor: lineInfo.color }}>{lineKey}</span>;
+            })}
+        </div>
+    );
+};
 
+
+// --- Main Component ---
 const Pathfinder = () => {
-  // State for fetched data and loading status
-  const [allLocations, setAllLocations] = useState([]); // Will store { key, name, type }
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Component state
-  const [selectedTravelOption, setSelectedTravelOption] = useState("fastest");
-  const [origin, setOrigin] = useState("");
-  const [destination, setDestination] = useState("");
-  const [originSuggestions, setOriginSuggestions] = useState([]);
-  const [destinationSuggestions, setDestinationSuggestions] = useState([]);
-  const [error, setError] = useState("");
-
-  const originRef = useRef(null);
-  const destinationRef = useRef(null);
-  
-  // Custom sort function to prioritize trains, then sort alphabetically
-  const sortLocations = (locations) => {
-      return locations.sort((a, b) => {
-          if (a.type === 'train' && b.type === 'bus') {
-              return -1; // Trains come first
-          }
-          if (a.type === 'bus' && b.type === 'train') {
-              return 1; // Buses come second
-          }
-          return a.name.localeCompare(b.name); // Sort alphabetically within type
-      });
-  };
-
-  // Effect to fetch transit data from the URL on component mount
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      setError("");
-      try {
-        const response = await fetch('https://tjt.winsanmwtv.me/api/dataset.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        
-        // Add a 'type' property to distinguish between trains and buses
-        const stationsWithType = data.stations.map(s => ({ ...s, type: 'train' }));
-        const busStopsWithType = data.bus_stops.map(b => ({ ...b, type: 'bus' }));
-
-        const locations = [...stationsWithType, ...busStopsWithType];
-        setAllLocations(locations);
-
-      } catch (e) {
-        console.error("Failed to fetch transit data:", e);
-        setError("Could not load station data. Please try refreshing the page.");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  // Effect to parse URL parameters and pre-fill the form
-  useEffect(() => {
-    // This effect runs once the location data is loaded
-    if (allLocations.length > 0) {
-      const params = new URLSearchParams(window.location.search);
-      const criteriaParam = params.get("criteria");
-      const originKey = params.get("origin");
-      const destKey = params.get("dest");
-
-      // Set travel option from URL if it's a valid one
-      if (criteriaParam && travelOptions.some(opt => opt.value === criteriaParam)) {
-        setSelectedTravelOption(criteriaParam);
-      }
-      
-      // Set origin from URL by finding the location name from its key
-      if (originKey) {
-        const originLocation = allLocations.find(loc => loc.key === originKey);
-        if (originLocation) {
-          setOrigin(originLocation.name);
-        }
-      }
-      
-      // Set destination from URL by finding the location name from its key
-      if (destKey) {
-        const destLocation = allLocations.find(loc => loc.key === destKey);
-        if (destLocation) {
-          setDestination(destLocation.name);
-        }
-      }
-    }
-  }, [allLocations]); // This dependency ensures the effect runs when allLocations is populated
-
-  // Effect to handle clicks outside the suggestion boxes
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        originRef.current && !originRef.current.contains(event.target) &&
-        destinationRef.current && !destinationRef.current.contains(event.target)
-      ) {
-        setOriginSuggestions([]);
-        setDestinationSuggestions([]);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  // Handlers for showing all suggestions on input focus
-  const handleOriginFocus = () => {
-    setOriginSuggestions(sortLocations([...allLocations]));
-  };
-
-  const handleDestinationFocus = () => {
-    setDestinationSuggestions(sortLocations([...allLocations]));
-  };
-
-  // Handlers for filtering suggestions as user types
-  const handleOriginChange = (event) => {
-    const value = event.target.value;
-    setOrigin(value);
-    if (value) {
-        const filtered = allLocations.filter((location) =>
-          location.name.toLowerCase().includes(value.toLowerCase())
-        );
-        setOriginSuggestions(sortLocations(filtered));
-    } else {
-        setOriginSuggestions(sortLocations([...allLocations]));
-    }
-  };
-
-  const handleDestinationChange = (event) => {
-    const value = event.target.value;
-    setDestination(value);
-     if (value) {
-        const filtered = allLocations.filter((location) =>
-          location.name.toLowerCase().includes(value.toLowerCase())
-        );
-        setDestinationSuggestions(sortLocations(filtered));
-    } else {
-        setDestinationSuggestions(sortLocations([...allLocations]));
-    }
-  };
-
-  // Handler for swapping origin and destination
-  const handleSwap = () => {
-    const temp = origin;
-    setOrigin(destination);
-    setDestination(temp);
-  };
-
-  // Main function to find route and redirect
-  const handleFindRoute = () => {
-    setError("");
-
-    if (!origin || !destination) {
-      setError("Please select both an origin and a destination.");
-      return;
-    }
-
-    const originLocation = allLocations.find(loc => loc.name.toLowerCase() === origin.toLowerCase());
-    const destinationLocation = allLocations.find(loc => loc.name.toLowerCase() === destination.toLowerCase());
-
-    if (!originLocation) {
-        setError("Invalid origin station. Please select a valid station from the list.");
-        return;
-    }
-    if (!destinationLocation) {
-        setError("Invalid destination station. Please select a valid station from the list.");
-        return;
-    }
-
-    const baseUrl = "https://tjt.winsanmwtv.me/mytripquery/";
-    const params = new URLSearchParams({
-      criteria: selectedTravelOption,
-      origin: originLocation.key,
-      dest: destinationLocation.key,
-      source: "https://limaru.net/transportation"
-    });
+    // --- STATE MANAGEMENT ---
+    // Data state
+    const [displayData, setDisplayData] = useState({ trains: new Map(), buses: [] });
+    const [lineDetails, setLineDetails] = useState(new Map());
+    const [allLocations, setAllLocations] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [dataError, setDataError] = useState("");
     
-    window.location.href = `${baseUrl}?${params.toString()}`;
-  };
+    // UI state
+    const [uiError, setUiError] = useState("");
+    const [selectedTravelOption, setSelectedTravelOption] = useState("fastest");
+    const [origin, setOrigin] = useState("");
+    const [destination, setDestination] = useState("");
+    const [originSuggestions, setOriginSuggestions] = useState(null);
+    const [destinationSuggestions, setDestinationSuggestions] = useState(null);
+
+    const originRef = useRef(null);
+    const destinationRef = useRef(null);
+
+    // --- DATA FETCHING & PROCESSING ---
+    useEffect(() => {
+        const fetchData = async () => {
+            setIsLoading(true);
+            setDataError("");
+            try {
+                const [datasetRes, datanodesRes] = await Promise.all([
+                    fetch('https://winsanmwtv.github.io/tre-api/raw-data/routes/dataset.json'),
+                    fetch('https://winsanmwtv.github.io/tre-api/raw-data/routes/datanodes.json')
+                ]);
+                if (!datasetRes.ok || !datanodesRes.ok) throw new Error(`HTTP error!`);
+
+                const dataset = await datasetRes.json();
+                const datanodes = await datanodesRes.json();
+                
+                const lines = new Map();
+                [...dataset.routes, ...dataset.bus_routes].forEach(route => {
+                    lines.set(String(route.key), { name: route.name, color: route.color || '#cbd5e0' });
+                });
+                setLineDetails(lines);
+
+                const stationLinesMap = new Map();
+                for (const stationKey in datanodes) {
+                    const servingLines = new Set();
+                    for (const neighborKey in datanodes[stationKey]) {
+                        const conn = datanodes[stationKey][neighborKey];
+                        if (conn.lines) {
+                           (Array.isArray(conn.lines) ? conn.lines : [conn.lines]).forEach(line => servingLines.add(String(line)));
+                        }
+                    }
+                    const filteredLines = [...servingLines].filter(line => line !== '0' && line !== '1');
+                    if (filteredLines.length > 0) stationLinesMap.set(stationKey, filteredLines);
+                }
+
+                const locations = [...dataset.stations.map(s => ({ ...s, type: 'train' })), ...dataset.bus_stops.map(b => ({ ...b, type: 'bus' }))]
+                    .map(loc => ({ name: loc.name, key: loc.key, type: loc.type, lines: stationLinesMap.get(loc.key) || [] }));
+                setAllLocations(locations);
+
+                // --- MODIFIED SECTION ---
+                const trainLineGroups = new Map();
+                const busStopGroup = [];
+                const lineGroupPrefixes = ['LP', 'TN']; // Define the prefixes for grouping
+
+                locations.forEach(loc => {
+                    if (loc.type === 'train') {
+                        // Use a Set to add a station to a merged group only once
+                        const uniqueGroupKeys = new Set(); 
+                        
+                        loc.lines.forEach(lineKey => {
+                            if (!lines.has(lineKey)) return;
+
+                            // Find if the lineKey starts with a defined prefix
+                            const matchingPrefix = lineGroupPrefixes.find(p => lineKey.startsWith(p));
+                            // Use the prefix as the group key, or the original lineKey if no prefix matches
+                            const groupKey = matchingPrefix || lineKey;
+                            uniqueGroupKeys.add(groupKey);
+                        });
+
+                        // Add the station to each of its unique groups
+                        uniqueGroupKeys.forEach(groupKey => {
+                            if (!trainLineGroups.has(groupKey)) {
+                                trainLineGroups.set(groupKey, []);
+                            }
+                            // Ensure station isn't added twice to the same group
+                            if (!trainLineGroups.get(groupKey).some(s => s.key === loc.key)) {
+                                trainLineGroups.get(groupKey).push(loc);
+                            }
+                        });
+
+                    } else {
+                        busStopGroup.push(loc);
+                    }
+                });
+                // --- END MODIFIED SECTION ---
+
+                const lineTermini = dataset.terminus || {};
+                trainLineGroups.forEach((stations, lineKey) => {
+                    const termini = lineTermini[lineKey];
+                    if (!termini || termini.length === 0) {
+                        stations.sort((a, b) => a.name.localeCompare(b.name));
+                        return;
+                    }
+                    
+                    const sequence = [termini[0]];
+                    const visited = new Set(sequence);
+                    let currentNode = termini[0];
+
+                    while (sequence.length < stations.length) {
+                        const neighbors = datanodes[currentNode];
+                        let nextNode = null;
+                        if (!neighbors) break;
+                        for (const neighborKey in neighbors) {
+                            if (visited.has(neighborKey)) continue;
+                            const connLines = Array.isArray(neighbors[neighborKey].lines) ? neighbors[neighborKey].lines.map(String) : [String(neighbors[neighborKey].lines)];
+                            if (connLines.includes(lineKey) && stations.some(s => s.key === neighborKey)) {
+                                nextNode = neighborKey;
+                                break;
+                            }
+                        }
+                        if (nextNode) {
+                            sequence.push(nextNode);
+                            visited.add(nextNode);
+                            currentNode = nextNode;
+                        } else { break; }
+                    }
+                    stations.sort((a, b) => {
+                        const indexA = sequence.indexOf(a.key);
+                        const indexB = sequence.indexOf(b.key);
+                        return (indexA === -1 ? Infinity : indexA) - (indexB === -1 ? Infinity : indexB);
+                    });
+                });
+                
+                busStopGroup.sort((a, b) => a.name.localeCompare(b.name));
+
+                setDisplayData({ trains: new Map([...trainLineGroups.entries()].sort()), buses: busStopGroup });
+
+            } catch (e) {
+                console.error("Failed to fetch transit data:", e);
+                setDataError("Could not load station data. Please try refreshing the page.");
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        fetchData();
+    }, []);
+
+    // Effect to parse URL parameters
+     useEffect(() => {
+        if (allLocations.length > 0) {
+            const params = new URLSearchParams(window.location.search);
+            const criteriaParam = params.get("criteria");
+            const originKey = params.get("origin");
+            const destKey = params.get("dest");
+            if (criteriaParam && travelOptions.some(opt => opt.value === criteriaParam)) setSelectedTravelOption(criteriaParam);
+            if (originKey) setOrigin(allLocations.find(loc => loc.key === originKey)?.name || "");
+            if (destKey) setDestination(allLocations.find(loc => loc.key === destKey)?.name || "");
+        }
+    }, [allLocations]);
+
+    // Effect to handle clicks outside suggestion boxes
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (originRef.current && !originRef.current.contains(event.target)) setOriginSuggestions(null);
+            if (destinationRef.current && !destinationRef.current.contains(event.target)) setDestinationSuggestions(null);
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    // --- Event Handlers ---
+    const handleSuggestions = (value, type) => {
+        const setter = type === 'origin' ? setOriginSuggestions : setDestinationSuggestions;
+        if (!value) {
+            setter(displayData);
+            return;
+        }
+        const lowerCaseValue = value.toLowerCase();
+        const filteredTrains = new Map();
+        displayData.trains.forEach((stations, lineKey) => {
+            const filteredStations = stations.filter(s => s.name.toLowerCase().includes(lowerCaseValue));
+            if (filteredStations.length > 0) filteredTrains.set(lineKey, filteredStations);
+        });
+        const filteredBuses = displayData.buses.filter(s => s.name.toLowerCase().includes(lowerCaseValue));
+        setter({ trains: filteredTrains, buses: filteredBuses });
+    };
+
+    const handleOriginChange = (e) => { setOrigin(e.target.value); handleSuggestions(e.target.value, 'origin'); };
+    const handleDestinationChange = (e) => { setDestination(e.target.value); handleSuggestions(e.target.value, 'destination'); };
+    const handleSwap = () => { setOrigin(destination); setDestination(origin); };
+
+    const handleFindRoute = () => {
+        setUiError("");
+        const originLocation = allLocations.find(loc => loc.name.toLowerCase() === origin.toLowerCase());
+        const destinationLocation = allLocations.find(loc => loc.name.toLowerCase() === destination.toLowerCase());
+
+        if (!originLocation) return setUiError("Invalid origin. Please select a valid station from the list.");
+        if (!destinationLocation) return setUiError("Invalid destination. Please select a valid station from the list.");
+
+        const params = new URLSearchParams({ criteria: selectedTravelOption, origin: originLocation.key, dest: destinationLocation.key, source: "limaru.net" });
+        window.location.href = `https://winsanmwtv.github.io/tre-api/limaru-tripplanner/index.html?${params.toString()}`;
+    };
   
-  if (isLoading) {
-      return <div className="text-center p-10">Loading station data...</div>
-  }
-
-  return (
-    <div className="bg-gray-100 p-6 rounded-lg shadow-lg w-full max-w-4xl mx-auto font-sans">
-      {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md mb-4" role="alert">{error}</div>}
-      <div className="flex flex-col md:flex-row md:items-end gap-4">
-        
-        <div className="flex-shrink-0">
-          <label htmlFor="travel-option" className="block text-sm font-medium text-gray-700 mb-1">Travel Option</label>
-          <select id="travel-option" value={selectedTravelOption} onChange={(e) => setSelectedTravelOption(e.target.value)} className="border-gray-300 rounded-md shadow-sm p-2 w-full focus:ring-indigo-500 focus:border-indigo-500 transition">
-            {travelOptions.map((option) => (
-              <option key={option.value} value={option.value}>{option.label}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="flex-grow flex items-end gap-2">
-          <div className="relative flex-1" ref={originRef}>
-            <label htmlFor="origin" className="block text-sm font-medium text-gray-700 mb-1">Origin</label>
-            <input type="text" id="origin" className="border-gray-300 rounded-md shadow-sm p-2 w-full focus:ring-indigo-500 focus:border-indigo-500 transition" value={origin} onFocus={handleOriginFocus} onChange={handleOriginChange} placeholder="Enter origin station" autoComplete="off"/>
-            {originSuggestions.length > 0 && (
-              <ul className="absolute z-10 bg-white border border-gray-300 rounded-md mt-1 w-full max-h-60 overflow-y-auto shadow-lg">
-                {originSuggestions.map((location) => (
-                  <li key={`${location.type}-${location.key}`} className="p-2 hover:bg-indigo-50 cursor-pointer flex items-center" onClick={() => { setOrigin(location.name); setOriginSuggestions([]); }}>
-                    {location.type === 'train' ? <TrainIcon /> : <BusIcon />}
-                    {location.name}
-                  </li>
+    // --- Render Logic ---
+    const renderSuggestionsList = (suggestions, onSelect) => {
+        if (!suggestions || (suggestions.trains.size === 0 && suggestions.buses.length === 0)) return null;
+        return (
+            <div className="absolute z-10 bg-white border border-gray-300 rounded-md mt-1 w-full max-h-60 overflow-y-auto shadow-lg">
+                {[...suggestions.trains.entries()].map(([lineKey, stations]) => (
+                    <div key={lineKey}>
+                        <div className="p-2 font-bold bg-gray-50 sticky top-0 flex items-start gap-2 z-10">
+                             <LineMarker lineKey={lineKey} lineDetails={lineDetails} />
+                             <div className="flex-1 min-w-0">{lineDetails.get(lineKey)?.name || 'Unknown Line'}</div>
+                        </div>
+                        {stations.map(loc => <div key={loc.key} className="p-2 pl-6 hover:bg-indigo-50 cursor-pointer flex items-center bg-white" onClick={() => onSelect(loc.name)}>{loc.name}</div>)}
+                    </div>
                 ))}
-              </ul>
-            )}
-          </div>
+                {suggestions.buses.length > 0 && (
+                     <div>
+                        <div className="p-2 font-bold bg-gray-50 sticky top-0 flex items-center gap-2 z-10">
+                            <span role="img" aria-label="Bus Stop">🚏</span> Bus Stops
+                        </div>
+                        {suggestions.buses.map(loc => (
+                            <div key={loc.key} className="p-2 pl-6 hover:bg-indigo-50 cursor-pointer flex justify-between items-center bg-white" onClick={() => onSelect(loc.name)}>
+                                <span>{loc.name}</span>
+                                <BusLinePills lines={loc.lines} lineDetails={lineDetails} />
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        );
+    };
 
-          <button onClick={handleSwap} className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-3 rounded-md self-end transition-colors" title="Swap origin and destination">&#x21C4;</button>
+    if (isLoading) return <div className="text-center p-10">Loading station data...</div>;
 
-          <div className="relative flex-1" ref={destinationRef}>
-            <label htmlFor="destination" className="block text-sm font-medium text-gray-700 mb-1">Destination</label>
-            <input type="text" id="destination" className="border-gray-300 rounded-md shadow-sm p-2 w-full focus:ring-indigo-500 focus:border-indigo-500 transition" value={destination} onFocus={handleDestinationFocus} onChange={handleDestinationChange} placeholder="Enter destination station" autoComplete="off"/>
-            {destinationSuggestions.length > 0 && (
-              <ul className="absolute z-10 bg-white border border-gray-300 rounded-md mt-1 w-full max-h-60 overflow-y-auto shadow-lg">
-                {destinationSuggestions.map((location) => (
-                  <li key={`${location.type}-${location.key}`} className="p-2 hover:bg-indigo-50 cursor-pointer flex items-center" onClick={() => { setDestination(location.name); setDestinationSuggestions([]); }}>
-                     {location.type === 'train' ? <TrainIcon /> : <BusIcon />}
-                     {location.name}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+    const error = uiError || dataError;
+
+    return (
+        <div className="bg-gray-100 p-6 rounded-lg shadow-lg w-full max-w-4xl mx-auto font-sans">
+            {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md mb-4" role="alert">{error}</div>}
+            <div className="flex flex-col md:flex-row md:items-end gap-4">
+                <div className="flex-shrink-0">
+                    <label htmlFor="travel-option" className="block text-sm font-medium text-gray-700 mb-1">Travel Option</label>
+                    <select id="travel-option" value={selectedTravelOption} onChange={(e) => setSelectedTravelOption(e.target.value)} className="border-gray-300 rounded-md shadow-sm p-2 w-full focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        {travelOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+                    </select>
+                </div>
+                <div className="flex-grow flex items-end gap-2">
+                    <div className="relative flex-1" ref={originRef}>
+                        <label htmlFor="origin" className="block text-sm font-medium text-gray-700 mb-1">Origin</label>
+                        <input type="text" id="origin" className="border-gray-300 rounded-md shadow-sm p-2 w-full focus:ring-indigo-500 focus:border-indigo-500 transition" value={origin} onFocus={() => handleSuggestions(origin, 'origin')} onChange={handleOriginChange} placeholder="Enter origin station" autoComplete="off"/>
+                        {renderSuggestionsList(originSuggestions, (name) => { setOrigin(name); setOriginSuggestions(null); })}
+                    </div>
+                    <button onClick={handleSwap} className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-3 rounded-md self-end transition-colors" title="Swap origin and destination">&#x21C4;</button>
+                    <div className="relative flex-1" ref={destinationRef}>
+                        <label htmlFor="destination" className="block text-sm font-medium text-gray-700 mb-1">Destination</label>
+                        <input type="text" id="destination" className="border-gray-300 rounded-md shadow-sm p-2 w-full focus:ring-indigo-500 focus:border-indigo-500 transition" value={destination} onFocus={() => handleSuggestions(destination, 'destination')} onChange={handleDestinationChange} placeholder="Enter destination station" autoComplete="off"/>
+                        {renderSuggestionsList(destinationSuggestions, (name) => { setDestination(name); setDestinationSuggestions(null); })}
+                    </div>
+                </div>
+                <div className="flex-shrink-0">
+                    <button onClick={handleFindRoute} className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-md shadow-sm w-full md:w-auto transition-transform transform hover:scale-105">Find Route</button>
+                </div>
+            </div>
         </div>
-
-        <div className="flex-shrink-0">
-          <button onClick={handleFindRoute} className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-md shadow-sm w-full md:w-auto transition-transform transform hover:scale-105">Find Route</button>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Pathfinder;
-
