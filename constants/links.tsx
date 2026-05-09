@@ -3,6 +3,12 @@ export interface SocialLink {
   icon: string;
 }
 
+export interface NavbarIconLink {
+  href: string;
+  iconClass: string;
+  label: string;
+}
+
 export interface QuickLink {
   image?: string;
   href: string;
@@ -41,18 +47,27 @@ export const nav_links: NavLink[] = [
     ],
   },
   {
-    href: "",
-    text: "Quick Links",
-    pages: [
-      {
-        href: "https://discord.limaru.net",
-        newtab: true,
-        text: "Discord",
-      },
-      { href: "https://wiki.limaru.net", newtab: true, text: "Wiki" },
-      { href: "https://bluemap.limaru.net", newtab: true, text: "BlueMap" },
-      { href: "https://youtube.com/LiMARU", newtab: true, text: "YouTube" },
-    ],
+    href: "https://wiki.limaru.net",
+    newtab: true,
+    text: "Wiki",
+  },
+];
+
+export const navbar_icon_links: NavbarIconLink[] = [
+  {
+    href: "https://discord.limaru.net",
+    iconClass: "fa-brands fa-discord",
+    label: "Discord",
+  },
+  {
+    href: "https://bluemap.limaru.net",
+    iconClass: "fa-solid fa-map-location-dot",
+    label: "BlueMap",
+  },
+  {
+    href: "https://youtube.com/LiMARU",
+    iconClass: "fa-brands fa-youtube",
+    label: "YouTube",
   },
 ];
 

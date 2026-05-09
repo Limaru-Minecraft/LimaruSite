@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import '@fortawesome/fontawesome-free/css/all.css';
 import { nav_links, footer_resource_links, social_media_links } from '@/constants/links';
 
 const Footer = () => {
