@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Heading from "@/components/LayoutComponents/Heading";
+import Link from "next/link";
 
 /*<video
                 className="w-full h-full max-w-7xl mx-auto px-2 sm:px-6 lg:px-8"
@@ -13,6 +14,8 @@ export default function VideoBanner({
   title,
   subtitle,
   serverip = false,
+  actions = [],
+  showVideoButton = true,
 }) {
   const [showVideo, setShowVideo] = useState(false);
 
@@ -52,9 +55,9 @@ export default function VideoBanner({
             className="w-full aspect-video my-12 max-w-7xl mx-auto mx-2 sm:mx-6 lg:mx-8 shadow-2xl bg-neutral-800"
             src={`https://www.youtube-nocookie.com/embed/${YouTubeVideoID}?autoplay=1&cc_load_policy=1`}
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowFullScreen
           />
         </div>
       ) : (
@@ -70,18 +73,34 @@ export default function VideoBanner({
                 {subtitle}
               </span>
             </p>
-            {serverip && (
-              <button
-                onClick={handleClick}
-                className="flex items-center space-x-2 py-2 px-4 mb-8 text-xl font-semibold text-white bg-stone-800 border-4 border-stone-300 rounded-md hover:border-yellow-400 hover:shadow-xl shadow-yellow-400 focus:outline-none focus:ring-2"
-                title="Click to copy!"
-              >
-                <code>play.limaru.net</code>
-                <span class="material-symbols-rounded">content_copy</span>
+            <div className="mb-8 flex flex-wrap items-center gap-3">
+              {serverip && (
+                <button
+                  onClick={handleClick}
+                  className="flex items-center space-x-2 rounded-md border-4 border-stone-300 bg-stone-800 px-4 py-2 text-xl font-semibold text-white shadow-yellow-400 hover:border-yellow-400 hover:shadow-xl focus:outline-none focus:ring-2"
+                  title="Click to copy!"
+                >
+                  <code>play.limaru.net</code>
+                  <span className="material-symbols-rounded">content_copy</span>
 
-                {isCopied && <span className="text-sm">Copied!</span>}
-              </button>
-            )}
+                  {isCopied && <span className="text-sm">Copied!</span>}
+                </button>
+              )}
+              {actions.map((action) => (
+                <Link
+                  key={action.href}
+                  href={action.href}
+                  target={action.newtab ? "_blank" : undefined}
+                  rel={action.newtab ? "noopener noreferrer" : undefined}
+                  className="inline-flex items-center gap-2 rounded-md border-4 border-white bg-white px-4 py-2 text-lg font-bold text-gray-900 shadow-lg hover:border-yellow-400 hover:bg-yellow-400"
+                >
+                  {action.iconClass ? (
+                    <i className={action.iconClass} aria-hidden="true" />
+                  ) : null}
+                  {action.label}
+                </Link>
+              ))}
+            </div>
             {/*<h1 className="text-6xl text-white font-bold mb-6">
                         Welcome to Limaru
                     </h1>
@@ -102,12 +121,15 @@ export default function VideoBanner({
                         
                         {isCopied && <span className="text-sm">Copied!</span>}
                     </button>*/}
-            <button
-              onClick={handlePlayButtonClick}
-              className="relative z-10 flex items-center justify-center bg-yellow-500 w-16 h-16 rounded-full"
-            >
-              <span class="material-symbols-rounded text-4xl">play_arrow</span>
-            </button>
+            {showVideoButton && (
+              <button
+                onClick={handlePlayButtonClick}
+                className="relative z-10 flex items-center justify-center bg-yellow-500 w-16 h-16 rounded-full"
+                aria-label="Play Limaru video"
+              >
+                <span className="material-symbols-rounded text-4xl">play_arrow</span>
+              </button>
+            )}
           </div>
         </div>
       )}

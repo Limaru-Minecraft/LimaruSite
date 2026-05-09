@@ -1,12 +1,60 @@
 import Head from '@/components/Head'
 import HomeLayout from '@/components/HomeLayout'
 import SectionBox from '@/components/SectionBox'
-import Tabs from '@/components/LayoutComponents/Tabs'
-import CardGridBackground from '@/components/LayoutComponents/CardGridBackground'
 import CardGrid from '@/components/LayoutComponents/CardGrid'
 import Heading from '@/components/LayoutComponents/Heading'
-import UnderConstruction from '@/components/LayoutComponents/UnderConstruction'
 import { quick_links } from '@/constants/links';
+import Image from 'next/image'
+import Link from 'next/link'
+
+type PlaceCardItem = {
+  href: string;
+  title: string;
+  description: string;
+  image: string;
+};
+
+const featuredExperiences: PlaceCardItem[] = [
+  {
+    href: '/featured-experiences',
+    title: 'Sun Moon Lake',
+    description: 'A calm scenic destination for exploring Limaru beyond its dense city centers.',
+    image: '/sun_moon_lake.webp',
+  },
+  {
+    href: '/featured-experiences',
+    title: 'Lake District',
+    description: 'A modern area in Mainland Limaru shaped by years of community building.',
+    image: '/lake_district.webp',
+  },
+  {
+    href: '/featured-experiences',
+    title: 'YJJ City Mountain Trail',
+    description: 'A nature-focused route for players who want views, terrain, and a slower pace.',
+    image: '/mountain_trail_yjjcity.webp',
+  },
+];
+
+function PlaceCard({ item }: { item: PlaceCardItem }) {
+  return (
+    <Link
+      href={item.href}
+      className="group overflow-hidden rounded-md border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-yellow-400 hover:shadow-md"
+    >
+      <Image
+        className="h-56 w-full object-cover transition duration-300 group-hover:scale-105"
+        src={item.image}
+        width={640}
+        height={420}
+        alt=""
+      />
+      <div className="p-5">
+        <Heading level={3}>{item.title}</Heading>
+        <p className="text-gray-700">{item.description}</p>
+      </div>
+    </Link>
+  );
+}
 
 export default function Home() {
   return (
@@ -19,67 +67,192 @@ export default function Home() {
       />
       <HomeLayout>
         <SectionBox>
-          <Heading level={2}>Explore Limaru</Heading>
-          <UnderConstruction type="section"/>
-          <CardGridBackground
-            items={[
-              {
-                url: '/see-and-do',
-                title: 'Go on a Nature Appreciation Journey',
-                image: 'mountain_trail_yjjcity.webp',
-              },
-              {
-                url: '/see-and-do',
-                title: 'Architectural Finds in Limaru',
-                image: 'fire_department_downtown.webp',
-              },
-              {
-                url: '/see-and-do',
-                title: 'Ride Our Extensive Train Network',
-                image: 'c151_train_yjjcity.webp',
-              },
-            ]}
-          />
+          <div className="grid overflow-hidden rounded-md border border-lime-800 bg-lime-700 text-white shadow-md lg:grid-cols-[1fr_auto] lg:items-center">
+            <div className="p-6 md:p-8">
+              <p className="mb-3 font-nunito-sans text-sm font-extrabold uppercase tracking-wide text-yellow-200">
+                Start Here
+              </p>
+              <Heading level={2}>New to Limaru?</Heading>
+              <p className="max-w-3xl text-lg text-lime-50">
+                Learn how to join the server in Minecraft, get introduced to
+                the community, and find the first things worth checking out
+                before you start building or exploring!
+              </p>
+            </div>
+            <div className="px-6 pb-6 md:px-8 lg:p-8">
+              <Link
+                href="/getting-started"
+                className="inline-flex items-center gap-2 rounded-md bg-yellow-400 px-4 py-2 font-bold text-gray-950 hover:bg-yellow-300"
+              >
+                Get Started
+                <span className="material-symbols-rounded">arrow_forward</span>
+              </Link>
+            </div>
+          </div>
         </SectionBox>
+
         <SectionBox>
-          <Heading level={2}>Our Motto – Innovate, Create, Experience.</Heading>
-          <Tabs italic={true} large={true} tabs={[
-            {
-              title: "Innovate",
-              content: <>
-                <p>Here in Limaru, we’re always trying out new things and exploring new ideas - whether it be new building techniques, new plugins, or new server events.</p>
-                <br/>
-                <p>In the image is our National Day Parade back in 2021, where we arranged a whole show with a parachute jump, a military parade, and floats designed by our community!</p>
-              </>,
-              image: "/national_day_2021_fireworks.webp",
-            },
-            {
-              title: "Create",
-              content: <>
-                <p>Limaru is a place for everyone to express their Creativity. Regardless of experience, our community is here to help you build your dream city together!</p>
-                <br/>
-                <p>In the image is Lake District in Mainland Limaru. Over the years, it has transformed into an area filled with modern architecture!</p>
-              </>,
-              image: "/lake_district.webp",
-            },
-            {
-              title: "Experience",
-              content: <>
-                <p>What’s a city without the interaction? Limaru is filled with things to interact with - whether you would like to ride a train, visit an amusement park, or work at a glass factory, we’ve got you covered!</p>
-                <br/>
-                <p>In the image is the Glass Factory in Mainland Limaru. You can help out at the factory by converting sand into glass and earn some money!</p>
-              </>,
-              image: "/glass_factory.webp",
-            },
-          ]} />
+          <div className="mb-2 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <div>
+              <Heading level={2}>Featured Experiences</Heading>
+              <p className="text-lg text-gray-700">
+                Not sure what to do? Try out our some of our curated
+                experiences around Limaru!
+              </p>
+            </div>
+            <Link
+              href="/featured-experiences"
+              className="inline-flex items-center gap-2 font-bold text-lime-800 hover:text-lime-950"
+            >
+              See more
+              <span className="material-symbols-rounded">arrow_forward</span>
+            </Link>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {featuredExperiences.map((item) => (
+              <PlaceCard key={item.title} item={item} />
+            ))}
+          </div>
         </SectionBox>
+
         <SectionBox>
-          <Heading level={2}>A Place For Aspiring Builders.</Heading>
-          <p>Being a relatively small community, we are open to builders of any kind - from beginners to experienced builders. We provide a low level of entry through a simple rank system, and we actively work with each other to improve our building skills.</p>
+          <div className="grid overflow-hidden rounded-md border border-gray-200 bg-slate-900 text-white shadow-md lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="p-6 md:p-8">
+              <p className="mb-3 font-nunito-sans text-sm font-extrabold uppercase tracking-wide text-yellow-300">
+                Transit Spotlight
+              </p>
+              <Heading level={2}>
+                &quot;Have a <i>Rail</i> of a Time!&quot;
+              </Heading>
+              <p className="text-lg text-slate-100">
+                Hop on our extensive transit network and take a journey to
+                explore the various towns and cities of Limaru. Plan a route and
+                check transit status in the Transportation page!
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href="/transportation"
+                  className="inline-flex items-center gap-2 rounded-md bg-yellow-400 px-4 py-2 font-bold text-gray-950 hover:bg-yellow-300"
+                >
+                  Transportation in Limaru
+                  <span className="material-symbols-rounded">arrow_forward</span>
+                </Link>
+              </div>
+            </div>
+            <Image
+              className="h-full min-h-72 w-full object-cover"
+              src="/c151_train_yjjcity.webp"
+              width={900}
+              height={650}
+              alt=""
+            />
+          </div>
         </SectionBox>
+
         <SectionBox>
-          <Heading level={2}>Quick Links</Heading>
-          <CardGrid items={quick_links} />
+          <div className="grid overflow-hidden rounded-md border border-gray-200 bg-white shadow-md lg:grid-cols-[0.9fr_1.1fr]">
+            <Image
+              className="h-full min-h-72 w-full object-cover"
+              src="/fire_department_downtown.webp"
+              width={900}
+              height={650}
+              alt=""
+            />
+            <div className="p-6 md:p-8">
+              <p className="mb-3 font-nunito-sans text-sm font-extrabold uppercase tracking-wide text-lime-700">
+                Build With Others
+              </p>
+              <Heading level={2}>Join a Project</Heading>
+              <p className="text-lg text-gray-700">
+                Limaru&apos;s towns and cities grow through collaboration. Find
+                a project you&apos;re interested in through our #planning channel on
+                Discord and start building!
+              </p>
+              <div className="mt-6 grid gap-4">
+                <div className="flex gap-4">
+                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-md bg-lime-100 text-lime-800">
+                    <i className="fa-solid fa-list-check" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <Heading level={3}>Find a project</Heading>
+                    <p className="text-gray-700">
+                      See which towns, districts, stations, and public spaces
+                      need builders.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-md bg-lime-100 text-lime-800">
+                    <i className="fa-solid fa-ruler-combined" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <Heading level={3}>Follow the local style</Heading>
+                    <p className="text-gray-700">
+                      Coordinate with the area&apos;s owners so new builds fit
+                      the area they belong to.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-md bg-lime-100 text-lime-800">
+                    <i className="fa-solid fa-people-group" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <Heading level={3}>Build together</Heading>
+                    <p className="text-gray-700">
+                      Turn plans into finished streets, landmarks, transport
+                      links, and neighborhoods!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-6">
+                <Link
+                  href="https://discord.com/channels/590800544214286347/1391994171908292669"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md bg-lime-700 px-4 py-2 font-bold text-white hover:bg-lime-800"
+                >
+                  Check out #planning
+                  <i className="fa-brands fa-discord" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </SectionBox>
+
+        <SectionBox>
+          <div className="grid gap-6 rounded-md border border-gray-200 bg-white p-6 shadow-sm md:grid-cols-[1fr_auto] md:items-center md:p-8">
+            <div>
+              <Heading level={2}>History, Lore, and More...</Heading>
+              <p className="text-lg text-gray-700">
+                Explore the Limaru wiki containing information about places,
+                people, and cultures and some lore behind them!
+              </p>
+            </div>
+            <Link
+              href="https://wiki.limaru.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-md bg-lime-700 px-4 py-2 font-bold text-white hover:bg-lime-800"
+            >
+              Visit the Wiki
+              <i className="fa-solid fa-book" aria-hidden="true" />
+            </Link>
+          </div>
+        </SectionBox>
+
+        <SectionBox>
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div>
+              <Heading level={2}>Stay Connected</Heading>
+              <p className="text-lg text-gray-700">
+                Check out our socials, support the server, or jump straight to
+                our Discord to start chatting!
+              </p>
+            </div>
+            <CardGrid items={quick_links} columns="2" />
+          </div>
         </SectionBox>
       </HomeLayout>
     </>
