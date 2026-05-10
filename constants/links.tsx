@@ -29,9 +29,9 @@ export const nav_links: NavLink[] = [
     href: "/about",
     text: "Information",
     pages: [
+      { href: "/getting-started", text: "Getting Started" },
       { href: "/about", text: "About Limaru" },
       { href: "/rules", text: "Rules" },
-      { href: "/getting-started", text: "Getting Started" },
       { href: "https://wiki.limaru.net/wiki/Ranks", newtab: true, text: "Ranks" },
       { href: "/transportation", text: "Transportation" },
     ],
@@ -43,7 +43,15 @@ export const nav_links: NavLink[] = [
       { href: "/districts", text: "Districts" },
       { href: "/featured-experiences", text: "Featured Experiences" },
       { href: "/jobs", text: "Jobs" },
+    ],
+  },
+  {
+    href: "/tools",
+    text: "Tools",
+    pages: [
       { href: "/iciwi-maker", text: "Iciwi Maker" },
+      { href: "/tools/plugins", text: "Plugins" },
+      { href: "/article-writer", text: "Article Writer" },
     ],
   },
   {

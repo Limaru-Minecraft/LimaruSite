@@ -6,15 +6,21 @@ import LimaruLogo from "@/public/limaru_logo.png";
 import React, { useState } from "react";
 
 const desktopNavGridClass =
-  "grid grid-cols-3 items-start gap-4 text-center sm:gap-8 lg:gap-12";
+  "grid items-center gap-4 text-center sm:gap-6 lg:gap-8";
+const desktopDropdownGridClass =
+  "grid items-start gap-4 text-center sm:gap-6 lg:gap-8";
 const desktopShellGridClass =
   "grid grid-cols-[8rem_1fr_8rem] items-center gap-4 lg:grid-cols-[10rem_1fr_10rem]";
+const desktopNavGridStyle = {
+  gridTemplateColumns: `repeat(${nav_links.length}, minmax(0, 1fr))`,
+};
 
 /* Main Categories */
 const MainCategories = ({ isMenuOpen, onMenuOpen, onMenuClose }) => {
   return (
     <div
       className={`${desktopNavGridClass} min-w-0 font-nunito-sans font-extrabold text-base sm:text-lg lg:text-xl`}
+      style={desktopNavGridStyle}
     >
       {nav_links.map((link, index) => (
         <Link
@@ -22,7 +28,7 @@ const MainCategories = ({ isMenuOpen, onMenuOpen, onMenuClose }) => {
           href={link.href}
           target={link.newtab ? "_blank" : undefined}
           rel={link.newtab ? "noopener noreferrer" : undefined}
-          className="border-b-4 border-transparent hover:border-amber-400 focus:border-amber-400"
+          className="flex min-h-8 items-center justify-center border-b-4 border-transparent pt-1 hover:border-amber-400 focus:border-amber-400"
           aria-haspopup={link.pages?.length ? "true" : undefined}
           aria-expanded={link.pages?.length ? isMenuOpen : undefined}
           onMouseEnter={() => (link.pages?.length ? onMenuOpen() : onMenuClose())}
@@ -206,7 +212,7 @@ const FullMenu = ({ isVisible, onMenuOpen, onMenuClose }) => {
       >
         <ContentWidth className={`${desktopShellGridClass} items-start`}>
           <div />
-          <div className={desktopNavGridClass}>
+          <div className={desktopDropdownGridClass} style={desktopNavGridStyle}>
             {nav_links.map((link, linkIndex) =>
               link.pages?.length ? (
                 <div key={link.text} className="text-left">
