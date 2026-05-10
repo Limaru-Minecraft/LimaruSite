@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Heading from "@/components/LayoutComponents/Heading";
 import Link from "next/link";
+import ServerAddressButton from "@/components/LayoutComponents/ServerAddressButton";
 
 /*<video
                 className="w-full h-full max-w-7xl mx-auto px-2 sm:px-6 lg:px-8"
@@ -28,20 +29,10 @@ export default function VideoBanner({
     setShowVideo(false);
   };
 
-  const [isCopied, setIsCopied] = useState(false);
-
-  const handleClick = () => {
-    navigator.clipboard.writeText("play.limaru.net");
-    setIsCopied(true);
-    setTimeout(() => {
-      setIsCopied(false);
-    }, 2000);
-  };
-
   return (
     <div
       className="h-5/6 bg-slate-500 bg-cover bg-fixed bg-center relative"
-      style={{ backgroundImage: `url('banners/Lands_End_Sunset.webp')` }}
+      style={{ backgroundImage: `url('/banners/Lands_End_Sunset.webp')` }}
     >
       {showVideo ? (
         <div className="h-full relative flex justify-center">
@@ -75,16 +66,7 @@ export default function VideoBanner({
             </p>
             <div className="mb-8 flex flex-wrap items-center gap-3">
               {serverip && (
-                <button
-                  onClick={handleClick}
-                  className="flex items-center space-x-2 rounded-md border-4 border-stone-300 bg-stone-800 px-4 py-2 text-xl font-semibold text-white shadow-yellow-400 hover:border-yellow-400 hover:shadow-xl focus:outline-none focus:ring-2"
-                  title="Click to copy!"
-                >
-                  <code>play.limaru.net</code>
-                  <span className="material-symbols-rounded">content_copy</span>
-
-                  {isCopied && <span className="text-sm">Copied!</span>}
-                </button>
+                <ServerAddressButton />
               )}
               {actions.map((action) => (
                 <Link
