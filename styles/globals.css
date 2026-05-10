@@ -9,3 +9,71 @@ html {
 h2 {
   font-weight: bold;
 }
+
+@layer components {
+  .limaru-markdown {
+    @apply text-lg leading-8 text-gray-800;
+  }
+
+  .limaru-markdown h1 {
+    @apply mb-4 mt-10 font-nunito-sans text-3xl font-extrabold leading-tight text-gray-950;
+  }
+
+  .limaru-markdown h2 {
+    @apply mb-3 mt-8 font-nunito-sans text-2xl font-extrabold leading-tight text-gray-950;
+  }
+
+  .limaru-markdown h3 {
+    @apply mb-2 mt-6 font-nunito-sans text-xl font-extrabold leading-tight text-gray-950;
+  }
+
+  .limaru-markdown p {
+    @apply my-4;
+  }
+
+  .limaru-markdown a {
+    @apply font-bold text-lime-800 underline decoration-yellow-400 decoration-2 underline-offset-4 hover:text-lime-950;
+  }
+
+  .limaru-markdown ul,
+  .limaru-markdown ol {
+    @apply my-4 pl-6;
+  }
+
+  .limaru-markdown ul {
+    @apply list-disc;
+  }
+
+  .limaru-markdown ol {
+    @apply list-decimal;
+  }
+
+  .limaru-markdown blockquote {
+    @apply my-6 border-l-4 border-yellow-400 bg-yellow-50 py-2 pl-4 italic text-gray-700;
+  }
+
+  .limaru-markdown code {
+    @apply rounded bg-gray-100 px-1 py-0.5 font-mono text-base text-gray-900;
+  }
+
+  .limaru-markdown pre {
+    @apply my-6 overflow-x-auto rounded-md bg-gray-950 p-4 text-base text-gray-50;
+  }
+
+  .limaru-markdown pre code {
+    @apply bg-transparent p-0 text-gray-50;
+  }
+
+  .limaru-markdown table {
+    @apply my-6 w-full border-collapse overflow-hidden rounded-md text-left text-base;
+  }
+
+  .limaru-markdown th,
+  .limaru-markdown td {
+    @apply border border-gray-200 px-3 py-2;
+  }
+
+  .limaru-markdown th {
+    @apply bg-lime-100 font-bold text-lime-950;
+  }
+}

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "images:process": "node scripts/process-images.mjs",
     "start": "next start",
     "lint": "next lint"
   },
@@ -13,10 +14,13 @@
     "@types/react-dom": "18.0.10",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
+    "gray-matter": "^4.0.3",
     "next": "^15.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
     "sharp": "^0.33.4"
   },
   "devDependencies": {

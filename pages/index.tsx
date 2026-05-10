@@ -4,41 +4,27 @@ import SectionBox from '@/components/SectionBox'
 import CardGrid from '@/components/LayoutComponents/CardGrid'
 import Heading from '@/components/LayoutComponents/Heading'
 import { quick_links } from '@/constants/links';
+import { getAllFeaturedExperiences, type FeaturedExperienceMeta } from '@/lib/featuredExperiences';
+import type { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
-type PlaceCardItem = {
-  href: string;
-  title: string;
-  description: string;
-  image: string;
+type HomeProps = {
+  featuredExperiences: FeaturedExperienceMeta[];
 };
 
-const featuredExperiences: PlaceCardItem[] = [
-  {
-    href: '/featured-experiences',
-    title: 'Sun Moon Lake',
-    description: 'A calm scenic destination for exploring Limaru beyond its dense city centers.',
-    image: '/sun_moon_lake.webp',
-  },
-  {
-    href: '/featured-experiences',
-    title: 'Lake District',
-    description: 'A modern area in Mainland Limaru shaped by years of community building.',
-    image: '/lake_district.webp',
-  },
-  {
-    href: '/featured-experiences',
-    title: 'YJJ City Mountain Trail',
-    description: 'A nature-focused route for players who want views, terrain, and a slower pace.',
-    image: '/mountain_trail_yjjcity.webp',
-  },
-];
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  return {
+    props: {
+      featuredExperiences: getAllFeaturedExperiences().slice(0, 3),
+    },
+  };
+};
 
-function PlaceCard({ item }: { item: PlaceCardItem }) {
+function PlaceCard({ item }: { item: FeaturedExperienceMeta }) {
   return (
     <Link
-      href={item.href}
+      href={`/featured-experiences/${item.slug}`}
       className="group overflow-hidden rounded-md border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-yellow-400 hover:shadow-md"
     >
       <Image
@@ -56,7 +42,7 @@ function PlaceCard({ item }: { item: PlaceCardItem }) {
   );
 }
 
-export default function Home() {
+export default function Home({ featuredExperiences }: HomeProps) {
   return (
     <>
       <Head

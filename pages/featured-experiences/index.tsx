@@ -2,41 +2,29 @@ import Head from "@/components/Head";
 import PageLayout from "@/components/PageLayout";
 import SectionBox from "@/components/SectionBox";
 import Heading from "@/components/LayoutComponents/Heading";
+import {
+  getAllFeaturedExperiences,
+  type FeaturedExperienceMeta,
+} from "@/lib/featuredExperiences";
+import type { GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-const experiences = [
-  {
-    title: "Ride the Transit Network",
-    description:
-      "Plan a rail journey and use Limaru's transit systems to move between towns and cities.",
-    image: "/c151_train_yjjcity.webp",
-    href: "/transportation",
-  },
-  {
-    title: "Visit Sun Moon Lake",
-    description:
-      "Explore a scenic destination and see a quieter side of Limaru's world.",
-    image: "/sun_moon_lake.webp",
-    href: "/see-and-do",
-  },
-  {
-    title: "Explore Lake District",
-    description:
-      "Walk through a developed urban area shaped by years of modern builds.",
-    image: "/lake_district.webp",
-    href: "/see-and-do",
-  },
-  {
-    title: "Follow the Mountain Trail",
-    description:
-      "Take a nature-focused route through terrain, viewpoints, and open landscapes.",
-    image: "/mountain_trail_yjjcity.webp",
-    href: "/see-and-do",
-  },
-];
+type FeaturedExperiencesProps = {
+  experiences: FeaturedExperienceMeta[];
+};
 
-export default function FeaturedExperiences() {
+export const getStaticProps: GetStaticProps<FeaturedExperiencesProps> = async () => {
+  return {
+    props: {
+      experiences: getAllFeaturedExperiences(),
+    },
+  };
+};
+
+export default function FeaturedExperiences({
+  experiences,
+}: FeaturedExperiencesProps) {
   return (
     <>
       <Head
@@ -53,8 +41,8 @@ export default function FeaturedExperiences() {
           <div className="grid gap-6 md:grid-cols-2">
             {experiences.map((experience) => (
               <Link
-                key={experience.title}
-                href={experience.href}
+                key={experience.slug}
+                href={`/featured-experiences/${experience.slug}`}
                 className="group overflow-hidden rounded-md border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-yellow-400 hover:shadow-md"
               >
                 <Image
@@ -67,6 +55,18 @@ export default function FeaturedExperiences() {
                 <div className="p-5">
                   <Heading level={2}>{experience.title}</Heading>
                   <p className="text-gray-700">{experience.description}</p>
+                  {experience.tags.length ? (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {experience.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-md bg-lime-100 px-2 py-1 text-sm font-bold text-lime-800"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
               </Link>
             ))}
