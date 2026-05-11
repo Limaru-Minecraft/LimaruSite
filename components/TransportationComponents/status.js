@@ -96,7 +96,7 @@ const Status = () => {
     const statusGridClass =
         activeMode === "bus"
             ? "grid grid-cols-1 gap-6"
-            : "grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3";
+            : "grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3";
 
     return (
         <div className="p-4 font-sans">
@@ -147,6 +147,10 @@ const Status = () => {
                     <div className={statusGridClass}>
                         {activeSections.map((section) => {
                             const logoConfig = logo[section.title];
+                            const itemListClass =
+                                section.mode === "bus"
+                                    ? "grid list-none gap-3 md:grid-cols-2 xl:grid-cols-3"
+                                    : "list-none space-y-3";
 
                             return (
                                 <div key={section.title} className="bg-white text-black p-4 rounded-lg shadow-md border border-gray-200">
@@ -168,7 +172,7 @@ const Status = () => {
                                         ) : null}
                                         <h3 className="text-lg font-bold text-gray-800">{section.title}</h3>
                                     </div>
-                                    <ul className="list-none space-y-3">
+                                    <ul className={itemListClass}>
                                         {section.items.map((item) => (
                                             <li key={item.label} className="flex flex-col p-2 bg-gray-50 rounded-md">
                                                 <div className="flex items-center justify-between">
