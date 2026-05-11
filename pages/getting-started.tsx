@@ -219,7 +219,7 @@ export default function GettingStarted() {
               href={rulesDocumentUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-lime-700 px-4 py-2 font-bold text-white hover:bg-lime-800"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-lime-700 px-4 py-2 text-center font-bold text-white hover:bg-lime-800 sm:w-auto"
             >
               Rules Document
               <span className="material-symbols-rounded text-base">
@@ -244,7 +244,7 @@ export default function GettingStarted() {
               href="https://discord.limaru.net"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-indigo-600 px-4 py-2 font-bold text-white hover:bg-indigo-700"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-indigo-600 px-4 py-2 text-center font-bold text-white hover:bg-indigo-700 sm:w-auto"
             >
               Join Discord
               <i className="fa-brands fa-discord" aria-hidden="true" />
@@ -266,7 +266,7 @@ export default function GettingStarted() {
               href="https://bluemap.limaru.net"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-lime-700 px-4 py-2 font-bold text-white hover:bg-lime-800"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-lime-700 px-4 py-2 text-center font-bold text-white hover:bg-lime-800 sm:w-auto"
             >
               Open BlueMap
               <i className="fa-solid fa-map-location-dot" aria-hidden="true" />
@@ -288,7 +288,7 @@ export default function GettingStarted() {
               href="https://wiki.limaru.net/wiki/Ranks"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-lime-700 px-4 py-2 font-bold text-white hover:bg-lime-800"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-lime-700 px-4 py-2 text-center font-bold text-white hover:bg-lime-800 sm:w-auto"
             >
               View Ranks
               <span className="material-symbols-rounded text-base">

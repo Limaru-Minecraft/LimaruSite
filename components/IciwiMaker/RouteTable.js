@@ -64,7 +64,7 @@ export default function RouteTable ({ routes, setRoutes }) {
         <button 
             type="button" 
             onClick={handleAddLine} 
-            class='px-4 py-2 font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700 mb-4' 
+            className='mb-4 w-full px-4 py-2 text-center font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700 sm:w-auto'
         >Add line</button>
         <div class='flex overflow-x-scroll pb-10'>
 

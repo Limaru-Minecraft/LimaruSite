@@ -22,13 +22,15 @@ export default function ServerAddressButton({
     <button
       type="button"
       onClick={copyAddress}
-      className={`inline-flex max-w-full flex-wrap items-center gap-3 rounded-md border-4 border-stone-300 bg-stone-800 px-4 py-2 text-left font-semibold text-white shadow-yellow-400 hover:border-yellow-400 hover:shadow-xl focus:outline-none focus:ring-2 ${className}`}
+      className={`grid w-full max-w-xl grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-2 rounded-md border-4 border-stone-300 bg-stone-800 px-4 py-3 text-left font-semibold text-white shadow-yellow-400 hover:border-yellow-400 hover:shadow-xl focus:outline-none focus:ring-2 sm:inline-grid sm:w-auto ${className}`}
       title="Click to copy server address"
       aria-label={`Copy server address ${SERVER_ADDRESS}`}
     >
-      <span className="flex flex-wrap items-center gap-x-3 gap-y-1">
-        <code className="text-lg md:text-xl">{SERVER_ADDRESS}</code>
-        <span className="flex flex-wrap gap-2 text-xs font-bold uppercase tracking-wide text-yellow-200">
+      <span className="min-w-0 sm:flex sm:items-center sm:gap-x-3">
+        <code className="block break-all text-lg sm:inline sm:break-normal md:text-xl">
+          {SERVER_ADDRESS}
+        </code>
+        <span className="mt-2 flex flex-wrap gap-2 text-xs font-bold uppercase tracking-wide text-yellow-200 sm:mt-0">
           {SERVER_VERSIONS.map((version) => (
             <span
               key={version}
@@ -39,10 +41,13 @@ export default function ServerAddressButton({
           ))}
         </span>
       </span>
-      <span className="material-symbols-rounded" aria-hidden="true">
+      <span
+        className="material-symbols-rounded flex h-8 w-8 items-center justify-center text-3xl leading-none"
+        aria-hidden="true"
+      >
         content_copy
       </span>
-      {isCopied ? <span className="text-sm">Copied!</span> : null}
+      {isCopied ? <span className="col-span-2 text-sm">Copied!</span> : null}
     </button>
   );
 }

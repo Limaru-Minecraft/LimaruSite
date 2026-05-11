@@ -359,7 +359,7 @@ export default function ArticleWriter() {
                 </p>
                 <button
                   type="button"
-                  className="inline-flex items-center gap-2 rounded-md bg-lime-700 px-4 py-2 font-bold text-white hover:bg-lime-800"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-lime-700 px-4 py-2 text-center font-bold text-white hover:bg-lime-800 sm:w-auto"
                   onClick={downloadMarkdown}
                 >
                   Download Markdown

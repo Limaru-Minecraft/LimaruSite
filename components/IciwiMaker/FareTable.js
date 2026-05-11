@@ -37,12 +37,12 @@ export default function FareTable ({ fares, setFares }) {
 		<button
 			type='button'
 			onClick={handleAddRow}
-            class='px-4 py-2 font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700 mb-4' 
+            className='mb-4 mr-0 w-full px-4 py-2 text-center font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700 sm:mr-2 sm:w-auto'
 		>Add fare stage</button>
 		<button
 			type='button'
 			onClick={handleAddCol}
-            class='px-4 py-2 font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700 mb-4' 
+            className='mb-4 w-full px-4 py-2 text-center font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700 sm:w-auto'
 		>Add fare class</button>
 			
 <div class='grid gap-2'>

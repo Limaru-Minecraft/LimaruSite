@@ -74,7 +74,7 @@ export default function VideoBanner({
                   href={action.href}
                   target={action.newtab ? "_blank" : undefined}
                   rel={action.newtab ? "noopener noreferrer" : undefined}
-                  className="inline-flex items-center gap-2 rounded-md border-4 border-white bg-white px-4 py-2 text-lg font-bold text-gray-900 shadow-lg hover:border-yellow-400 hover:bg-yellow-400"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border-4 border-white bg-white px-4 py-2 text-center text-lg font-bold text-gray-900 shadow-lg hover:border-yellow-400 hover:bg-yellow-400 sm:w-auto"
                 >
                   {action.iconClass ? (
                     <i className={action.iconClass} aria-hidden="true" />

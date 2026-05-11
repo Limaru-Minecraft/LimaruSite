@@ -68,7 +68,7 @@ export default function Home({ featuredExperiences }: HomeProps) {
             <div className="px-6 pb-6 md:px-8 lg:p-8">
               <Link
                 href="/getting-started"
-                className="inline-flex items-center gap-2 rounded-md bg-yellow-400 px-4 py-2 font-bold text-gray-950 hover:bg-yellow-300"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-yellow-400 px-4 py-2 text-center font-bold text-gray-950 hover:bg-yellow-300 sm:w-auto"
               >
                 Get Started
                 <span className="material-symbols-rounded">arrow_forward</span>
@@ -118,7 +118,7 @@ export default function Home({ featuredExperiences }: HomeProps) {
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
                   href="/transportation"
-                  className="inline-flex items-center gap-2 rounded-md bg-yellow-400 px-4 py-2 font-bold text-gray-950 hover:bg-yellow-300"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-yellow-400 px-4 py-2 text-center font-bold text-gray-950 hover:bg-yellow-300 sm:w-auto"
                 >
                   Transportation in Limaru
                   <span className="material-symbols-rounded">arrow_forward</span>
@@ -197,7 +197,7 @@ export default function Home({ featuredExperiences }: HomeProps) {
                   href="https://discord.com/channels/590800544214286347/1391994171908292669"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md bg-lime-700 px-4 py-2 font-bold text-white hover:bg-lime-800"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-lime-700 px-4 py-2 text-center font-bold text-white hover:bg-lime-800 sm:w-auto"
                 >
                   Check out #planning
                   <i className="fa-brands fa-discord" aria-hidden="true" />
@@ -220,7 +220,7 @@ export default function Home({ featuredExperiences }: HomeProps) {
               href="https://wiki.limaru.net"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-lime-700 px-4 py-2 font-bold text-white hover:bg-lime-800"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-lime-700 px-4 py-2 text-center font-bold text-white hover:bg-lime-800 sm:w-auto"
             >
               Visit the Wiki
               <i className="fa-solid fa-book" aria-hidden="true" />

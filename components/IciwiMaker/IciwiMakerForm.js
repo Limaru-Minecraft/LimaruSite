@@ -14,7 +14,7 @@ export default function IciwiMakerForm ({submitFunction}) {
     }
 
     return (
-        <form onSubmit={handleSubmit} class='flex flex-col'>
+        <form onSubmit={handleSubmit} className='flex flex-col'>
             <Heading level={3}>Route table</Heading>
             <RouteTable routes={routes} setRoutes={setRoutes}></RouteTable>
 
@@ -23,7 +23,7 @@ export default function IciwiMakerForm ({submitFunction}) {
             
             <button 
                 type='submit' 
-                class='px-4 py-2 font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700'
+                className='w-full px-4 py-2 text-center font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700 sm:w-auto'
             >Submit</button>
         </form>
     )

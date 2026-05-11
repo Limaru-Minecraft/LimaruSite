@@ -87,7 +87,7 @@ export default function Home() {
                         />
                         <button
                             type="submit"
-                            className="px-4 py-2 font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700"
+                            className="w-full px-4 py-2 text-center font-bold text-white bg-lime-600 rounded-full hover:bg-lime-700 sm:w-auto"
                         >
                             Submit
                         </button>
