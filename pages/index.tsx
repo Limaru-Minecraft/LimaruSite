@@ -46,10 +46,14 @@ export default function Home({ featuredExperiences }: HomeProps) {
   return (
     <>
       <Head
-        title="Limaru Minecraft Server - Innovate, Create, Experience."
-        description="Welcome to Limaru, a Minecraft City-Building and Transportation Community. Come explore our server today!"
+        title="Limaru Minecraft Server - Innovate, Create, Experience"
+        description="Welcome to Limaru, a community of Minecraft players who like creative building and transportation. Come explore our server today!"
         author="YJJcoolcool"
         keywords="limaru, limaru city server, limaru minecraft server"
+        path="/"
+        image="/banners/Lands_End_Sunset.webp"
+        imageAlt="Limaru Minecraft server landscape"
+        includeSiteStructuredData
       />
       <HomeLayout>
         <SectionBox>

@@ -13,6 +13,7 @@ export default function Home() {
         description="Rules & Laws of Limaru."
         author="YJJcoolcool"
         keywords="limaru, limaru city server, limaru minecraft server, donate limaru, limaru donation"
+        path="/rules/"
       />
       <PageLayout title="Rules">
         <SectionBox>

@@ -210,6 +210,7 @@ export default function ArticleWriter() {
         description="Write and download Markdown articles for the Limaru website."
         author="YJJcoolcool"
         keywords="limaru, markdown, article writer"
+        path="/article-writer/"
       />
       <PageLayout title="Article Writer">
         <SectionBox>

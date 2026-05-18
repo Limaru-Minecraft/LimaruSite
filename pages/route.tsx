@@ -12,6 +12,7 @@ export default function Home() {
         description="Find your route by the destination!"
         author="YJJcoolcool"
         keywords="limaru, limaru city server, limaru minecraft server"
+        path="/route/"
       />
       <PageLayout title="Route Planner">
         <SectionBox>

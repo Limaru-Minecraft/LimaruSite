@@ -101,6 +101,7 @@ export default function GettingStarted() {
         description="Learn how to join Limaru and get oriented in the Minecraft server."
         author="YJJcoolcool"
         keywords="limaru, limaru minecraft server, getting started, join limaru"
+        path="/getting-started/"
       />
       <PageLayout title="Getting Started">
         <SectionBox>

@@ -32,6 +32,9 @@ export default function FeaturedExperiences({
         description="Featured places and activities to try in Limaru."
         author="YJJcoolcool"
         keywords="limaru, featured experiences, minecraft city server"
+        path="/featured-experiences/"
+        image="/sun_moon_lake.webp"
+        imageAlt="Sun Moon Lake in Limaru"
       />
       <PageLayout title="Featured Experiences">
         <SectionBox>

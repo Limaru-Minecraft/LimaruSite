@@ -29,6 +29,7 @@ export default function Tools() {
         description="Tools for Limaru builders and contributors."
         author="YJJcoolcool"
         keywords="limaru, tools, minecraft"
+        path="/tools/"
       />
       <PageLayout title="Tools">
         <SectionBox>

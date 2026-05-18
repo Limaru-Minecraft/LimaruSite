@@ -13,6 +13,7 @@ export default function Home() {
         description="You can help support us by contributing in multiple ways, such as voting for us on server lists or donating!"
         author="YJJcoolcool"
         keywords="limaru, limaru city server, limaru minecraft server, donate limaru, limaru donation"
+        path="/about/"
       />
       <PageLayout title="About">
         <SectionBox>

@@ -38,6 +38,9 @@ export default function Home() {
                 description="Ride Limaru's extensive transport network!"
                 author="YJJcoolcool"
                 keywords="limaru, limaru city server, limaru minecraft server"
+                path="/transportation/"
+                image="/c151_train_yjjcity.webp"
+                imageAlt="Limaru train on the transit network"
             />
             <PageLayout title='Transportation'>
                 <SectionBox>

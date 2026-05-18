@@ -1,32 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://www.limaru.net/</loc>
-  <lastmod>2023-04-18T13:00:32+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://www.limaru.net/see-and-do</loc>
-  <lastmod>2023-04-18T13:00:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.limaru.net/about</loc>
-  <lastmod>2023-04-18T13:00:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.limaru.net/support-us</loc>
-  <lastmod>2023-04-18T13:00:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.limaru.net/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/getting-started/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/about/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/rules/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/transportation/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/see-and-do/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/featured-experiences/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/featured-experiences/sun-moon-lake/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/featured-experiences/lake-district/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/featured-experiences/yjj-city-mountain-trail/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/featured-experiences/ride-the-transit-network/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/tools/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/tools/plugins/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/article-writer/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/iciwi-maker/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/route/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.limaru.net/support-us/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.50</priority>
+  </url>
 </urlset>

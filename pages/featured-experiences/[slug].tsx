@@ -55,6 +55,10 @@ export default function FeaturedExperiencePage({
         description={experience.description}
         author="YJJcoolcool"
         keywords={`limaru, featured experiences, ${experience.tags.join(", ")}`}
+        path={`/featured-experiences/${experience.slug}/`}
+        image={experience.image}
+        imageAlt={`${experience.title} in Limaru`}
+        type="article"
       />
       <PageLayout title={experience.title}>
         <SectionBox>

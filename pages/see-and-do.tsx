@@ -21,6 +21,7 @@ export default function Home() {
         description="You can help support us by contributing in multiple ways, such as voting for us on server lists or donating!"
         author="YJJcoolcool"
         keywords="limaru, limaru city server, limaru minecraft server, sights limaru, limaru sights"
+        path="/see-and-do/"
       />
       <PageLayout title='See & Do'>
         <SectionBox>

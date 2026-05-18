@@ -39,6 +39,7 @@ export default function Plugins({ plugins }: PluginsProps) {
         description="Plugin repositories used by Limaru."
         author="YJJcoolcool"
         keywords="limaru, plugins, minecraft"
+        path="/tools/plugins/"
       />
       <PageLayout title="Plugins">
         <SectionBox>
